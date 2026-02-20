@@ -1,0 +1,77 @@
+{
+  "version": "2.0",
+  "providers": {
+    "siliconflow": {
+      "enabled": true,
+      "api_key": "YOUR_SILICONFLOW_API_KEY",
+      "base_url": "https://api.siliconflow.cn/v1",
+      "models": {
+        "default": "deepseek-ai/DeepSeek-V3",
+        "coding": "Qwen/Qwen2.5-72B-Instruct",
+        "fast": "THUDM/glm-4-9b-chat"
+      }
+    },
+    "bailian": {
+      "enabled": false,
+      "api_key": "YOUR_BAILIAN_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "models": {
+        "default": "qwen-plus",
+        "max": "qwen-max",
+        "fast": "qwen-turbo"
+      }
+    },
+    "volcengine": {
+      "enabled": false,
+      "api_key": "YOUR_VOLCENGINE_API_KEY",
+      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+      "models": {
+        "default": "doubao-seed-code"
+      }
+    },
+    "zhipu": {
+      "enabled": false,
+      "api_key": "YOUR_ZHIPU_API_KEY",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "models": {
+        "default": "GLM-4-Plus",
+        "fast": "GLM-4-Flash"
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": false,
+      "app_id": "cli_xxxxxxxxxxxx",
+      "app_secret": "YOUR_FEISHU_APP_SECRET"
+    },
+    "dingtalk": {
+      "enabled": false,
+      "app_key": "dingxxxxxxxxxx",
+      "app_secret": "YOUR_DINGTALK_APP_SECRET"
+    },
+    "telegram": {
+      "enabled": false,
+      "bot_token": "YOUR_BOT_TOKEN",
+      "mode": "webhook"
+    },
+    "wechat": {
+      "enabled": false,
+      "app_id": "YOUR_WECHAT_APPID",
+      "app_secret": "YOUR_WECHAT_SECRET"
+    }
+  },
+  "default_provider": "siliconflow",
+  "default_model": "default",
+  "system_prompt": "你是一个有帮助的 AI 助手，请根据用户的问题给出准确、有用的回答。",
+  "max_tokens": 4096,
+  "temperature": 0.7,
+  "memory": {
+    "enabled": true,
+    "max_messages": 20
+  },
+  "logging": {
+    "level": "info",
+    "file": "~/.openclaw/logs/openclaw.log"
+  }
+}

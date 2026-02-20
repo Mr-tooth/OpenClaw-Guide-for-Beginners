@@ -1,0 +1,53 @@
+# OpenClaw 环境变量配置模板
+# 复制此文件为 .env 并填写你的配置
+
+# ==================== API 提供商配置 ====================
+# 选择一个主要的 API 提供商
+
+# 硅基流动 (推荐新手)
+SILICONFLOW_API_KEY=sk-your-siliconflow-api-key
+
+# 阿里百炼
+# BAILIAN_API_KEY=sk-your-bailian-api-key
+
+# 火山方舟
+# VOLCENGINE_API_KEY=your-volcengine-api-key
+
+# 智谱 GLM
+# ZHIPU_API_KEY=your-zhipu-api-key
+
+# MiniMax
+# MINIMAX_API_KEY=your-minimax-api-key
+
+# ==================== 消息平台配置 ====================
+
+# 飞书
+# FEISHU_APP_ID=cli_xxxxxxxxxxxx
+# FEISHU_APP_SECRET=your-app-secret
+
+# 钉钉
+# DINGTALK_APP_KEY=dingxxxxxxxxxx
+# DINGTALK_APP_SECRET=your-app-secret
+
+# Telegram
+# TELEGRAM_BOT_TOKEN=1234567890:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
+
+# 微信
+# WECHAT_APP_ID=wxaaaaaaaaaaaaaaaa
+# WECHAT_APP_SECRET=your-app-secret
+# WECHAT_TOKEN=OpenClaw2026
+# WECHAT_ENCODING_AES_KEY=your-aes-key
+
+# ==================== 服务配置 ====================
+
+# 服务端口
+PORT=3000
+
+# 日志级别: debug, info, warn, error
+LOG_LEVEL=info
+
+# 默认模型提供商
+DEFAULT_PROVIDER=siliconflow
+
+# 默认模型
+DEFAULT_MODEL=default

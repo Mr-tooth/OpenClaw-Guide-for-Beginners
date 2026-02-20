@@ -1,0 +1,17 @@
+# Python 文件
+*.py
+*.pyc
+*.pyo
+__pycache__/
+*.so
+
+# PDF 文件
+*.pdf
+
+# 如果有特定文件夹，也可以忽略
+# scripts/
+pdfs/
+
+# 但如果某些 PDF 确实要公开，可以用 ! 强制包含
+# !public-doc.pdf
+wechat_articles/
