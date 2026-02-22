@@ -175,7 +175,7 @@ openclaw config set model.primary volcengine/glm-4.7
   "models": {
     "providers": {
       "volcengine": {
-        "baseUrl": "https://ark.cn-beijing.volces.com.com/api/coding/v3",
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
         "apiKey": "YOUR_ACCESS_KEY_ID:YOUR_ACCESS_KEY_SECRET",
         "api": "openai-completions"
       }
