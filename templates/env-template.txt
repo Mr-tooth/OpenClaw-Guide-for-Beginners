@@ -64,7 +64,7 @@ FEISHU_APP_SECRET=your-feishu-app-secret-here
 
 # --- Telegram（国际用户）---
 # 获取地址: https://telegram.org/bots
-TELEGRAM_BOT_TOKEN=1234567890:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
+TELEGRAM_BOT_TOKEN=1234567890:ABCDEFGHIJKLMNOPQRST
 
 # --- 企业微信（企业推荐）---
 # 获取地址: https://open.work.weixin.qq.com/

@@ -10,6 +10,8 @@
 
 OpenClaw（原名 Clawdbot、Moltbot）是一个开源的个人 AI 助手平台，在短短 3 周内突破 190,000+ Stars，成为 GitHub 历史上增长最快的开源项目之一。
 
+**作者**: [junhang lai](https://github.com/Mr-tooth)
+
 **核心特性：**
 - 🤖 真正的 AI Agent —— 不只是聊天，还能执行操作
 - 🔒 本地运行 —— 数据完全由你掌控
@@ -206,6 +208,15 @@ OpenClaw 不是简单的聊天机器人，而是一个可以真正"动手"的 AI
 
 本项目采用 MIT 许可证。
 
+## 👨‍💻 作者信息
+
+**作者**: [junhang lai](https://github.com/Mr-tooth)
+
+- GitHub: [Mr. Tooth](https://github.com/Mr-tooth)
+- 教程仓库: [OpenClaw-Guide-for-Beginners](https://github.com/Mr-tooth/OpenClaw-Guide-for-Beginners)
+- 作者信息: [查看 AUTHORS.md](AUTHORS.md)
+- 分发策略: [查看分发方案](DISTRIBUTION-STRATEGY.md)
+
 ---
 
 **⭐ 如果这个教程对你有帮助，请给个 Star 支持一下！**
@@ -213,3 +224,5 @@ OpenClaw 不是简单的聊天机器人，而是一个可以真正"动手"的 AI
 ---
 
 *本教程包含推荐链接，通过链接注册可享受额外优惠，同时也支持作者持续产出优质内容。*
+
+*作者: junhang lai | 最后更新: 2026-02-22*

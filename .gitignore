@@ -22,3 +22,12 @@ wechat_articles/
 *PLAN*.md
 PHASE*.md
 STAGE*.md
+
+# 分发输出目录（自动生成，不提交）
+dist/
+scripts/dist/
+
+# 临时文件
+*.log
+*.tmp
+.DS_Store

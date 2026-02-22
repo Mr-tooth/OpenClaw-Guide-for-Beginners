@@ -48,7 +48,7 @@
       "_comment_volcengine": "火山引擎 - Coding Plan 套餐，性价比高",
       "volcengine": {
         "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
-        "apiKey": "YOUR_VOLCENGINE_API_KEY",
+        "apiKey": "YOUR_VOL_VOLCENGINE_API_KEY",
         "api": "openai-completions",
         "models": [
           {
@@ -77,6 +77,16 @@
             "reasoning": true,
             "input": ["text"],
             "cost": {"input": 5, "output": 20, "cacheRead": 1, "cacheWrite": 0.02},
+            "contextWindow": 128000,
+            "maxTokens": 65536,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi-K2.5",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 3.5, "output": 14, "cacheRead": 0.7, "cacheWrite": 0.015},
             "contextWindow": 128000,
             "maxTokens": 65536,
             "compat": {"supportsStore": false}
@@ -118,12 +128,48 @@
             "maxTokens": 65536
           },
           {
+            "id": "qwen3-max-preview",
+            "name": "Qwen3-Max-Preview",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
             "id": "qwen-coder-plus",
             "name": "Qwen-Coder-Plus",
             "reasoning": false,
             "input": ["text"],
             "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
             "contextWindow": 131072,
+            "maxTokens": 8192
+          },
+          {
+            "id": "kimi-k2-thinking",
+            "name": "Kimi-K2-Thinking",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "deepseek-v3.2",
+            "name": "DeepSeek-V3.2",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "glm-4.7",
+            "name": "GLM-4.7",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 128000,
             "maxTokens": 8192
           }
         ]
@@ -136,10 +182,68 @@
         "primary": "siliconflow/Pro/zai-org/GLM-4.7",
         "fallbacks": []
       },
+      "models": {
+        "_comment_siliconflow_models": "硅基流动模型别名配置",
+        "siliconflow/Pro/zai-org/GLM-4.7": {
+          "alias": "sili-GLM-4.7"
+        },
+        "siliconflow/Pro/MiniMaxAI/MiniMax-M2.5": {
+          "alias": "sili-MiniMax-M2.5"
+        },
+        "siliconflow/Pro/moonshotai/Kimi-K2.5": {
+          "alias": "sili-moonshot-Kimi-K2.5"
+        },
+        "_comment_volcengine_models": "火山引擎模型别名配置",
+        "volcengine/glm-4.7": {
+          "alias": "volcengine-glm-4.7"
+        },
+        "volcengine/deepseek-v3.2": {
+          "alias": "volcengine-deepseek-v3.2"
+        },
+        "volcengine/kimi-k2-thinking": {
+          "alias": "volcengine-kimi-k2-thinking"
+        },
+        "volcengine/kimi-k2.5": {
+          "alias": "volcengine-kimi-k2.5"
+        },
+        "volcengine/doubao-seed-code": {
+          "alias": "volcengine-doubao-seed-code"
+        },
+        "_comment_bailian_models": "阿里百炼模型别名配置",
+        "bailian/qwen-plus-latest": {
+          "alias": "qwen-plus-latest"
+        },
+        "bailian/qwen3-max-2025-09-23": {
+          "alias": "qwen3-max-0923"
+        },
+        "bailian/qwen3-max-preview": {
+          "alias": "qwen3-max-preview"
+        },
+        "bailian/qwen-coder-plus": {
+          "alias": "qwen-coder-plus"
+        },
+        "bailian/kimi-k2-thinking": {
+          "alias": "kimi-k2-thinking"
+        },
+        "bailian/deepseek-v3.2": {
+          "alias": "deepseek-v3.2"
+        },
+        "bailian/glm-4.7": {
+          "alias": "glm-4.7"
+        }
+      },
       "workspace": "~/.openclaw/workspace",
       "memorySearch": {
         "enabled": true,
         "provider": "openai",
+        "remote": {
+          "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+          "apiKey": "${BAILIAN_API_KEY}",
+          "headers": {
+            "Accept": "application/json"
+          }
+        },
+        "fallback": "none",
         "model": "text-embedding-v4",
         "store": {
           "path": "~/.openclaw/memory/{agentId}.sqlite",
