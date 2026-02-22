@@ -2,7 +2,7 @@
 
 > 从零开始，手把手教你部署属于自己的 24 小时在线 AI 助手
 
-![OpenClaw](https://img.shields.io/badge/OpenClaw-190K%2B%20Stars-blue)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-218K%2B%20Stars-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![更新时间](https://img.shields.io/badge/更新时间-2026年2月-orange)
 
@@ -10,7 +10,7 @@
 
 OpenClaw（原名 Clawdbot、Moltbot）是一个开源的个人 AI 助手平台，在短短 3 周内突破 190,000+ Stars，成为 GitHub 历史上增长最快的开源项目之一。
 
-**作者**: [junhang lai](https://github.com/Mr-tooth)
+**教程作者**: [junhang lai](https://github.com/Mr-tooth)
 
 **核心特性：**
 - 🤖 真正的 AI Agent —— 不只是聊天，还能执行操作
@@ -68,11 +68,11 @@ OpenClaw 需要接入大模型 API 才能运行。以下是各平台的优惠信
 
 | 云服务商 | 套餐价格 | OpenClaw 支持 | 推荐指数 |
 |----------|----------|---------------|----------|
-| [阿里云](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) | 99元/年起 | 一键镜像部署 | ⭐⭐⭐⭐⭐ |
-| [腾讯云](https://curl.qcloud.com/JnWPPHIH) | 优惠套餐 | 官方教程支持 | ⭐⭐⭐⭐ |
+| [阿里云](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) | 68元/年起 | 一键镜像部署 | ⭐⭐⭐⭐⭐ |
+| [腾讯云](https://curl.qcloud.com/JnWPPHIH) | [79元起](https://cloud.tencent.com/act/cps/redirect?redirect=1079&cps_key=d427af70c58018a013008ba30489f688&from=console&cps_promotion_id=102390)| 官方教程支持 | ⭐⭐⭐⭐ |
 | [百度智能云](https://cloud.baidu.com) | 多种套餐 | 一键部署教程 | ⭐⭐⭐ |
 
-👉 [查看云服务器部署教程](docs/cloud/cloud-deployment-guide.md) | [阿里云专属教程](docs/cloud/aliyun-guide.md)
+👉 [查看云服务器部署教程](docs/cloud/cloud-deployment-guide.md) | [阿里云专属教程](docs/cloud/aliyun-guide.md) | [腾讯云专属教程](docs/cloud/tencent-guide.md)
 
 ## 📱 平台对接
 

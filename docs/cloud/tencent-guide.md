@@ -37,7 +37,13 @@
 
 点击下方链接进入腾讯云推广大使专属活动页：
 
+1. 下述链接可选择 99元 2核2G4M-个人专享，买一年送3个月
+
 [🔗 腾讯云推广大使特惠](https://curl.qcloud.com/JnWPPHIH)
+
+2. 下述链接可选择 79元 轻量4核4G3M 一整年
+
+[🔗 腾讯云轻量服务器](https://cloud.tencent.com/act/cps/redirect?redirect=1079&cps_key=d427af70c58018a013008ba30489f688&from=console&cps_promotion_id=102390)
 
 ---
 
