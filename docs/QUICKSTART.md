@@ -123,9 +123,14 @@ brew install node@22
 
 **2. 安装 OpenClaw**
 
-**所有平台**:
+**macOS/Linux/WSL2（官方推荐）**:
 ```bash
-curl -fsSL https://get.openclaw.ai | sh
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+**Windows PowerShell**:
+```powershell
+iwr -useb https://openclaw.ai/install.ps1 | iex
 ```
 
 ---

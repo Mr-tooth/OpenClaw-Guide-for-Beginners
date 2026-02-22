@@ -70,7 +70,7 @@ node -v
 
 ```bash
 # 运行官方安装脚本
-curl -fsSL https://get.openclaw.ai | sh
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 ### 手动安装

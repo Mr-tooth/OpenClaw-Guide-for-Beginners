@@ -110,24 +110,32 @@ config_openclaw() {
             echo "[!] 请先在 https://cloud.siliconflow.cn 注册账号并获取 API Key"
             read -p "请输入硅基流动 API Key: " API_KEY
             PROVIDER="siliconflow"
+            BASE_URL="https://api.siliconflow.cn/v1"
+            DEFAULT_MODEL="Pro/MiniMaxAI/MiniMax-M2.5"
             ;;
         2)
             echo ""
             echo "[!] 请先在 https://bailian.console.aliyun.com 开通服务"
             read -p "请输入阿里百炼 API Key: " API_KEY
             PROVIDER="bailian"
+            BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+            DEFAULT_MODEL="qwen-plus-latest"
             ;;
         3)
             echo ""
             echo "[!] 请先在 https://www.volcengine.com/activity/codingplan 订阅"
             read -p "请输入火山方舟 API Key: " API_KEY
             PROVIDER="volcengine"
+            BASE_URL="https://ark.cn-beijing.volces.com/api/coding/v3"
+            DEFAULT_MODEL="glm-4.7"
             ;;
         4)
             echo ""
             echo "[!] 请先在 https://z.ai/subscribe 订阅"
             read -p "请输入智谱 API Key: " API_KEY
             PROVIDER="zhipu"
+            BASE_URL="https://open.bigmodel.cn/api/paas/v4"
+            DEFAULT_MODEL="glm-4-plus"
             ;;
         5)
             echo "[!] 已跳过配置"
@@ -142,15 +150,19 @@ config_openclaw() {
     # 创建配置文件
     cat > openclaw.json << EOF
 {
-  "providers": {
-    "$PROVIDER": {
-      "apiKey": "$API_KEY"
+  "models": {
+    "providers": {
+      "$PROVIDER": {
+        "baseUrl": "$BASE_URL",
+        "apiKey": "$API_KEY",
+        "api": "openai-completions"
+      }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "$PROVIDER/qwen-turbo"
+        "primary": "$PROVIDER/\$DEFAULT_MODEL"
       }
     }
   }

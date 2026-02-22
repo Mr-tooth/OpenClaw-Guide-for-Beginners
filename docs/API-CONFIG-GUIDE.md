@@ -175,7 +175,7 @@ openclaw config set model.primary volcengine/glm-4.7
   "models": {
     "providers": {
       "volcengine": {
-        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "baseUrl": "https://ark.cn-beijing.volces.com.com/api/coding/v3",
         "apiKey": "YOUR_ACCESS_KEY_ID:YOUR_ACCESS_KEY_SECRET",
         "api": "openai-completions"
       }
@@ -190,6 +190,8 @@ openclaw config set model.primary volcengine/glm-4.7
   }
 }
 ```
+
+**重要提示**: 如果使用 **Coding Plan 套餐**，必须使用 `https://ark.cn-beijing.volces.com/api/coding/v3`，否则会按普通按量计费。
 
 #### 套餐价格
 

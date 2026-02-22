@@ -120,7 +120,7 @@ nvm use 22
 
 4. **安装 OpenClaw**
 ```bash
-curl -fsSL https://get.openclaw.ai | sh
+curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 5. **配置 OpenClaw**

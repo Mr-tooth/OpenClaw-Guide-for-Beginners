@@ -297,10 +297,19 @@ npm --version
 
 #### 2. 安装 OpenClaw
 
-**所有平台**:
+**macOS/Linux/WSL2（官方推荐）**:
 ```bash
-# 下载并安装
-curl -fsSL https://get.openclaw.ai | sh
+# 一键安装（自动安装 Node.js + OpenClaw）
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# 验证安装
+openclaw --version
+```
+
+**Windows PowerShell**:
+```powershell
+# 一键安装
+iwr -useb https://openclaw.ai/install.ps1 | iex
 
 # 验证安装
 openclaw --version
