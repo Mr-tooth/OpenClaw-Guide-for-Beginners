@@ -16,7 +16,7 @@
 
 | 福利 | 内容 | 价值 |
 |------|------|------|
-| 🎁 普惠套餐 | 2核2G不限流量，99元/年 | 原价180+元 |
+| 🎁 普惠套餐 | 2核2G不限流量，99元/年 新人68元/年 | 原价180+元 |
 | 🔗 AI大模型 | 阿里百炼88%折扣 | 节省数百元 |
 | 💎 建站三件套 | 域名+服务器+AI建站 | 百元搞定 |
 | ⏰ 快速部署 | 官方支持OpenClaw镜像 | 半小时完成 |
@@ -191,14 +191,14 @@ openclaw init
 ---
 
 **快速获取API Key**:
-- [硅基流动](https://cloud.siliconflow.cn/i/lva59yow) - 2000万Tokens免费
-- [代码生成](https://volcengine.com/L/tHxxM_WwYp4/) - 折上9折低至8.9元
+- [硅基流动](https://cloud.siliconflow.cn/i/lva59yow) - 2000万Tokens免费，实名认证得16元任意模型抵扣代金券
+- [火山引擎 Coding](https://volcengine.com/L/tHxxM_WwYp4/) - 折上9折低至8.9元（量大管饱 性价比首选！）
 - [智谱GLM Coding](https://www.bigmodel.cn/glm-coding?ic=BUDVTRHUYH) - 限时惊喜价
 
 ---
 
 ## 📋 第5步：配置Gateway后台运行
-
+### 注意：如果已经使用--install-daemon参数进行安装，则此步骤可忽略
 ### 创建Systemd服务
 
 ```bash
@@ -427,13 +427,13 @@ scp root@服务器IP:~/openclaw-backup-*.tar.gz ./
 ### API成本
 
 - 免费额度（硅基流动）：0元
-- Coding Plan（火山引擎kt）：8.9元/月
+- Coding Plan（火山引擎kt）：8.9元/首月，后续40元/月 （建议48元开季卡）
 - Coding Plan（智谱GLM）：39元/月
 
 ### 总成本
 
 - **轻量使用**：服务器(8-10元) + API(0-39元) = **8-49元/月**
-- **年付优惠**：服务器(99元) + API(8.9*12=107元) = **约206元/年**
+- **年付优惠**：服务器(99元) + API(40*12=480元) = **约580元/年**
 
 ---
 

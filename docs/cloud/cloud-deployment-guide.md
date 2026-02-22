@@ -33,10 +33,10 @@
 ### 推荐一：阿里云轻量应用服务器（首选）
 
 **推荐理由**：
-- 🏷️ 价格实惠：79 元/年起
+- 🏷️ 价格实惠：68 元/年起
 - 🚀 一键部署：官方提供 OpenClaw 镜像
 - 🔗 深度整合：与阿里百炼无缝对接
-- 💰 返利丰厚：云大使计划返利高达 45%
+<!-- - 💰 返利丰厚：云大使计划返利高达 45% -->
 
 **购买步骤**：
 
@@ -52,15 +52,17 @@
 
 4. 完成购买，等待服务器创建
 
-### 推荐二：腾讯云轻量应用服务器
+### 推荐二：腾讯云轻量应用服务器（推荐）
 
 **优势**：
 - 价格透明，套餐丰富
 - 官方有 OpenClaw 实践教程
 
 **购买步骤**：
-1. 访问 [腾讯云轻量服务器](https://curl.qcloud.com/JnWPPHIH)
-2. 选择 Ubuntu 22.04 镜像
+1. 访问 [腾讯云轻量服务器 (4核4G3M一年79元)](
+https://cloud.tencent.com/act/cps/redirect?redirect=1079&cps_key=d427af70c58018a013008ba30489f688&from=console&cps_promotion_id=102390)
+2. 直接按腾讯云教程选择 OpenClaw(Clawdbot) 镜像 （OpenCloudOS 系统） 
+建议选择 Ubuntu 22.04 镜像，按照本教程自己部署openclaw
 3. 参考 [腾讯云官方教程](https://cloud.tencent.com/document/product/1207/127874)
 
 ### 推荐三：百度智能云
@@ -267,9 +269,10 @@ systemctl start openclaw
 
 | 服务商 | 链接 | 优惠 |
 |--------|------|------|
-| 阿里云轻量服务器 | [购买链接](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) | 79 元/年起 |
-| 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人免费额度 |
-| 火山方舟 Coding Plan | [订阅链接](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元 |
+| 阿里云轻量服务器 | [购买链接](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) | 2核2G 68 元/年起 |
+| 腾讯云轻量服务器 | [购买链接](https://cloud.tencent.com/act/cps/redirect?redirect=1079&cps_key=d427af70c58018a013008ba30489f688&from=console&cps_promotion_id=102390) | 4核4G3M 79 元/年起 |
+| 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人多个模型免费额度1M |
+| 火山方舟 Coding Plan | [订阅链接](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元 （量大管饱） |
 
 > 通过以上链接购买可支持作者持续更新教程 ❤️
 
