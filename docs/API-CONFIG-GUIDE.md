@@ -79,6 +79,12 @@ openclaw validate
 
 #### 配置 OpenClaw
 
+**方式1: 使用配置向导（推荐）**
+```bash
+openclaw onboard
+```
+
+**方式2: 手动配置**
 ```bash
 # 设置提供商
 openclaw config set provider siliconflow
@@ -88,6 +94,28 @@ openclaw config set api_key sk sk-xxxxxxxxxxxxxxxxxxxx
 
 # 设置默认模型（可选）
 openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
+```
+
+**配置文件示例（完整配置）**:
+```json
+{
+  "models": {
+    "providers": {
+      "siliconflow": {
+        "baseUrl": "https://api.siliconflow.cn/v1",
+        "apiKey": "sk sk-xxxxxxxxxxxxxxxxxxxx",
+        "api": "openai-completions"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "siliconflow/Pro/MiniMaxAI/MiniMax-M2.5"
+      }
+    }
+  }
+}
 ```
 
 #### 免费额度
@@ -101,8 +129,9 @@ openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
 | 模型 | 用途 | 速度 | 质量 |
 |------|------|------|------|
 | `Pro/MiniMaxAI/MiniMax-M2.5` | 通用对话 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| `Qwen/Qwen2.5-72B-Instruct` | 复杂推理 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| `THUDM/glm-4-9b-chat` | 代码生成 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| `Pro/THUDM/glm-4-9b-chat` | 代码生成 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| `Pro/zai-org/GLM-4.7` | 复杂推理 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| `Pro/moonshotai/Kimi-K2.5` | 长文本处理 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
 ---
 
@@ -123,6 +152,12 @@ openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
 
 #### 配置 OpenClaw
 
+**方式1: 使用配置向导（推荐）**
+```bash
+openclaw onboard
+```
+
+**方式2: 手动配置**
 ```bash
 # 设置提供商
 openclaw config set provider volcengine
@@ -132,6 +167,28 @@ openclaw config set api_key YOUR_ACCESS_KEY_ID:YOUR_ACCESS_KEY_SECRET
 
 # 设置默认模型（可选）
 openclaw config set model.primary volcengine/glm-4.7
+```
+
+**配置文件示例（完整配置）**:
+```json
+{
+  "models": {
+    "providers": {
+      "volcengine": {
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/v3",
+        "apiKey": "YOUR_ACCESS_KEY_ID:YOUR_ACCESS_KEY_SECRET",
+        "api": "openai-completions"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "volcengine/glm-4.7"
+      }
+    }
+  }
+}
 ```
 
 #### 套餐价格

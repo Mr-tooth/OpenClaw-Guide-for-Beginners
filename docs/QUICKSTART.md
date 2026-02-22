@@ -73,11 +73,28 @@ chmod +x install-macos.sh
 1. 下载 [install-windows.bat](scripts/install-windows.bat)
 2. 右键点击 → 以管理员身份运行
 
-**Docker**:
+**Docker**（官方推荐）:
 ```bash
-curl -O https://raw.githubusercontent.com/Mr-tooth/OpenClaw-Guide-for-Beginners/main/scripts/install-docker.sh
-chmod +x install-docker.sh
-./install-docker.sh
+# 克隆仓库
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+
+# 运行官方 Docker 设置脚本
+./docker-setup.sh
+```
+
+**Docker 快速体验**（使用预构建镜像）:
+```bash
+# 拉取镜像
+docker pull openclaw/openclaw:latest
+
+# 启动容器
+docker run -d \
+  --name openclaw \
+  --restart unless-stopped \
+  -p 18789:18789 \
+  -v $(pwd)/data:/home/openclaw/.openclaw/data \
+  openclaw/openclaw:latest
 ```
 
 ---

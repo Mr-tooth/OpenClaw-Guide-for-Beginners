@@ -89,8 +89,9 @@ EOF
 # 3. 启动容器
 docker run -d \
   --name openclaw \
+  --restart unless-stopped \
   -p 18789:18789 \
-  -v $(pwd)/openclaw.json:/home/openclaw/.openclaw/openclaw.json \
+  -v $(pwd)/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro \
   -v $(pwd)/data:/home/openclaw/.openclaw/data \
   openclaw/openclaw:latest
 
