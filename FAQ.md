@@ -71,8 +71,8 @@ openclaw --version
 
 ```bash
 # 1. 使用nvm安装Node.js（推荐）
-nvm install 20
-nvm use 20
+nvm install 22
+nvm use 22
 
 # 2. 安装OpenClaw
 npm install -g openclaw@latest
