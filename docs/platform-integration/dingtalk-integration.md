@@ -82,7 +82,7 @@
 ### 4.1 使用配置向导
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择消息平台
 Select Channel: DingTalk
@@ -261,7 +261,7 @@ openclaw test --ai
 | 平台 | 链接 | 优惠 |
 |------|------|------|
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 与钉钉同生态，整合更方便 |
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
 
 ---
 

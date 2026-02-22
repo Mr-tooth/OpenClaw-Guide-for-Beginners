@@ -72,7 +72,7 @@ Keep your token secure...
 ### 2.1 使用配置向导
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择消息平台
 Select Channel: Telegram
@@ -326,8 +326,8 @@ curl "https://api.telegram.org/bot你的TOKEN/deleteWebhook"
 
 | 平台 | 链接 | 优惠 |
 |------|------|------|
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
-| 火山方舟 | [Coding Plan](https://www.volcengine.com/activity/codingplan) | 首月 8.91 元起 |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
+| 火山方舟 | [Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元起 |
 | 智谱 GLM | [订阅链接](https://z.ai/subscribe) | 年付 7 折 |
 
 ---

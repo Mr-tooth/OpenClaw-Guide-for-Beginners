@@ -21,7 +21,7 @@
 
 ```bash
 # 运行配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 向导会自动创建配置文件
 ```

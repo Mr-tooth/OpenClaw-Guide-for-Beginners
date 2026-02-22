@@ -38,7 +38,7 @@
 
 ```bash
 # 启动配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 按照提示选择平台并输入 API Key。
@@ -81,7 +81,7 @@ openclaw validate
 
 **方式1: 使用配置向导（推荐）**
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 **方式2: 手动配置**
@@ -154,7 +154,7 @@ openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
 
 **方式1: 使用配置向导（推荐）**
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 **方式2: 手动配置**
@@ -534,7 +534,7 @@ rm ~/.openclaw/openclaw.json
 
 3. 重新配置
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 ---

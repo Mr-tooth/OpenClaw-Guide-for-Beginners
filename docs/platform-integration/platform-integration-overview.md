@@ -68,7 +68,7 @@
 
 3. **配置 OpenClaw**
    ```bash
-   openclaw onboard
+   openclaw onboard --install-daemon
    # 选择对应的消息平台
    # 输入凭证信息
    ```
@@ -155,10 +155,10 @@ OpenClaw 支持同时对接多个平台：
 
 ```bash
 # 配置第一个平台
-openclaw onboard --add-channel
+openclaw onboard --install-daemon --add-channel
 
 # 添加更多平台
-openclaw onboard --add-channel
+openclaw onboard --install-daemon --add-channel
 ```
 
 配置文件示例：

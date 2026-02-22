@@ -40,7 +40,7 @@
 
 **购买步骤**：
 
-1. 访问 [阿里云轻量应用服务器](https://www.aliyun.com/product/swas)
+1. 访问 [阿里云轻量应用服务器](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al)
 
 2. 选择镜像
    - 应用镜像 → 搜索「OpenClaw」
@@ -59,7 +59,7 @@
 - 官方有 OpenClaw 实践教程
 
 **购买步骤**：
-1. 访问 [腾讯云轻量服务器](https://cloud.tencent.com/product/lighthouse)
+1. 访问 [腾讯云轻量服务器](https://curl.qcloud.com/JnWPPHIH)
 2. 选择 Ubuntu 22.04 镜像
 3. 参考 [腾讯云官方教程](https://cloud.tencent.com/document/product/1207/127874)
 
@@ -92,7 +92,7 @@
    ```
    - 运行配置向导
    ```bash
-   openclaw onboard
+   openclaw onboard --install-daemon
    ```
 
 ### 方法二：手动安装
@@ -125,7 +125,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 
 5. **配置 OpenClaw**
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 ---
@@ -267,9 +267,9 @@ systemctl start openclaw
 
 | 服务商 | 链接 | 优惠 |
 |--------|------|------|
-| 阿里云轻量服务器 | [购买链接](https://www.aliyun.com/product/swas) | 79 元/年起 |
+| 阿里云轻量服务器 | [购买链接](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) | 79 元/年起 |
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人免费额度 |
-| 火山方舟 Coding Plan | [订阅链接](https://www.volcengine.com/activity/codingplan) | 首月 8.91 元 |
+| 火山方舟 Coding Plan | [订阅链接](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元 |
 
 > 通过以上链接购买可支持作者持续更新教程 ❤️
 

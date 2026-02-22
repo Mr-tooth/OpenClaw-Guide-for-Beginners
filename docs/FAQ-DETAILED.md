@@ -146,7 +146,7 @@ openclaw --version
 
 A: 使用配置向导（推荐）:
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 或手动配置:
@@ -646,7 +646,7 @@ openclaw --version
 ```bash
 cp ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.backup
 rm ~/.openclaw/openclaw.json
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 ---

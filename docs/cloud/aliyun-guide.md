@@ -167,7 +167,7 @@ node --version
 
 ```bash
 # 全局安装OpenClaw
-npm install -g openclaw
+npm install -g openclaw@latest
 
 # 验证安装
 openclaw --version

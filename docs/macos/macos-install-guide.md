@@ -94,14 +94,14 @@ npm link
 
 ```bash
 # 启动配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择 SiliconFlow 作为提供商
 # 粘贴你的 API Key
 ```
 
 **获取 API Key**：
-1. 访问 [硅基流动](https://cloud.siliconflow.cn) 注册
+1. 访问 [硅基流动](https://cloud.siliconflow.cn/i/lva59yow) 注册
 2. 进入「API 密钥」→「创建新密钥」
 3. 复制 API Key
 
@@ -110,7 +110,7 @@ openclaw onboard
 | 平台 | 优势 | 注册链接 |
 |------|------|----------|
 | 阿里百炼 | 新人免费额度 | [开通](https://bailian.console.aliyun.com) |
-| 火山方舟 | Coding Plan 首月 8.91元 | [订阅](https://www.volcengine.com/activity/codingplan) |
+| 火山方舟 | Coding Plan 首月 8.91元 | [订阅](https://volcengine.com/L/tHxxM_WwYp4/) |
 | 智谱 GLM | 年付 7 折 | [订阅](https://z.ai/subscribe) |
 
 ---
@@ -124,7 +124,7 @@ openclaw onboard
 **快速配置**：
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择 Feishu (Lark Open Platform)
 # 输入 App ID 和 App Secret
@@ -269,9 +269,9 @@ arch -arm64 brew install node@22
 
 | 平台 | 链接 | 优惠说明 |
 |------|------|----------|
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人免费额度 |
-| 火山方舟 | [Coding Plan](https://www.volcengine.com/activity/codingplan) | 首月 8.91 元起 |
+| 火山方舟 | [Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元起 |
 | 智谱 GLM | [订阅链接](https://z.ai/subscribe) | 年付 7 折优惠 |
 
 > 通过以上链接注册可享受额外优惠，同时支持作者持续更新教程 ❤️

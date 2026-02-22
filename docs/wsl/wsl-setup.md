@@ -294,7 +294,7 @@ v22.x.x
 
 ```bash
 # 安装OpenClaw
-npm install -g openclaw
+npm install -g openclaw@latest
 
 # 验证安装
 openclaw --version

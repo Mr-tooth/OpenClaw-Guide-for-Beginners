@@ -217,7 +217,7 @@ function Configure-OpenClaw-WSL {
             wsl -d $UbuntuName -- bash -c "openclaw config set provider zhipu && openclaw config set api_key $apiKey"
         }
         "5" {
-            Write-Host "[!] 已跳过配置，稍后请运行: wsl -d $UbuntuName -- openclaw onboard" -ForegroundColor Yellow
+            Write-Host "[!] 已跳过配置，稍后请运行: wsl -d $UbuntuName -- openclaw onboard --install-daemon" -ForegroundColor Yellow
         }
         default {
             Write-Host "[!] 无效选择，已跳过配置" -ForegroundColor Yellow

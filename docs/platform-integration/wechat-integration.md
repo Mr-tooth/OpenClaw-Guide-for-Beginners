@@ -62,7 +62,7 @@
 ### 第五步：配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select Channel: WeChat Work (企业微信)
 
@@ -111,7 +111,7 @@ Enter EncodingAESKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ### 第四步：配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select Channel: WeChat Official Account (微信公众号)
 
@@ -290,7 +290,7 @@ openclaw logs -f
 | 平台 | 链接 | 优惠 |
 |------|------|------|
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 与微信生态兼容性好 |
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
 
 ---
 

@@ -80,7 +80,7 @@
 ### 4.1 方式一：使用配置向导
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择消息平台
 Select Channel: Feishu (Lark Open Platform)

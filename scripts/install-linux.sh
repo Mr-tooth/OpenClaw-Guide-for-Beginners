@@ -142,7 +142,7 @@ config_openclaw() {
             openclaw config set api_key "$API_KEY"
             ;;
         5)
-            echo "[!] 已跳过配置，稍后请运行: openclaw onboard"
+            echo "[!] 已跳过配置，稍后请运行: openclaw onboard --install-daemon"
             ;;
         *)
             echo "[!] 无效选择，已跳过配置"

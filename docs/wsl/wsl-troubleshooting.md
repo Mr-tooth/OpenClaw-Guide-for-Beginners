@@ -403,7 +403,7 @@ wsl --set-version Ubuntu-22.04 1
 
 ```bash
 # 错误: Permission denied
-sudo npm install -g openclaw
+sudo npm install -g openclaw@latest
 ```
 
 ---

@@ -83,7 +83,7 @@ npm ERR! Cannot install OpenClaw
 ```
 
 **可能原因**：
-- Node.js版本过低（需要v18.0+）
+- Node.js版本过低（需v22.0+）
 - npm缓存损坏
 - 网络连接问题
 
@@ -95,7 +95,7 @@ npm ERR! Cannot install OpenClaw
 node --version
 ```
 
-✅ **预期输出**: `v18.x.x` 或更高
+✅ **预期输出**: `v22.x.x` 或更高
 
 ❌ **如果版本过低，升级Node.js**:
 
@@ -117,7 +117,7 @@ npm cache clean --force
 #### 步骤3: 重新安装
 
 ```bash
-npm install -g openclaw
+npm install -g openclaw@latest
 ```
 
 #### 步骤4: 验证安装
@@ -155,13 +155,13 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 
 # 重新安装
-npm install -g openclaw
+npm install -g openclaw@latest
 ```
 
 #### 选项2：使用sudo（临时方案）
 
 ```bash
-sudo npm install -g openclaw
+sudo npm install -g openclaw@latest
 ```
 
 ⚠️ **注意**: sudo安装可能导致后续权限问题，推荐使用选项1

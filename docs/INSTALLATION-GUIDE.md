@@ -354,7 +354,7 @@ openclaw config set api_key YOUR_API_KEY
 
 **使用配置向导**:
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 ---

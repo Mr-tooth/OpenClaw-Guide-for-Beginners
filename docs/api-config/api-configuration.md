@@ -22,7 +22,7 @@
 
 ```bash
 # 运行配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 向导会自动：
@@ -106,7 +106,7 @@ nano ~/.openclaw/.env
 
 1. **访问官网注册**
    
-   👉 [硅基流动注册链接](https://cloud.siliconflow.cn)
+   👉 [硅基流动注册链接](https://cloud.siliconflow.cn/i/lva59yow)
 
 2. **完成实名认证**
    - 手机号验证
@@ -122,7 +122,7 @@ nano ~/.openclaw/.env
 
 ```bash
 # 启动配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择模型提供商
 Select AI Provider: SiliconFlow
@@ -203,7 +203,7 @@ Select Model:
 ### 配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select AI Provider: Alibaba Cloud (Bailian)
 Enter API Key: sk-xxxxxxxxxxxxxxxx
@@ -230,7 +230,7 @@ Select Model: qwen-turbo / qwen-plus / qwen-max
 
 1. **访问官网**
    
-   👉 [火山方舟 Coding Plan](https://www.volcengine.com/activity/codingplan)
+   👉 [火山方舟 Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/)
 
 2. **选择套餐**
    - Lite: 首月 8.91 元（使用邀请码）
@@ -251,7 +251,7 @@ Coding Plan 一个订阅可使用：
 ### 配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select AI Provider: Volcengine (Ark)
 Enter API Key: xxxxxxxxxxxxxxxx
@@ -292,7 +292,7 @@ Select Model: Doubao-Seed-Code / GLM-4.7 / DeepSeek-V3.2
 ### 配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select AI Provider: Zhipu AI (GLM)
 Enter API Key: xxxxxxxxxxxxxxxx
@@ -323,7 +323,7 @@ MiniMax 专注于 Agent 场景优化：
 ### 配置 OpenClaw
 
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 
 Select AI Provider: MiniMax
 Enter API Key: xxxxxxxxxxxxxxxx
@@ -388,9 +388,9 @@ A: 可以配置多个提供商，通过环境变量或配置文件切换。
 
 | 平台 | 链接 | 专属优惠 |
 |------|------|----------|
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人免费额度 + Coding Plan |
-| 火山方舟 | [Coding Plan](https://www.volcengine.com/activity/codingplan) | 首月 8.91 元起 |
+| 火山方舟 | [Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元起 |
 | 智谱 GLM | [订阅链接](https://z.ai/subscribe) | 年付 7 折 |
 | MiniMax | [官网链接](https://www.minimaxi.com) | 邀请享 9 折 |
 

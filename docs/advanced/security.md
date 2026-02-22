@@ -31,7 +31,7 @@ OpenClaw自动将API密钥存储在加密的配置文件中：
 
 **配置文件位置**：
 ```bash
-~/.openclaw/config.json
+~/.openclaw/openclaw.json
 ```
 
 **敏感信息存储**：
@@ -46,19 +46,19 @@ OpenClaw自动将API密钥存储在加密的配置文件中：
 **设置配置文件权限（仅用户可读写）**：
 
 ```bash
-chmod 600 ~/.openclaw/config.json
+chmod 600 ~/.openclaw/openclaw.json
 chmod 700 ~/.openclaw/credentials/
 ```
 
 **验证权限**：
 ```bash
-ls -la ~/.openclaw/config.json
+ls -la ~/.openclaw/openclaw.json
 ls -la ~/.openclaw/credentials/
 ```
 
 **预期输出**：
 ```
--rw------- 1 user group 1234 Feb 22 12:00 config.json
+-rw------- 1 user group 1234 Feb 22 12:00 openclaw.json
 drwx------ 2 user group 4096 Feb 22 12:00 credentials/
 ```
 
@@ -460,7 +460,7 @@ npm audit fix --force
 
 **A:** 立即修复：
 ```bash
-chmod 600 ~/.openclaw/config.json
+chmod 600 ~/.openclaw/openclaw.json
 chmod 700 ~/.openclaw/credentials/
 ```
 

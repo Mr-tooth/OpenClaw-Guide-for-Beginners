@@ -389,7 +389,7 @@ openclaw config set provider siliconflow
 openclaw config set api_key YOUR_API_KEY
 
 # 或重新运行配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 ```
 
 ---

@@ -41,20 +41,20 @@
 
 | 平台 | 命令 | 适用场景 |
 |------|------|---------|
-| Windows | `npm install -g openclaw` | Windows 10/11 |
-| macOS | `npm install -g openclaw` | macOS 12+ |
-| Linux | `npm install -g openclaw` | Ubuntu/CentOS等 |
+| Windows | `npm install -g openclaw@latest` | Windows 10/11 |
+| macOS | `npm install -g openclaw@latest` | macOS 12+ |
+| Linux | `npm install -g openclaw@latest` | Ubuntu/CentOS等 |
 | Docker | `docker pull openclaw/openclaw` | 容器化部署 |
 
 <details>
 <summary><b>💻 Windows详细安装</b></summary>
 
 ```powershell
-# 1. 安装Node.js (v18+)
+# 1. 安装Node.js (v22+)
 # 下载: https://nodejs.org/
 
 # 2. 安装OpenClaw
-npm install -g openclaw
+npm install -g openclaw@latest
 
 # 3. 验证安装
 openclaw --version
@@ -73,7 +73,7 @@ nvm install 20
 nvm use 20
 
 # 2. 安装OpenClaw
-npm install -g openclaw
+npm install -g openclaw@latest
 
 # 3. 验证安装
 openclaw --version

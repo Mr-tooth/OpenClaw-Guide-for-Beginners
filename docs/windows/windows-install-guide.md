@@ -84,7 +84,7 @@ OpenClaw 需要配置大模型 API 才能运行。推荐以下平台：
 
 **优势**：注册送 2000万 Tokens，邀请双方各得代金券
 
-1. 访问 [硅基流动官网](https://cloud.siliconflow.cn) 注册账号
+1. 访问 [硅基流动官网](https://cloud.siliconflow.cn/i/lva59yow) 注册账号
 2. 进入「模型广场」，选择想要使用的模型
 3. 点击右上角头像 → 「API 密钥」→「创建新密钥」
 4. 复制 API Key
@@ -93,7 +93,7 @@ OpenClaw 需要配置大模型 API 才能运行。推荐以下平台：
 
 ```bash
 # 启动配置向导
-openclaw onboard
+openclaw onboard --install-daemon
 
 # 选择模型提供商时选择 SiliconFlow
 # 粘贴刚才复制的 API Key
@@ -112,7 +112,7 @@ openclaw onboard
 
 **优势**：Lite 套餐首月仅 8.91 元，支持多款顶级模型
 
-1. 访问 [火山方舟 Coding Plan](https://www.volcengine.com/activity/codingplan)
+1. 访问 [火山方舟 Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/)
 2. 选择套餐（Lite/Pro），使用邀请码可享 9 折
 3. 获取 API Key
 4. 配置 OpenClaw
@@ -140,7 +140,7 @@ OpenClaw 支持多种消息平台，推荐新手从飞书开始：
 
 4. 配置 OpenClaw
 ```bash
-openclaw onboard
+openclaw onboard --install-daemon
 # 选择 Feishu (Lark Open Platform)
 # 输入 App ID 和 App Secret
 ```
@@ -205,9 +205,9 @@ openclaw logs
 
 | 平台 | 链接 | 优惠说明 |
 |------|------|----------|
-| 硅基流动 | [注册链接](https://cloud.siliconflow.cn) | 注册送 2000万 Tokens |
+| 硅基流动 | [注册链接](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens |
 | 阿里百炼 | [开通链接](https://bailian.console.aliyun.com) | 新人免费额度 |
-| 火山方舟 | [Coding Plan](https://www.volcengine.com/activity/codingplan) | 首月 8.91 元起 |
+| 火山方舟 | [Coding Plan](https://volcengine.com/L/tHxxM_WwYp4/) | 首月 8.91 元起 |
 | 智谱 GLM | [订阅链接](https://z.ai/subscribe) | 年付优惠 |
 
 > 通过以上链接注册可享受额外优惠，同时支持作者持续更新教程 ❤️

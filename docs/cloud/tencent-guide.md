@@ -97,7 +97,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-**上传公钥到服务器**：
+**上传公钥到服务器(或者在控制台图形界面中操作)**：
 ```bash
 ssh-copy-id root@你的服务器IP
 ```
@@ -111,7 +111,7 @@ ssh root@你的服务器IP
 
 ## 📋 第3步：安装Node.js
 
-OpenClaw需要Node.js 18.0或更高版本
+OpenClaw需要Node.js 22.0或更高版本
 
 ### 检查版本
 
@@ -119,7 +119,7 @@ OpenClaw需要Node.js 18.0或更高版本
 node --version
 ```
 
-如果版本 >= 18.0，跳过此步
+如果版本 >= 22.0，跳过此步
 
 ---
 
@@ -162,7 +162,7 @@ node --version
 
 ```bash
 # 全局安装OpenClaw
-npm install -g openclaw
+npm install -g openclaw@latest
 
 # 验证安装
 openclaw --version
@@ -192,7 +192,8 @@ openclaw init
 
 ---
 
-## 📋 第5步：配置Gateway后台运行
+## 📋 第5步：配置Gateway后台运行 
+### 注意：如果已经使用--install-daemon参数进行安装，则此步骤可忽略
 
 ### 创建Systemd服务
 
@@ -270,12 +271,13 @@ journalctl -u openclaw -n 100
 1. 进入腾讯云控制台
 2. 找到你的轻量服务器
 3. 点击"防火墙"标签
-4. 添加规则：
+4. 检查是否已经放通了22端口和18789端口，如有则忽略下述步骤
+5. 添加规则：
    - 类型：TCP
    - 端口：22（SSH）
    - 来源：0.0.0.0/0（或限制你的IP）
    - 策略：允许
-5. 添加规则：
+6. 添加规则：
    - 类型：TCP
    - 端口：18789（OpenClaw Gateway）
    - 来源：0.0.0.0/0（或限制你的IP）
