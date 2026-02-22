@@ -215,11 +215,11 @@ OpenClaw-Guide-for-Beginners/
 - GitHub: [Mr. Tooth](https://github.com/Mr-tooth)
 - 教程仓库: [OpenClaw-Guide-for-Beginners](https://github.com/Mr-tooth/OpenClaw-Guide-for-Beginners)
 - 作者信息: [查看 AUTHORS.md](AUTHORS.md)
-- 分发策略: [查看分发方案](DISTRIBUTION-STRATEGY.md)
+<!-- - 分发策略: [查看分发方案](DISTRIBUTION-STRATEGY.md) -->
 
 ---
 
-**⭐ 如果这个教程对你有帮助，请给个 Star 支持一下！**
+**⭐ 创作不易，如果这个教程对你有帮助，请给个 Star 支持一下！**
 
 ---
 
