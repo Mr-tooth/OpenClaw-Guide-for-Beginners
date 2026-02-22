@@ -2,18 +2,73 @@
 
 > 诊断和解决OpenClaw的常见问题
 
+## 📋 目录
+
+- [问题类型快速索引](#-问题类型快速索引)
+- [标准排查流程](#-标准排查流程)
+- [安装问题](#-安装问题)
+- [配置问题](#-配置问题)
+- [网络问题](#-网络问题)
+- [平台对接问题](#-平台对接问题)
+- [性能问题](#-性能问题)
+- [需要帮助](#-需要帮助)
+
 ---
 
-## 🔍 故障排查流程
+## 🏷️ 问题类型快速索引
 
-### 标准排查步骤
+按症状快速定位问题：
 
+| 症状 | 可能原因 | 查看章节 |
+|------|---------|---------|
+| `npm install` 失败 | Node.js版本过低 | [问题1](#问题1-npm安装失败) |
+| `EACCES: permission denied` | 权限不足 | [问题2](#问题2-权限不足) |
+| `Invalid API key` | API Key错误 | [问题3](#问题3-api-key无效) |
+| `Connection refused` | 网络或代理问题 | [问题6](#问题6-网络连接失败) |
+| 钉钉无响应 | Webhook配置错误 | [问题7](#问题7-钉钉消息无响应) |
+| 响应慢 | 网络或模型性能 | [问题8](#问题8-ai响应速度慢) |
+
+---
+
+## 🔍 标准排查流程
+
+### 第一步：收集信息
+
+```bash
+# 1. 检查OpenClaw版本
+openclaw --version
+
+# 2. 查看错误日志
+openclaw logs --tail 50
+
+# 3. 检查Gateway状态
+openclaw gateway status
 ```
-1. 检查错误日志
-2. 验证配置文件
-3. 测试网络连接
-4. 检查系统资源
-5. 重启服务
+
+### 第二步：常见检查
+
+```bash
+# 1. 验证配置
+openclaw config validate
+
+# 2. 测试网络连接
+curl -I https://docs.openclaw.ai
+
+# 3. 检查系统资源
+free -h    # 内存
+df -h      # 磁盘
+```
+
+### 第三步：尝试修复
+
+```bash
+# 1. 重启Gateway
+openclaw gateway restart
+
+# 2. 清理缓存
+openclaw cache clear
+
+# 3. 如果问题仍存在，查看具体问题章节
 ```
 
 ---
@@ -27,30 +82,51 @@
 npm ERR! Cannot install OpenClaw
 ```
 
+**可能原因**：
+- Node.js版本过低（需要v18.0+）
+- npm缓存损坏
+- 网络连接问题
+
 **解决方案**：
 
-1. **检查Node.js版本**
-   ```bash
-   node --version
-   # 需要v18.0或更高
-   ```
+#### 步骤1: 检查Node.js版本
 
-2. **升级Node.js**
-   ```bash
-   # 使用nvm
-   nvm install 20
-   nvm use 20
-   ```
+```bash
+node --version
+```
 
-3. **清理npm缓存**
-   ```bash
-   npm cache clean --force
-   ```
+✅ **预期输出**: `v18.x.x` 或更高
 
-4. **重新安装**
-   ```bash
-   npm install -g openclaw
-   ```
+❌ **如果版本过低，升级Node.js**:
+
+```bash
+# 使用nvm（推荐）
+nvm install 20
+nvm use 20
+
+# 或直接下载
+# https://nodejs.org/
+```
+
+#### 步骤2: 清理npm缓存
+
+```bash
+npm cache clean --force
+```
+
+#### 步骤3: 重新安装
+
+```bash
+npm install -g openclaw
+```
+
+#### 步骤4: 验证安装
+
+```bash
+openclaw --version
+```
+
+✅ **成功示例**: `OpenClaw CLI v2026.2.x`
 
 ---
 
@@ -61,19 +137,34 @@ npm ERR! Cannot install OpenClaw
 Error: EACCES: permission denied
 ```
 
+**原因**: npm全局安装目录需要root权限
+
 **解决方案**：
 
-1. **使用sudo**（不推荐）
-   ```bash
-   sudo npm install -g openclaw
-   ```
+#### 选项1：修复npm权限（推荐）
 
-2. **修复npm权限**（推荐）
-   ```bash
-   mkdir ~/.npm-global
-   npm config set prefix '~/.npm-global'
-   export PATH=~/.npm-global/bin:$PATH
-   ```
+```bash
+# 创建新目录
+mkdir ~/.npm-global
+
+# 配置npm使用新目录
+npm config set prefix '~/.npm-global'
+
+# 添加到PATH
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+# 重新安装
+npm install -g openclaw
+```
+
+#### 选项2：使用sudo（临时方案）
+
+```bash
+sudo npm install -g openclaw
+```
+
+⚠️ **注意**: sudo安装可能导致后续权限问题，推荐使用选项1
 
 ---
 
@@ -86,23 +177,39 @@ Error: EACCES: permission denied
 Error: Invalid API key or authentication failed
 ```
 
+**可能原因**：
+- API Key格式错误
+- API Key已过期
+- API Key复制不完整
+
 **解决方案**：
 
-1. **验证API Key格式**
-   - 硅基流动：`sk-`开头
-   - 火山引擎：`AK-`开头
-   - 智谱GLM：32字符密钥
+#### 步骤1: 验证API Key格式
 
-2. **重新配置**
-   ```bash
+| 平台 | 格式要求 | 示例 |
+|------|---------|------|
+| 硅基流动 | `sk-`开头 | `sk-xxxxxxxxxx` |
+| 火山引擎 | `AK-`开头 | `AK-xxxxxxxxxx` |
+| 智谱GLM | 32字符 | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 
-   openclaw config set models.providers[0].apiKey "新密钥"
-   ```
+#### 步骤2: 重新配置
 
-3. **测试连接**
-   ```bash
-   openclaw test api
-   ```
+```bash
+# 编辑配置文件
+nano ~/.openclaw/openclaw.json
+
+# 或使用命令配置
+openclaw config set models.providers[0].apiKey "你的新密钥"
+```
+
+#### 步骤3: 测试连接
+
+```bash
+openclaw test api
+```
+
+✅ **成功输出**: API连接正常
+❌ **失败输出**: 检查API Key是否正确
 
 ---
 
@@ -115,20 +222,25 @@ Error: Invalid configuration file
 
 **解决方案**：
 
-1. **备份当前配置**
-   ```bash
-   cp ~/.openclaw/config.json ~/.openclaw/config.json.backup
-   ```
+#### 步骤1: 备份当前配置
 
-2. **验证配置语法**
-   ```bash
-   openclaw config validate
-   ```
+```bash
+cp ~/.openclaw/config.json ~/.openclaw/config.json.backup
+```
 
-3. **重新初始化**
-   ```bash
-   openclaw init
-   ```
+#### 步骤2: 验证配置语法
+
+```bash
+openclaw config validate
+```
+
+#### 步骤3: 重新初始化
+
+```bash
+openclaw init
+```
+
+⚠️ **注意**: 这会重置配置，记得恢复API Key
 
 ---
 
@@ -141,202 +253,210 @@ Error: Configuration file not found
 
 **解决方案**：
 
-1. **检查配置文件位置**
-   ```bash
-   ls -la ~/.openclaw/config.json
-   ```
+#### 步骤1: 检查配置文件位置
 
-2. **如果不存在，创建默认配置**
-   ```bash
-   openclaw init
-   ```
+```bash
+ls -la ~/.openclaw/config.json
+```
 
-3. **检查配置路径环境变量**
-   ```bash
-   echo $OPENCLAW_CONFIG
-   ```
+#### 步骤2: 如果不存在，创建默认配置
+
+```bash
+openclaw init
+```
+
+#### 步骤3: 配置API Key
+
+参考 [API配置详解](../api-config/api-configuration.md)
 
 ---
 
-## 🌐 Gateway问题
+## 🌐 网络问题
 
-### 问题6: Gateway无法启动
+### 问题6: 网络连接失败
 
 **症状**：
 ```
-Error: Gateway failed to start
+Error: Connection refused
+Error: Network timeout
+```
+
+**可能原因**：
+- 防火墙阻止
+- 代理配置错误
+- 网络不稳定
+
+**解决方案**：
+
+#### 步骤1: 检查防火墙
+
+```bash
+# Linux (ufw)
+sudo ufw status
+
+# 如果防火墙启用，开放端口
+sudo ufw allow 18789
+
+# CentOS (firewalld)
+sudo firewall-cmd --add-port=18789/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+#### 步骤2: 检查代理设置
+
+```bash
+# 查看环境变量
+echo $http_proxy
+echo $https_proxy
+
+# 如果需要配置代理
+export http_proxy=http://proxy-server:port
+export https_proxy=http://proxy-server:port
+```
+
+#### 步骤3: 测试网络连接
+
+```bash
+# 测试OpenClaw服务器
+curl -I https://docs.openclaw.ai
+
+# 测试API服务器（示例）
+curl -I https://api.siliconflow.cn
+```
+
+---
+
+## 💬 平台对接问题
+
+### 问题7: 钉钉消息无响应
+
+**症状**：
+- 钉钉发送消息后无回复
+- Gateway日志显示连接成功但无消息
+
+**可能原因**：
+- Webhook URL配置错误
+- 钉钉应用权限不足
+- 服务器无法被钉钉访问
+
+**解决方案**：
+
+#### 步骤1: 检查Webhook URL
+
+```bash
+# 查看配置
+cat ~/.openclaw/openclaw.json | grep webhook
+```
+
+确保URL格式正确：`https://your-domain.com/webhook/ddingtalk`
+
+#### 步骤2: 检查钉钉应用权限
+
+在钉钉开放平台确认以下权限已启用：
+- ✅ 发送工作消息
+- ✅ 获取机器人信息
+- ✅ 读取用户信息
+
+#### 步骤3: 测试Webhook可访问性
+
+```bash
+# 从本地测试
+curl -X POST https://your-domain.com/webhook/ddingtalk
+
+# 从钉钉服务器测试
+# 使用钉钉提供的调试工具
+```
+
+#### 步骤4: 查看Gateway日志
+
+```bash
+openclaw logs --tail 100 | grep ddingtalk
+```
+
+查看是否有错误消息
+
+---
+
+### 问题8: 飞书对接失败
+
+**症状**：
+```
+Error: Feishu authentication failed
 ```
 
 **解决方案**：
 
-1. **检查端口占用**
-   ```bash
-   # Linux/macOS
-   lsof -i :18789
+#### 步骤1: 验证App ID和App Secret
 
-   # Windows
-   netstat -ano | findstr :18789
-   ```
+```bash
+# 查看配置
+cat ~/.openclaw/openclaw.json | grep feishu
+```
 
-2. **停止占用进程**
-   ```bash
-   kill -9 <PID>
-   ```
+#### 步骤2: 检查事件订阅URL
 
-3. **检查配置**
-   ```bash
-   openclaw config validate
-   ```
+在飞书开放平台，确保事件订阅URL配置正确：
+- 格式：`https://your-domain.com/webhook/feishu`
+- 状态：✅ 已验证
 
-4. **查看详细日志**
-   ```bash
-   openclaw logs --level debug
-   ```
+#### 步骤3: 验证事件加密Key
+
+如果启用了事件加密，确保Key与OpenClaw配置一致
+
+详细步骤参考 [飞书对接教程](../platform-integration/feishu-integration.md)
 
 ---
 
-### 问题7: Gateway连接超时
+## ⚡ 性能问题
+
+### 问题9: AI响应速度慢
 
 **症状**：
-```
-Error: Connection timeout to Gateway
-```
+- 发送消息后需要等待10秒以上
+- 预繁超时
+
+**可能原因**：
+- 网络延迟
+- 模型性能问题
+- 服务器资源不足
 
 **解决方案**：
 
-1. **检查Gateway是否运行**
-   ```bash
-   systemctl status openclaw  # Linux
-   # 或
-   ps aux | grep openclaw
-   ```
+#### 步骤1: 测试网络延迟
 
-2. **检查防火墙**
-   ```bash
-   # UFW
-   ufw status allow 18789
+```bash
+# 测试到API服务器的延迟
+ping api.siliconflow.cn
+```
 
-   # iptables
-   iptables -L -n | grep 18789
-   ```
+#### 步骤2: 切换到更快的模型
 
-3. **检查云服务器安全组**
-   - 确保端口18789已开放
-   - 检查来源IP限制
+参考 [模型选择指南](../api-config/model-comparison.md)
+
+推荐快速模型：
+- `siliconflow/DeepSeek-V3`
+- `bailian/qwen-turbo`
+
+#### 步骤3: 检查系统资源
+
+```bash
+# 检查CPU使用
+top
+
+# 检查内存使用
+free -h
+
+# 检查磁盘IO
+iostat -x 1
+```
+
+#### 步骤4: 优化配置
+
+降低并发请求数、减少上下文长度等
 
 ---
 
-### 问题8: Gateway频繁崩溃
-
-**症状**：
-```
-Gateway keeps restarting or crashing
-```
-
-**解决方案**：
-
-1. **查看崩溃日志**
-   ```bash
-   journalctl -u openclaw --since "1 hour ago"
-   ```
-
-2. **检查内存使用**
-   ```bash
-   free -h
-   ```
-
-3. **检查磁盘空间**
-   ```bash
-   df -h
-   ```
-
-4. **重启服务**
-   ```bash
-   systemctl restart openclaw
-   ```
-
----
-
-## 🔌 API调用问题
-
-### 问题9: API调用失败
-
-**症状**：
-```
-Error: API request failed (401/403/429)
-```
-
-**解决方案**：
-
-| 错误码 | 原因 | 解决方案 |
-|-------|------|---------|
-| 401 | API Key无效 | 检查并更新API Key |
-| 403 | 权限不足 | 检查API权限设置 |
-| 429 | 速率限制 | 减少请求频率或升级套餐 |
-
----
-
-### 问题10: 响应超时
-
-**症状**：
-```
-Error: Request timeout after 60s
-```
-
-**解决方案**：
-
-1. **检查网络连接**
-   ```bash
-   ping api.example.com
-   ```
-
-2. **增加超时时间**
-   ```json
-   {
-     "models": {
-       "timeout": 120000
-     }
-   }
-   ```
-
-3. **检查API服务状态**
-   - 访问API提供商状态页面
-   - 查看服务公告
-
----
-
-### 问题区11: 模型不可用
-
-**症状**：
-```
-Error: Model not available or deprecated
-```
-
-**解决方案**：
-
-1. **检查模型列表**
-   ```bash
-   openclaw models list
-   ```
-
-2. **切换到可用模型**
-   ```json
-   {
-     "models": {
-       "primary": "bailian/qwen-plus"
-     }
-   }
-   ```
-
-3. **查看模型状态**
-   - 访问API提供商文档
-   - 检查模型是否已下线
-
----
-
-## 💻 系统资源问题
-
-### 问题12: 内存不足
+### 问题10: 内存占用过高
 
 **症状**：
 ```
@@ -345,319 +465,70 @@ Error: Out of memory
 
 **解决方案**：
 
-1. **检查内存使用**
-   ```bash
-   free -h
-   ```
-
-2. **清理缓存**
-   ```bash
-   npm cache clean --force
-   ```
-
-3. **限制OpenClaw内存使用**
-   ```json
-   {
-     "agents": {
-       "maxMemory": "512MB"
-     }
-   }
-   ```
-
-4. **升级服务器配置**
-
----
-
-### 问题13: 磁盘空间不足
-
-**症状**：
-```
-Error: No space left on device
-```
-
-**解决方案**：
-
-1. **检查磁盘使用**
-   ```bash
-   df -h
-   ```
-
-2. **清理旧日志**
-   ```bash
-   # 删除30天前的日志
-   find ~/.openclaw/logs -name "*.log" -mtime +30 -delete
-   ```
-
-3. **清理npm缓存**
-   ```bash
-   npm cache clean --force
-   ```
-
-4. **清理备份文件**
-   ```bash
-   find ~/.openclaw/backups -name "*.tar.gz" -mtime +7 -delete
-   ```
-
----
-
-### 问题14: CPU占用过高
-
-****症状**：
-```
-CPU usage exceeds 90%
-```
-
-**解决方案**：
-
-1. **检查CPU使用**
-   ```bash
-   top
-   ```
-
-2. **限制并发请求**
-   ```json
-   {
-     "models": {
-       "maxConcurrentRequests": 2
-     }
-   }
-   ```
-
-3. **优化模型选择**
-   - 使用更快的模型
-   - 减少上下文长度
-
----
-
-## 📱 平台集成问题
-
-### 问题15: 钉钉集成失败
-
-**症状**：
-```
-Error: DingTalk integration failed
-```
-
-**解决方案**：
-
-1. **检查配置**
-   ```bash
-   openclaw dingtalk config
-   ```
-
-2. **验证凭证**
-   - AppKey和AppSecret是否正确
-   - Robot Webhook是否有效
-
-3. **测试连接**
-   ```bash
-   openclaw dingtalk test
-   ```
-
----
-
-### 问题16: Telegram Bot无响应
-
-**症状****：
-```
-Telegram bot not responding
-```
-
-**解决方案**：
-
-1. **检查Bot Token**
-   ```bash
-   openclaw telegram config
-   ```
-
-2. **验证Webhook**
-   ```bash
-   openclaw telegram webhook
-   ```
-
-3. **重新设置Webhook**
-   ```bash
-   openclaw telegram webhook set
-   ```
-
----
-
-## 🔒 安全问题
-
-### 问题17: 权限错误
-
-**症状**：
-```
-Error: Permission denied
-```
-
-**解决方案**：
-
-1. **检查文件权限**
-   ```bash
-   ls -la ~/.openclaw/
-   ```
-
-2. **修复权限**
-   ```bash
-   chmod 700 ~/.openclaw/
-   chmod 600 ~/.openclaw/config.json
-   ```
-
-3. **检查所有者**
-   ```bash
-   chown -R $USER:$USER ~/.openclaw/
-   ```
-
----
-
-### 问题18: SSL/TLS错误
-
-**症状**：
-```
-Error: SSL certificate verify failed
-```
-
-**解决方案**：
-
-1. **更新证书**
-   ```bash
-   apt update && apt install ca-certificates
-   ```
-
-2. **禁用证书验证（不推荐）**
-   ```json
-   {
-     "models": {
-       "rejectUnauthorized": false
-     }
-   }
-   ```
-
----
-
-## 📊 日志分析
-
-### 查看日志
+#### 步骤1: 检查内存使用
 
 ```bash
-# 实时日志
-openclaw logs -f
-
-# 错误日志
-openclaw logs --level error
-
-# 最近100行
-openclaw logs -n 100
-
-# 按时间筛选
-openclaw logs --since "1 hour ago"
+free -h
+ps aux | grep openclaw
 ```
 
-### 日志级别
-
-| 级别 | 用途 |
-|------|------|
-| debug | 详细调试信息 |
-| info | 一般信息 |
-| warn | 警告信息 |
-| error | 错误信息 |
-| fatal | 严重错误 |
-
----
-
-## 🆘 获取帮助
-
-### 1. 查看文档
-
-- [官方文档](https://docs.openclaw.ai)
-- [API文档](https://docs.openclaw.ai/api)
-- [常见问题](../FAQ.md)
-
----
-
-### 2. 搜索问题
-
-- [GitHub Issues](https://github.com/openclaw/openclaw/issues)
-- [Discord社区](https://discord.gg/clawd)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/openclaw)
-
----
-
-### 3. 提交问题
-
-**提交Issue前**：
-1. 搜索现有Issue
-2. 收集错误日志
-3. 提供环境信息：
-   ```bash
-   openclaw --version
-   node --version
-   npm --version
-   uname -a
-   ```
-
----
-
-### 4. 紧急支持
-
-**生产环境问题**：
-1. 检查服务状态：`systemctl status openclaw`
-2. 查看错误日志：`journalctl -u openclaw -p err`
-3. 重启服务：`systemctl restart openclaw`
-4. 如果问题持续，提交紧急Issue
-
----
-
-## 🔧 诊断工具
-
-### 系统诊断
+#### 步骤2: 清理缓存
 
 ```bash
-# OpenClaw健康检查
-openclaw doctor
-
-# 详细诊断
-openclaw doctor --verbose
+openclaw cache clear
 ```
 
-### 网络诊断
+#### 步骤3: 减少上下文长度
 
-```bash
-# 测试API连接
-openclaw test api
+在配置中设置较小的 `maxContextLength`
 
-# 测试Gateway连接
-openclaw test gateway
+#### 步骤4: 升级服务器
 
-# 测试所有连接
-openclaw test all
-```
+如果内存持续不足，考虑升级到更大内存的服务器
 
-### 配置诊断
-
-```bash
-# 验证配置
-openclaw config validate
-
-# 显示配置
-openclaw config show
-
-# 检查配置文件
-openclaw config check
-```
+推荐: [阿里云](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al) 或 [腾讯云](https://curl.qcloud.com/JnWPPHIH)
 
 ---
 
-## 📚 相关资源
+## 📞 需要帮助？
+
+如果以上步骤无法解决问题：
+
+### 收集诊断信息
+
+```bash
+# 生成诊断报告
+openclaw diagnostics > diagnostics.log
+
+# 查看日志
+openclaw logs > logs.log
+```
+
+### 获取帮助
+
+1. **GitHub Issues**: [提交问题](https://github.com/openclaw/openclaw/issues)
+   - 附上 `diagnostics.log`
+   - 描述问题和复现步骤
+
+2. **Discord社区**: [加入讨论](https://discord.com/invite/clawd)
+   - 实时获取帮助
+   - 与其他用户交流
+
+3. **官方文档**: [docs.openclaw.ai](https://docs.openclaw.ai)
+   - 查找更多资源
+
+---
+
+## 🔗 相关资源
 
 - [快速开始](../start/quickstart.md)
-- [API配置](../api-config/api-configuration.md)
-- [安全配置](security.md)
-- [技能使用](skills.md)
-- [云部署](../cloud/cloud-deployment-guide.md)
+- [API配置详解](../api-config/api-configuration.md)
+- [模型选择指南](../api-config/model-comparison.md)
+- [成本优化指南](../api-config/cost-optimization.md)
+- [云服务器部署](../cloud/cloud-deployment-guide.md)
 
 ---
 
-**创建时间**: 2026-02-22
-**版本**: 1.0
+**创建时间**: 2026-02-21
+**最后更新**: 2026-02-22 (应用写作最佳实践)
+**版本**: v2.0

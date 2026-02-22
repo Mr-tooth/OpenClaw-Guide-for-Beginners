@@ -81,6 +81,35 @@ OpenClaw 支持对接多种消息平台：
 | Telegram | ⭐ | [Telegram对接教程](docs/platform-integration/telegram-integration.md) |
 | 微信 | ⭐⭐⭐ | [微信对接教程](docs/platform-integration/wechat-integration.md) |
 
+## 🎯 学习路径
+
+根据你的经验选择合适的学习路径：
+
+### 🌱 新手入门路径
+
+1. 阅读 [5分钟快速上手](docs/start/quickstart.md)
+2. 根据系统选择安装教程（Windows/macOS/Linux）
+3. 配置 API ([API配置详解](docs/api-config/api-configuration.md))
+4. 对接第一个平台（推荐钉钉或飞书）
+5. 遇到问题查看 [FAQ](FAQ.md)
+
+### 🚀 服务器部署路径
+
+1. 阅读 [云服务器部署指南](docs/cloud/cloud-deployment-guide.md)
+2. 选择云服务商（推荐[阿里云](https://www.aliyun.com/activity/ecs/clawdbot?userCode=yyzsc1al)）
+3. 配置服务器和域名
+4. 部署 OpenClaw
+5. 对接消息平台
+
+### 🔧 进阶开发路径
+
+1. 熟悉基础配置
+2. 学习 [技能开发](docs/advanced/skills.md)
+3. 研究 [安全配置](docs/advanced/security.md)
+4. 掌握 [故障排查](docs/advanced/troubleshooting.md)
+
+---
+
 ## 📚 目录结构
 
 ```
