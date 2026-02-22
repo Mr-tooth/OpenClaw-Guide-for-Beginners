@@ -1,77 +1,207 @@
 {
-  "version": "2.0",
-  "providers": {
-    "siliconflow": {
-      "enabled": true,
-      "api_key": "YOUR_SILICONFLOW_API_KEY",
-      "base_url": "https://api.siliconflow.cn/v1",
-      "models": {
-        "default": "deepseek-ai/DeepSeek-V3",
-        "coding": "Qwen/Qwen2.5-72B-Instruct",
-        "fast": "THUDM/glm-4-9b-chat"
-      }
-    },
-    "bailian": {
-      "enabled": false,
-      "api_key": "YOUR_BAILIAN_API_KEY",
-      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      "models": {
-        "default": "qwen-plus",
-        "max": "qwen-max",
-        "fast": "qwen-turbo"
-      }
-    },
-    "volcengine": {
-      "enabled": false,
-      "api_key": "YOUR_VOLCENGINE_API_KEY",
-      "base_url": "https://ark.cn-beijing.volces.com/api/v3",
-      "models": {
-        "default": "doubao-seed-code"
-      }
-    },
-    "zhipu": {
-      "enabled": false,
-      "api_key": "YOUR_ZHIPU_API_KEY",
-      "base_url": "https://open.bigmodel.cn/api/paas/v4",
-      "models": {
-        "default": "GLM-4-Plus",
-        "fast": "GLM-4-Flash"
+  "_comment": [
+    "OpenClaw 配置模板 - 完整版",
+    "复制此文件到 ~/.openclaw/openclaw.json 并填写你的配置",
+    "详细教程: https://github.com/Mr-tooth/OpenClaw-Guide-for-Beginners"
+  ],
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "_comment_siliconflow": "硅基流动 - 推荐新手使用，有免费额度",
+      "siliconflow": {
+        "baseUrl": "https://api.siliconflow.cn/v1",
+        "apiKey": "YOUR_SILICONFLOW_API_KEY",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "Pro/zai-org/GLM-4.7",
+            "name": "GLM-4.7",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "Pro/MiniMaxAI/MiniMax-M2.5",
+            "name": "MiniMax-M2.5",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "Pro/moonshotai/Kimi-K2.5",
+            "name": "Kimi-K2.5",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 256000,
+            "maxTokens": 8192,
+            "compat": {"supportsStore": false}
+          }
+        ]
+      },
+      "_comment_volcengine": "火山引擎 - Coding Plan 套餐，性价比高",
+      "volcengine": {
+        "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v3",
+        "apiKey": "YOUR_VOLCENGINE_API_KEY",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "glm-4.7",
+            "name": "GLM-4.7",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 4, "output": 16, "cacheRead": 0.8, "cacheWrite": 0.017},
+            "contextWindow": 200000,
+            "maxTokens": 65536,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "deepseek-v3.2",
+            "name": "DeepSeek-V3.2",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 4, "output": 6, "cacheRead": 0.4, "cacheWrite": 0.017},
+            "contextWindow": 128000,
+            "maxTokens": 32000,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "kimi-k2-thinking",
+            "name": "Kimi-K2-Thinking",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": {"input": 5, "output": 20, "cacheRead": 1, "cacheWrite": 0.02},
+            "contextWindow": 128000,
+            "maxTokens": 65536,
+            "compat": {"supportsStore": false}
+          },
+          {
+            "id": "doubao-seed-code",
+            "name": "Doubao-Seed-Code",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 2.8, "output": 14, "cacheRead": 0.56, "cacheWrite": 0.56},
+            "contextWindow": 256000,
+            "maxTokens": 16384,
+            "compat": {"supportsStore": false}
+          }
+        ]
+      },
+      "_comment_bailian": "阿里百炼 - 适合国内用户",
+      "bailian": {
+        "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "apiKey": "YOUR_BAILIAN_API_KEY",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen-plus-latest",
+            "name": "Qwen-Plus-Latest",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 128000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "qwen3-max-2025-09-23",
+            "name": "Qwen3-Max",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen-coder-plus",
+            "name": "Qwen-Coder-Plus",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0},
+            "contextWindow": 131072,
+            "maxTokens": 8192
+          }
+        ]
       }
     }
   },
-  "channels": {
-    "feishu": {
-      "enabled": false,
-      "app_id": "cli_xxxxxxxxxxxx",
-      "app_secret": "YOUR_FEISHU_APP_SECRET"
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "siliconflow/Pro/zai-org/GLM-4.7",
+        "fallbacks": []
+      },
+      "workspace": "~/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": true,
+        "provider": "openai",
+        "model": "text-embedding-v4",
+        "store": {
+          "path": "~/.openclaw/memory/{agentId}.sqlite",
+          "vector": {"enabled": true}
+        },
+        "sync": {"watch": true},
+        "query": {
+          "hybrid": {
+            "enabled": true,
+            "vectorWeight": 0.7,
+            "textWeight": 0.3,
+            "candidateMultiplier": 4
+          }
+        },
+        "cache": {"enabled": true, "maxEntries": 50000}
+      },
+      "compaction": {"mode": "safeguard"},
+      "heartbeat": {"every": "0m"},
+      "maxConcurrent": 4,
+      "subagents": {"maxConcurrent": 8}
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {"allowInsecureAuth": false},
+    "auth": {
+      "mode": "token",
+      "token": "YOUR_GATEWAY_TOKEN"
     },
-    "dingtalk": {
+    "trustedProxies": ["127.0.0.1", "::1"],
+    "tailscale": {"mode": "off", "resetOnExit": false}
+  },
+  "channels": {
+    "_comment": "消息平台配置 - 根据需要启用",
+    "ddingtalk": {
       "enabled": false,
-      "app_key": "dingxxxxxxxxxx",
-      "app_secret": "YOUR_DINGTALK_APP_SECRET"
+      "clientId": "YOUR_DINGTALK_CLIENT_ID",
+      "clientSecret": "YOUR_DINGTALK_CLIENT_SECRET",
+      "allowFrom": ["*"],
+      "name": "OpenClaw机器人"
     },
     "telegram": {
       "enabled": false,
-      "bot_token": "YOUR_BOT_TOKEN",
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN",
       "mode": "webhook"
-    },
-    "wechat": {
-      "enabled": false,
-      "app_id": "YOUR_WECHAT_APPID",
-      "app_secret": "YOUR_WECHAT_SECRET"
     }
   },
-  "default_provider": "siliconflow",
-  "default_model": "default",
-  "system_prompt": "你是一个有帮助的 AI 助手，请根据用户的问题给出准确、有用的回答。",
-  "max_tokens": 4096,
-  "temperature": 0.7,
-  "memory": {
-    "enabled": true,
-    "max_messages": 20
+  "session": {
+    "dmScope": "per-channel-peer"
   },
-  "logging": {
-    "level": "info",
-    "file": "~/.openclaw/logs/openclaw.log"
+  "plugins": {
+    "allow": [
+      "feishu",
+      "ddingtalk",
+      "adp-openclaw"
+    ]
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
   }
 }

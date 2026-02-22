@@ -1,53 +1,109 @@
+# ========================================
 # OpenClaw 环境变量配置模板
-# 复制此文件为 .env 并填写你的配置
+# ========================================
+#
+# 使用方法:
+# 1. 复制此文件: cp templates/env-template.txt .env
+# 2. 填写你的配置信息
+# 3. 设置文件权限: chmod 600 .env
+#
+# 注意: 请勿将 .env 文件提交到版本控制系统
+#
+# 配置教程: docs/api-config/api-configuration.md
+# API对比: docs/api-config/model-comparison.md
+# 成本优化: docs/api-config/cost-optimization.md
+#
 
-# ==================== API 提供商配置 ====================
-# 选择一个主要的 API 提供商
+# ========================================
+# 🤖 API 提供商配置（必需）
+# ========================================
+# 至少需要配置一个 API 提供商
+# 推荐顺序: 硅基流动 > 火山引擎 > 阿里百炼
 
-# 硅基流动 (推荐新手)
-SILICONFLOW_API_KEY=sk-your-siliconflow-api-key
+# --- 硅基流动（推荐新手） ---
+# 获取地址: https://cloud.siliconflow.cn/
+# 免费额度: 2000万 Tokens
+# 优势: 完全免费，适合测试学习
+SILICONFLOW_API_KEY=sk-your-siliconflow-api-key-here
 
-# 阿里百炼
-# BAILIAN_API_KEY=sk-your-bailian-api-key
+# --- 火山引擎 Coding Plan ---
+# 获取地址: https://www.volcengine.com/activity/codingplan
+# 套餐价格: 首月8.91元，后续按量计费
+# 优势: 性价比高，适合长期使用
+VOLCENGINE_API_KEY=your-volcengine-api-key-here
 
-# 火山方舟
-# VOLCENGINE_API_KEY=your-volcengine-api-key
+# --- 阿里百炼 ---
+# 获取地址: https://bailian.console.aliyun.com/
+# 优势: 国内用户友好，稳定性高
+BAILIAN_API_KEY=sk-your-bailian-api-key-here
 
-# 智谱 GLM
-# ZHIPU_API_KEY=your-zhipu-api-key
+# --- 智谱 GLM ---
+# 获取地址: https://open.bigmodel.cn/
+# 优势: 国产大模型，中文理解能力强
+ZHIPU_API_KEY=your-zhipu-api-key-here
 
-# MiniMax
-# MINIMAX_API_KEY=your-minimax-api-key
+# --- MiniMax ---
+# 获取地址: https://platform.minimaxi.com/
+# 优势: 多模态能力强，图像处理优秀
+MINIMAX_API_KEY=your-minimax-api-key-here
 
-# ==================== 消息平台配置 ====================
+# ========================================
+# 💬 消息平台配置（可选）
+# ========================================
+# 根据需要启用消息平台
 
-# 飞书
-# FEISHU_APP_ID=cli_xxxxxxxxxxxx
-# FEISHU_APP_SECRET=your-app-secret
+# --- 钉钉（企业推荐）---
+# 获取地址: https://open.dingtalk.com/
+DINGTALK_CLIENT_ID=your-dingtalk-client-id-here
+DINGTALK_CLIENT_SECRET=your-dingtalk-client-secret-here
 
-# 钉钉
-# DINGTALK_APP_KEY=dingxxxxxxxxxx
-# DINGTALK_APP_SECRET=your-app-secret
+# --- 飞书（企业推荐）---
+# 获取地址: https://open.feishu.cn/
+FEISHU_APP_ID=cli-your-feishu-app-id-here
+FEISHU_APP_SECRET=your-feishu-app-secret-here
 
-# Telegram
-# TELEGRAM_BOT_TOKEN=1234567890:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
+# --- Telegram（国际用户）---
+# 获取地址: https://telegram.org/bots
+TELEGRAM_BOT_TOKEN=1234567890:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
 
-# 微信
-# WECHAT_APP_ID=wxaaaaaaaaaaaaaaaa
-# WECHAT_APP_SECRET=your-app-secret
-# WECHAT_TOKEN=OpenClaw2026
-# WECHAT_ENCODING_AES_KEY=your-aes-key
+# --- 企业微信（企业推荐）---
+# 获取地址: https://open.work.weixin.qq.com/
+WECHAT_APP_ID=wx-your-wechat-app-id-here
+WECHAT_APP_SECRET=your-wechat-app-secret-here
 
-# ==================== 服务配置 ====================
+# ========================================
+# ⚙️ 服务配置（可选）
+# ========================================
 
-# 服务端口
-PORT=3000
+# Gateway 服务端口（默认: 18789）
+PORT=18789
 
-# 日志级别: debug, info, warn, error
+# 日志级别: debug, info, warn, error（默认: info）
 LOG_LEVEL=info
 
-# 默认模型提供商
-DEFAULT_PROVIDER=siliconflow
+# 默认模型提供商（可选）
+# DEFAULT_PROVIDER=siliconflow
 
-# 默认模型
-DEFAULT_MODEL=default
+# ========================================
+# 🔒 安全提示
+# ========================================
+# 1. 不要将此文件提交到 Git
+# 2. 定期更换 API Key
+# 3. 使用强密码和随机 Token
+# 4. 限制 API Key 的权限范围
+# 5. 定期审查使用日志
+
+# ========================================
+# 💡 常见问题
+# ========================================
+# Q: 我应该使用哪个 API 提供商？
+# A: 新手推荐硅基流动（免费），长期使用推荐火山引擎（Coding Plan 套餐）
+#
+# Q: 需要配置所有平台吗？
+# A: 不需要，至少配置一个 API 提供商即可
+#
+# Q: 如何获取 API Key？
+# A: 参考各平台的官方文档或查看教程 docs/api-config/
+#
+# Q: 配置错误怎么办？
+# A: 运行 `openclaw doctor` 检查配置

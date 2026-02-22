@@ -4,6 +4,8 @@
 
 ## 📋 目录
 
+- [快速开始（推荐）](#)快速开始推荐)
+- [使用配置模板](#使用配置模板)
 - [API 平台对比](#api-平台对比)
 - [硅基流动 SiliconFlow](#硅基流动-siliconflow)
 - [阿里百炼](#阿里百炼)
@@ -11,6 +13,71 @@
 - [智谱 GLM](#智谱-glm)
 - [MiniMax](#minimax)
 - [配置技巧](#配置技巧)
+
+---
+
+## 🚀 快速开始（推荐）
+
+新手推荐使用配置向导自动生成配置：
+
+```bash
+# 运行配置向导
+openclaw onboard
+```
+
+向导会自动：
+1. 检测环境和依赖
+2. 引导选择 API 提供商
+3. 帮助获取 API Key
+4. 自动生成配置文件
+5. 验证配置正确性
+
+---
+
+## 📋 使用配置模板
+
+如果你需要手动配置，可以使用我们提供的配置模板：
+
+```bash
+# 1. 克隆或下载教程仓库
+git clone https://github.com/Mr-tooth/OpenClaw-Guide-for-Beginners.git
+cd OpenClaw-Guide-for-Beginners
+
+# 2. 查看模板目录
+ls templates/
+
+# 3. 查看模板使用指南
+cat templates/README.md
+```
+
+**模板文件说明**:
+
+| 文件 | 说明 | 使用方法 |
+|------|------|---------|
+| `openclaw-template.json` | OpenClaw 主配置模板 | 复制到 `~/.openclaw/openclaw.json` |
+| `env-template.txt` | 环境变量模板 | 复制到 `~/.openclaw/.env` |
+
+**快速使用模板**:
+
+```bash
+# 复制主配置模板
+cp templates/openclaw-template.json ~/.openclaw/openclaw.json
+
+# 复制环境变量模板
+cp templates/env-template.txt ~/.openclaw/.env
+
+# 设置正确权限（重要！）
+chmod 600 ~/.openclaw/openclaw.json
+chmod 600 ~/.openclaw/.env
+
+# 编辑配置文件，填写你的 API Key
+nano ~/.openclaw/openclaw.json
+nano ~/.openclaw/.env
+```
+
+详细模板使用说明请查看：[templates/README.md](../templates/README.md)
+
+---
 
 ---
 
