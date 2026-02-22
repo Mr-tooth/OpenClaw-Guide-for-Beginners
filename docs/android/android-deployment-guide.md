@@ -89,7 +89,7 @@ npm link
 
 ## ⚙️ 第四步：配置 API
 
-> 详细的 API 配置请参考 [API 配置详解](../api-config/README.md)
+> 详细的 API 配置请参考 [API 配置详解](../api-config/api-configuration.md)
 
 ```bash
 # 启动配置向导
@@ -258,14 +258,14 @@ Android 部署存在以下限制：
 
 **建议**：
 - 日常轻量使用推荐 Android 部署
-- 重度使用推荐 [云服务器部署](../cloud/README.md)
+- 重度使用推荐 [云服务器部署](../cloud/cloud-deployment-guide.md)
 
 ---
 
 ## 📚 进阶阅读
 
-- [API 配置详解](../api-config/README.md) - 各平台配置方法
-- [云服务器部署](../cloud/README.md) - 24小时稳定运行方案
+- [API 配置详解](../api-config/api-configuration.md) - 各平台配置方法
+- [云服务器部署](../cloud/cloud-deployment-guide.md) - 24小时稳定运行方案
 - [Termux 官方文档](https://wiki.termux.com)
 
 ---
@@ -283,4 +283,4 @@ Android 部署存在以下限制：
 
 ---
 
-**上一页**：[云服务器部署指南](../cloud/README.md) | **下一页**：[API 配置详解](../api-config/README.md)
+**上一页**：[云服务器部署指南](../cloud/cloud-deployment-guide.md) | **下一页**：[API 配置详解](../api-config/api-configuration.md)

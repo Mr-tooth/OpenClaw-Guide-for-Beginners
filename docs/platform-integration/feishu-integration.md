@@ -239,4 +239,4 @@ ufw status
 
 ---
 
-**上一页**：[API 配置详解](../api-config/README.md) | **下一页**：[钉钉对接教程](dingtalk.md)
+**上一页**：[API 配置详解](../api-config/api-configuration.md) | **下一页**：[钉钉对接教程](dingtalk-integration.md)

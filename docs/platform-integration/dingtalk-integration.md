@@ -265,4 +265,4 @@ openclaw test --ai
 
 ---
 
-**上一页**：[平台对接总览](README.md) | **下一页**：[Telegram 对接教程](telegram.md)
+**上一页**：[平台对接总览](platform-integration-overview.md) | **下一页**：[Telegram 对接教程](telegram-integration.md)

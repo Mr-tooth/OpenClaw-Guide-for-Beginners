@@ -145,7 +145,7 @@ openclaw onboard
 # 输入 App ID 和 App Secret
 ```
 
-详细的飞书对接教程请参考 [飞书对接文档](../platform-integration/feishu.md)
+详细的飞书对接教程请参考 [飞书对接文档](../platform-integration/feishu-integration.md)
 
 ## ✅ 第五步：启动服务
 
@@ -195,7 +195,7 @@ openclaw logs
 
 ## 📚 进阶阅读
 
-- [API 配置详解](../api-config/README.md)
+- [API 配置详解](../api-config/api-configuration.md)
 - [平台对接教程](../platform-integration/README.md)
 - [进阶配置优化](../advanced/README.md)
 

@@ -137,7 +137,7 @@ openclaw onboard
 1. 创建飞书应用
    - 访问 [飞书开放平台](https://open.feishu.cn)
    - 创建企业自建应用
-   - 配置权限（参考 [飞书对接教程](../platform-integration/feishu.md)）
+   - 配置权限（参考 [飞书对接教程](../platform-integration/feishu-integration.md)）
 
 2. 配置服务器公网访问
    - 确保服务器防火墙开放相应端口
@@ -149,7 +149,7 @@ openclaw onboard
 
 ### 钉钉对接
 
-详细步骤参考 [钉钉对接教程](../platform-integration/dingtalk.md)
+详细步骤参考 [钉钉对接教程](../platform-integration/dingtalk-integration.md)
 
 ---
 
@@ -275,4 +275,4 @@ systemctl start openclaw
 
 ---
 
-**上一页**：[Linux 安装指南](../linux/README.md) | **下一页**：[API 配置详解](../api-config/README.md)
+**上一页**：[Linux 安装指南](../linux/README.md) | **下一页**：[API 配置详解](../api-config/api-configuration.md)

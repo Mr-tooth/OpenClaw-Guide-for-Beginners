@@ -88,7 +88,7 @@ npm link
 
 ## ⚙️ 第三步：配置 API
 
-> 详细的 API 配置请参考 [API 配置详解](../api-config/README.md)
+> 详细的 API 配置请参考 [API 配置详解](../api-config/api-configuration.md)
 
 ### 快速配置：硅基流动（新手推荐）
 
@@ -119,7 +119,7 @@ openclaw onboard
 
 ### 飞书对接（推荐新手）
 
-详细的飞书配置步骤请参考 [飞书对接教程](../platform-integration/feishu.md)
+详细的飞书配置步骤请参考 [飞书对接教程](../platform-integration/feishu-integration.md)
 
 **快速配置**：
 
@@ -259,9 +259,9 @@ arch -arm64 brew install node@22
 
 ## 📚 进阶阅读
 
-- [API 配置详解](../api-config/README.md) - 各平台 API 配置方法
+- [API 配置详解](../api-config/api-configuration.md) - 各平台 API 配置方法
 - [平台对接教程](README.md) - 飞书、钉钉等对接教程
-- [云服务器部署](../cloud/README.md) - 24小时在线部署方案
+- [云服务器部署](../cloud/cloud-deployment-guide.md) - 24小时在线部署方案
 
 ---
 

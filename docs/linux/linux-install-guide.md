@@ -94,7 +94,7 @@ npm link
 
 ## ⚙️ 第三步：配置 API
 
-> 详细的 API 配置请参考 [API 配置详解](../api-config/README.md)
+> 详细的 API 配置请参考 [API 配置详解](../api-config/api-configuration.md)
 
 ### 快速配置
 
@@ -127,14 +127,14 @@ openclaw onboard
 # 输入 App ID 和 App Secret
 ```
 
-详细步骤参考 [飞书对接教程](../platform-integration/feishu.md)
+详细步骤参考 [飞书对接教程](../platform-integration/feishu-integration.md)
 
 ### 其他平台
 
 | 平台 | 教程链接 |
 |------|----------|
-| 钉钉 | [钉钉对接教程](../platform-integration/dingtalk.md) |
-| Telegram | [Telegram对接教程](../platform-integration/telegram.md) |
+| 钉钉 | [钉钉对接教程](../platform-integration/dingtalk-integration.md) |
+| Telegram | [Telegram对接教程](../platform-integration/telegram-integration.md) |
 
 ---
 
@@ -268,8 +268,8 @@ sudo firewall-cmd --reload
 
 ## 📚 进阶阅读
 
-- [云服务器部署指南](../cloud/README.md) - 24小时在线部署
-- [API 配置详解](../api-config/README.md) - 各平台配置方法
+- [云服务器部署指南](../cloud/cloud-deployment-guide.md) - 24小时在线部署
+- [API 配置详解](../api-config/api-configuration.md) - 各平台配置方法
 - [平台对接教程](../platform-integration/README.md) - 飞书、钉钉等对接
 
 ---
@@ -287,4 +287,4 @@ sudo firewall-cmd --reload
 
 ---
 
-**上一页**：[macOS 安装指南](../macos/README.md) | **下一页**：[云服务器部署指南](../cloud/README.md)
+**上一页**：[macOS 安装指南](../macos/README.md) | **下一页**：[云服务器部署指南](../cloud/cloud-deployment-guide.md)

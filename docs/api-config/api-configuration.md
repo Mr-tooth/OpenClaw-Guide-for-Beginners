@@ -331,4 +331,4 @@ A: 可以配置多个提供商，通过环境变量或配置文件切换。
 
 ---
 
-**上一页**：[云服务器部署指南](../cloud/README.md) | **下一页**：[平台对接教程](../platform-integration/README.md)
+**上一页**：[云服务器部署指南](../cloud/cloud-deployment-guide.md) | **下一页**：[平台对接教程](../platform-integration/platform-integration-overview.md)
