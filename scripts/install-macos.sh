@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# OpenClaw Linux 一键安装脚本
-# 支持 Ubuntu/Debian/CentOS
+# OpenClaw macOS 一键安装脚本
+# 支持 macOS 12+ (Monterey, Ventura, Sonoma, Sequoia)
 
 set -e
 
@@ -14,38 +14,70 @@ NC='\033[0m' # No Color
 
 echo ""
 echo "╔═══════════════════════════════════════════════════════════╗"
-echo "║           OpenClaw Linux 一键安装脚本                      ║"
+echo "║           OpenClaw macOS 一键安装脚本                    ║"
 echo "║                                                           ║"
 echo "║  本脚本将自动安装:                                         ║"
-echo "║  1. Node.js 22                                            ║"
-echo "║  2. OpenClaw 核心                                         ║"
-echo "║  3. 依赖组件                                              ║"
+echo "║  1. Homebrew (包管理器)                                   ║"
+echo "║  2. Node.js 22                                            ║"
+echo "║  3. OpenClaw 核心                                         ║"
+echo "║  4. 依赖组件                                              ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo ""
 
-# 检测系统类型
-if [ -f /etc/os-release ]; then
-    . /etc/os-release
-    OS=$ID
-else
-    echo -e "${RED}[错误] 无法检测系统类型${NC}"
-    exit 1
-fi
+# 检测 macOS 版本
+check_macos_version() {
+    if [[ $(uname) != "Darwin" ]]; ]]; then
+        echo -e "${RED}[错误] 本脚本仅适用于 macOS${NC}"
+        exit 1
+    fi
 
-echo -e "${BLUE}[信息] 检测到系统: $OS${NC}"
+    MACOS_VER=$(sw_vers -productVersion)
+    MACOS_MAJOR=$(echo $MACOS_VER | cut -d'.' -f1)
+    MACOS_NAME=""
 
-# 检查是否有 root 权限
-if [ "$EUID" -ne 0 ]; then
-    echo -e "${YELLOW}[警告] 建议使用 sudo 运行此脚本${NC}"
-    SUDO="sudo"
-else
-    SUDO=""
-fi
+    case $MACOS_MAJOR in
+        11) MACOS_NAME="Big Sur" ;;
+        12) MACOS_NAME="Monterey" ;;
+        13) MACOS_NAME="Ventura" ;;
+        14) MACOS_NAME="Sonoma" ;;
+        15) MACOS_NAME="Sequoia" ;;
+        *) MACOS_NAME="未知版本" ;;
+    esac
+
+    echo -e "${BLUE}[信息] 检测到 macOS $MACOS_VER ($MACOS_NAME)${NC}"
+
+    if [ $MACOS_MAJOR -lt 12 ]; then
+        echo -e "${YELLOW}[警告] 建议使用 macOS 12 (Monterey) 或更高版本${NC}"
+        read -p "是否继续安装? [y/N]: " CONTINUE
+        if [[ ! $CONTINUE =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
+    fi
+}
+
+# 安装 Homebrew
+install_homebrew() {
+    echo -e "${BLUE}[1/4) 检查 Homebrew...${NC}"
+
+    if command -v brew &> /dev/null; then
+        echo -e "${GREEN}[√] Homebrew 已安装${NC}"
+        return 0
+    fi
+
+    echo -e "${YELLOW}[!] 正在安装 Homebrew...${NC}"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # 添加到 PATH
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+
+    echo -e "${GREEN}[√] Homebrew 安装完成${NC}"
+}
 
 # 安装 Node.js
 install_nodejs() {
-    echo -e "${BLUE}[1/3] 检查 Node.js 环境...${NC}"
-    
+    echo -e "${BLUE}[2/4] 检查 Node.js 环境...${NC}"
+
     if command -v node &> /dev/null; then
         NODE_VER=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
         if [ "$NODE_VER" -ge 22 ]; then
@@ -55,53 +87,42 @@ install_nodejs() {
             echo -e "${YELLOW}[!] Node.js 版本过低: $(node -v)，需要 22+${NC}"
         fi
     fi
-    
+
     echo -e "${YELLOW}[!] 正在安装 Node.js 22...${NC}"
-    
-    case $OS in
-        ubuntu|debian)
-            $SUDO apt update
-            $SUDO apt install -y curl
-            curl -fsSL https://deb.nodesource.com/setup_22.x | $SUDO -E bash -
-            $SUDO apt install -y nodejs
-            ;;
-        centos|rhel|rocky|almalinux)
-            $SUDO yum install -y curl
-            curl -fsSL https://rpm.nodesource.com/setup_22.x | $SUDO bash -
-            $SUDO yum install -y nodejs
-            ;;
-        *)
-            echo -e "${RED}[错误] 不支持的系统: $OS${NC}"
-            echo "请手动安装 Node.js 22"
-            exit 1
-            ;;
-    esac
-    
+    brew install node@22
+
+    # 验证安装
+    if ! command -v node &> /dev/null; then
+        echo -e "${YELLOW}[!] 正在链接 Node.js...${NC}"
+        brew unlink node
+        brew link node@22
+    fi
+
     echo -e "${GREEN}[√] Node.js 安装完成: $(node -v)${NC}"
 }
 
 # 安装 OpenClaw
 install_openclaw() {
-    echo -e "${BLUE}[2/3] 安装 OpenClaw...${NC}"
-    
+    echo -e "${BLUE}[3/4] 安装 OpenClaw...${NC}"
+
     if command -v openclaw &> /dev/null; then
         echo -e "${GREEN}[√] OpenClaw 已安装${NC}"
         return 0
     fi
-    
+
     echo -e "${YELLOW}[!] 正在下载并安装 OpenClaw...${NC}"
     curl -fsSL https://get.openclaw.ai | sh
-    
+
     # 添加到 PATH
     export PATH="$HOME/.local/bin:$PATH"
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-    
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zprofile
+
     echo -e "${GREEN}[√] OpenClaw 安装完成${NC}"
 }
 
 # 配置向导
 config_openclaw() {
-    echo -e "${BLUE}[3/3] 配置向导...${NC}"
+    echo -e "${BLUE}[4/4] 配置向导...${NC}"
     echo ""
     echo "请选择你的 API 提供商:"
     echo "  1. 硅基流动 (推荐新手)"
@@ -111,7 +132,7 @@ config_openclaw() {
     echo "  5. 跳过配置"
     echo ""
     read -p "请输入选择 [1-5]: " CHOICE
-    
+
     case $CHOICE in
         1)
             echo ""
@@ -160,6 +181,9 @@ show_complete() {
     echo "║  查看状态: openclaw status                                ║"
     echo "║  查看日志: openclaw logs                                  ║"
     echo "║                                                           ║"
+    echo "║  注意: 请运行以下命令使 PATH 生效:                          ║"
+    echo "║  source ~/.zprofile                                        ║"
+    echo "║                                                           ║"
     echo "║  API 平台注册链接:                                        ║"
     echo "║  - 硅基流动: https://cloud.siliconflow.cn                 ║"
     echo "║  - 阿里百炼: https://bailian.console.aliyun.com           ║"
@@ -170,6 +194,8 @@ show_complete() {
 
 # 主流程
 main() {
+    check_macos_version
+    install_homebrew
     install_nodejs
     install_openclaw
     config_openclaw
