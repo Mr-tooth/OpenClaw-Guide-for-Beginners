@@ -41,10 +41,11 @@ OpenClaw 需要接入大模型 API 才能运行。以下是各平台的优惠信
 
 | 平台 | 新用户福利 | 邀请奖励 | 推荐指数 |
 |------|-----------|---------|----------|
-| [硅基流动](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens | 邀请双方各得代金券 | ⭐⭐⭐⭐⭐ |
-| [火山引擎方舟](https://volcengine.com/L/tHxxM_WwYp4/) | 折上9折，低至8.9元，支持Doubao/GLM/DeepSeek/Kimi | 订阅越多越划算 | ⭐⭐⭐⭐⭐ |
-| [智谱 GLM Coding](https://www.bigmodel.cn/glm-coding?ic=BUDVTRHUYH) | Claude Code、Cline等20+工具无缝支持 | 限时惊喜价 | ⭐⭐⭐⭐ |
-| [MiniMax](https://platform.minimaxi.com/subscribe/coding-plan) | 新用户9折优惠 | 邀请者10%返利 | ⭐⭐⭐ |
+| [硅基流动](https://cloud.siliconflow.cn/i/lva59yow) | 注册送 2000万 Tokens | 受邀16元代金券 | ⭐⭐⭐⭐⭐ |
+| [火山引擎方舟](https://volcengine.com/L/tHxxM_WwYp4/) | 折上9折，低至8.9元，支持Doubao/GLM/DeepSeek/Kimi | 受邀9折 | ⭐⭐⭐⭐⭐ |
+| [阿里百炼套餐](https://www.aliyun.com/benefit/ai/aistar?userCode=yyzsc1al&clubBiz=subTask..12385059..10263..) | Lite套餐首月7.9元 | 受邀10元代金券 | ⭐⭐⭐⭐
+| [智谱 GLM Coding](https://www.bigmodel.cn/glm-coding?ic=BUDVTRHUYH) | Claude Code、Cline等20+工具无缝支持 | 受邀9折 | ⭐⭐⭐⭐ |
+| [MiniMax](https://platform.minimaxi.com/subscribe/coding-plan) | 29元/月 | 受邀9折 | ⭐⭐⭐ |
 
 💡 **新手建议**：先注册[硅基流动](https://cloud.siliconflow.cn/i/lva59yow)体验免费额度，再根据需求选择其他平台。
 
