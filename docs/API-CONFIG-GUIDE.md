@@ -262,10 +262,11 @@ openclaw config set model.primary volcengine/glm-4.7
 1. 访问 https://bailian.console.aliyun.com
 2. 使用阿里云账号登录
 3. 开通百炼服务
+4. 根据需要选择是否要开通[Coding Plan](https://www.aliyun.com/benefit/ai/aistar?userCode=yyzsc1al&clubBiz=subTask..12385059..10263..)
 
 #### 获取 API Key
 
-1. 进入「API-KEY管理」
+1. 进入「API-KEY管理」(注意按量API和Coding Plan API开通位置不同)
 2. 创建 API-KEY
 3. 复制 API Key
 
@@ -332,15 +333,15 @@ openclaw config set model.primary zhipu/glm-4-plus
 
 | 模型 | 输入价格 | 输出价格 |
 |------|---------|---------|
-| GLM-4-Plus | ¥0.005/千tokens | ¥0.05/千tokens |
-| GLM-4-Air | ¥0.001/千tokens | ¥0.001/千tokens |
+| GLM-5 | ¥4/百万tokens | ¥18/百万tokens |
+| GLM-4.7 | ¥4/百万tokens | ¥16/百万tokens |
 
 #### 推荐模型
 
 | 模型 | 用途 | 速度 | 质量 |
 |------|------|------|------|
-| `glm-4-plus` | 通用对话 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| `glm-4-air` | 快速响应 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| `glm-5` | 智能体工程 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| `glm-4.7` | 快速响应 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
 
 ---
 
@@ -656,7 +657,7 @@ openclaw config set quota.alert.enabled true
 ---
 
 **创建时间**: 2026-02-22 15:15 UTC
-**版本**: 1.0
-**Phase**: Phase 4+ - 阶段5
+**版本**: 2.0
+**作者**: junhang lai
 
 <!-- This file is part of OpenClaw Guide for Beginners. Licensed under the MIT License. See LICENSE file for details. -->

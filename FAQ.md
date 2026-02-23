@@ -180,7 +180,7 @@ openclaw init
 | ![新手](https://img.shields.io/badge/新手-推荐-green) | 硅基流动 | 2000万Tokens免费 | 🆓 免费 | [注册](https://cloud.siliconflow.cn/i/lva59yow) |
 | ![性价比](https://img.shields.io/badge/性价比-高-blue) | 火山引擎 | 4款模型，工具不限 | 💰 8.9元/月 | [订阅](https://volcengine.com/L/tHxxM_WwYp4/) |
 | ![编程](https://img.shields.io/badge/编程-友好-orange) | 智谱GLM | Claude Code支持 | 💰 优惠价 | [开通](https://www.bigmodel.cn/glm-coding?ic=BUDVTRHUYH) |
-| ![阿里生态](https://img.shields.io/badge/阿里-生态-purple) | 阿里百炼 | 与阿里云整合 | 💰 按量付费 | [开通](https://bailian.console.aliyun.com) |
+| ![阿里生态](https://img.shields.io/badge/阿里-生态-purple) | 阿里百炼 | 与阿里云整合 | 💰 7.9元/月 | [开通](https://www.aliyun.com/benefit/ai/aistar?userCode=yyzsc1al&clubBiz=subTask..12385059..10263..) |
 
 ---
 

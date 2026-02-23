@@ -669,7 +669,7 @@ docker ps -a | grep openclaw  # 应无输出
 ---
 
 **创建时间**: 2026-02-22 15:10 UTC
-**版本**: 1.0
-**Phase**: Phase 4+ - 阶段5
+**版本**: 2.0
+**作者**: junhang lai
 
 <!-- This file is part of OpenClaw Guide for Beginners. Licensed under the MIT License. See LICENSE file for details. -->
