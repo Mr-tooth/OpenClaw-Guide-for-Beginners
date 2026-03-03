@@ -53,6 +53,7 @@ OpenClaw 需要接入大模型 API 才能运行。以下是各平台的优惠信
 | [MiniMax](https://platform.minimaxi.com/subscribe/coding-plan) | 29元/月 | 受邀9折 | ⭐⭐⭐ |
 
 💡 **新手建议**：先注册[硅基流动](https://cloud.siliconflow.cn/i/lva59yow)体验免费额度，再根据需求选择其他平台。
+🚀 **限时2.24-3.25活动送54元代金券！**：硅基流动[开工即享狂欢月活动](https://siliconflow.cn/2026bonus)，先[受邀注册](https://cloud.siliconflow.cn/i/lva59yow)拿16元代金券，调用指定模型即可获赠54元代金券，总计70元，数亿token足够玩openclaw很长时间了！
 
 👉 [查看详细 API 配置教程](docs/api-config/api-configuration.md) | [模型选择指南](docs/api-config/model-comparison.md) | [成本优化](docs/api-config/cost-optimization.md)
 
