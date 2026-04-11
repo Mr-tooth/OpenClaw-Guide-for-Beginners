@@ -61,10 +61,10 @@ jobs:
             grep -rE "ark-[a-zA-Z0-9]{20,}" --include="*.md" --include="*.sh" --include="*.json" . | grep -vE "(ark-xx|ark-.*占位符|ark-xxxxxxxx)"
             FOUND=1
           fi
-          # 扫描AKIA开头的AWS密钥
-          if grep -rE "AKIA[a-zA-Z0-9]{16,}" --include="*.md" --include="*.sh" --include="*.json" . | grep -q .; then
+          # 扫描AKIA开头的AWS密钥，排除包含XXX的示例密钥
+          if grep -rE "AKIA[a-zA-Z0-9]{16,}" --include="*.md" --include="*.sh" --include="*.json" . | grep -vE "(AKIA.*XXX|AKIA.*示例)" | grep -q .; then
             echo "❌ 检测到硬编码的AWS AK密钥:"
-            grep -rE "AKIA[a-zA-Z0-9]{16,}" --include="*.md" --include="*.sh" --include="*.json" .
+            grep -rE "AKIA[a-zA-Z0-9]{16,}" --include="*.md" --include="*.sh" --include="*.json" . | grep -vE "(AKIA.*XXX|AKIA.*示例)"
             FOUND=1
           fi
           if [ $FOUND -ne 0 ]; then

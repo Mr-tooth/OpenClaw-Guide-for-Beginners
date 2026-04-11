@@ -1,0 +1,10 @@
+# 忽略文档中的示例密钥
+7fccf2ebd9d6e125516367e76ca9db3b4d90082e:docs/advanced/security.md:generic-api-key:74
+7fccf2ebd9d6e125516367e76ca9db3b4d90082e:docs/advanced/security.md:generic-api-key:83
+*:README.md:generic-api-key:*AKIAIMNOJVGFDXXXE4OA*
+
+# 忽略所有示例占位符密钥（sk-xxxxxxxx，ark-xxxxxxxx等）
+*:*.md:generic-api-key:*sk-xxxxxxxx*
+*:*.md:generic-api-key:*ark-xxxxxxxx*
+# 忽略包含XXX的示例AWS密钥
+*:*.md:generic-api-key:*AKIA.*XXX*
