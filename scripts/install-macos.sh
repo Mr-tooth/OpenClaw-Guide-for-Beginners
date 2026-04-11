@@ -18,7 +18,7 @@ echo "║           OpenClaw macOS 一键安装脚本                    ║"
 echo "║                                                           ║"
 echo "║  本脚本将自动安装:                                         ║"
 echo "║  1. Homebrew (包管理器)                                   ║"
-echo "║  2. Node.js 22                                            ║"
+echo "║  2. Node.js 24 (LTS)                                      ║"
 echo "║  3. OpenClaw 核心                                         ║"
 echo "║  4. 依赖组件                                              ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
@@ -80,22 +80,22 @@ install_nodejs() {
 
     if command -v node &> /dev/null; then
         NODE_VER=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
-        if [ "$NODE_VER" -ge 22 ]; then
+        if [ "$NODE_VER" -ge 24 ]; then
             echo -e "${GREEN}[√] Node.js 已安装: $(node -v)${NC}"
             return 0
         else
-            echo -e "${YELLOW}[!] Node.js 版本过低: $(node -v)，需要 22+${NC}"
+            echo -e "${YELLOW}[!] Node.js 版本过低: $(node -v)，需要 24+${NC}"
         fi
     fi
 
-    echo -e "${YELLOW}[!] 正在安装 Node.js 22...${NC}"
-    brew install node@22
+    echo -e "${YELLOW}[!] 正在安装 Node.js 24 (LTS)...${NC}"
+    brew install node@24
 
     # 验证安装
     if ! command -v node &> /dev/null; then
         echo -e "${YELLOW}[!] 正在链接 Node.js...${NC}"
         brew unlink node
-        brew link node@22
+        brew link node@24
     fi
 
     echo -e "${GREEN}[√] Node.js 安装完成: $(node -v)${NC}"

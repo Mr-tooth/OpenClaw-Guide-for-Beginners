@@ -52,6 +52,18 @@
 
 > 5分钟快速部署OpenClaw
 
+### 最新推荐：ClawDock 官方容器方案 ✨
+ClawDock是OpenClaw官方推出的容器运行时，内置优化配置，支持一键部署，无需手动编写配置文件：
+```bash
+# 一键安装ClawDock并部署
+curl -fsSL https://openclaw.ai/clawdock.sh | bash
+
+# 部署完成后访问Web控制台
+open http://localhost:18789
+```
+
+---
+
 ### 部署进度
 
 | 步骤 | 任务 | 预计时间 | 状态 |
@@ -64,7 +76,7 @@
 
 ---
 
-### 一键部署（推荐）✨
+### 手动部署（自定义配置）
 
 ```bash
 # 1. 拉取OpenClaw镜像

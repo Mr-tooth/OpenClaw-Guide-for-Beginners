@@ -172,6 +172,12 @@ openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
 
 #### 获取 API Key
 
+##### 方式1: Coding Plan 套餐（推荐，性价比高）
+1. 开通 Coding Plan 套餐：访问 https://www.volcengine.com/activity/codingplan 登录后开通（邀请码：`CXWFCWZ5` 可享额外优惠）
+2. 进入 API Key 管理页：https://console.volcengine.com/ark/region:ark+cn-beijing/apikey
+3. 点击创建 API Key，生成后复制 `ark-xxxxx` 格式的密钥
+
+##### 方式2: 普通按量付费
 1. 进入「访问控制」→「API密钥管理」
 2. 点击「创建密钥」
 3. 复制 Access Key ID 和 Access Key Secret
@@ -182,13 +188,27 @@ openclaw config set model.primary siliconflow/Pro/MiniMaxAI/MiniMax-M2.5
 ```bash
 openclaw onboard --install-daemon
 ```
+在向导中选择 `Volcano Engine`，粘贴Coding Plan的`ark-xxxxx`格式API Key即可。
 
 **方式2: 手动配置**
+##### 如果使用Coding Plan套餐
 ```bash
 # 设置提供商
 openclaw config set provider volcengine
 
-# 设置 API Key
+# 设置Coding Plan专属API Key（ark-xxxxx格式）
+openclaw config set api_key ark-xxxxxxxxxxxxxxxxxxxx
+
+# 设置默认模型（可选）
+openclaw config set model.primary volcengine/glm-4.7
+```
+
+##### 如果使用普通按量付费
+```bash
+# 设置提供商
+openclaw config set provider volcengine
+
+# 设置API Key（AccessKeyID:AccessKeySecret格式）
 openclaw config set api_key YOUR_ACCESS_KEY_ID:YOUR_ACCESS_KEY_SECRET
 
 # 设置默认模型（可选）
