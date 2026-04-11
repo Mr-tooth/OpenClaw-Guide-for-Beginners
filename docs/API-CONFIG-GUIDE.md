@@ -6,6 +6,18 @@
 
 ---
 
+## ⚠️ v2026.4.9 配置变更说明
+以下旧配置别名已完全移除，不再兼容，必须使用新的标准配置路径：
+| 废弃的旧配置 | 新的标准配置 |
+|--------------|--------------|
+| `talk.voiceId`、`talk.apiKey` | 语音配置已迁移到`features.tts.*`路径 |
+| `agents.*.sandbox.perSession` | 更改为`agents.*.sandbox.enabled` |
+| `browser.ssrfPolicy.allowPrivateNetwork` | 更改为`security.ssrf.blockPrivateNetworks`（逻辑取反） |
+| `hooks.internal.handlers` | 钩子配置已迁移到`integrations.hooks.*`路径 |
+| `channel.enabled`、`group.enabled`、`room.enabled` | 统一更改为`platforms.*.enabled` |
+
+---
+
 ## 📋 目录
 
 - [支持的 API 平台](#-支持的-api-平台)

@@ -79,10 +79,13 @@ open http://localhost:18789
 ### 手动部署（自定义配置）
 
 ```bash
-# 1. 拉取OpenClaw镜像
-docker pull openclaw/openclaw:latest
+# 1. 拉取OpenClaw镜像（推荐使用固定稳定版标签v2026.4.9）
+docker pull openclaw/openclaw:v2026.4.9
 
-# 2. 创建配置文件
+# 也可以使用latest标签获取最新版
+# docker pull openclaw/openclaw:latest
+
+# 2. 创建配置文件（注意v2026.4.9已废弃旧配置别名，使用新的标准配置路径）
 cat > openclaw.json << 'EOF'
 {
   "providers": {
@@ -94,7 +97,15 @@ cat > openclaw.json << 'EOF'
     "defaults": {
       "model": {
         "primary": "bailian/qwen-turbo"
+      },
+      "sandbox": {
+        "perSession": true
       }
+    }
+  },
+  "browser": {
+    "ssrfPolicy": {
+      "allowPrivateNetwork": false
     }
   }
 }
@@ -107,7 +118,7 @@ docker run -d \
   -p 18789:18789 \
   -v $(pwd)/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro \
   -v $(pwd)/data:/home/openclaw/.openclaw/data \
-  openclaw/openclaw:latest
+  openclaw/openclaw:v2026.4.9
 
 # 4. 查看日志
 docker logs -f openclaw

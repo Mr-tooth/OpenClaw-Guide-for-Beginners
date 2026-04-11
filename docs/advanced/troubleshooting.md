@@ -77,6 +77,28 @@ openclaw cache clear
 
 ## 🚀 安装问题
 
+### 问题0: v2026.4.9版本安装/升级失败
+#### 症状A：
+```
+Error: Cannot find module '@buape/carbon'
+```
+**原因**：从旧版本直接升级导致依赖缺失，v2026.4.9版本要求必须完全卸载旧版本后重装。
+**解决方案**：
+```bash
+# 完全卸载旧版本
+openclaw uninstall --purge
+rm -rf ~/.openclaw /usr/local/bin/openclaw
+# 重新安装新版本
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+#### 症状B：升级后旧配置不生效，提示"unknown config key"
+**原因**：v2026.4.9版本移除了大量旧配置别名，使用了新的标准配置路径。
+**解决方案**：
+对照[配置变更说明](../API-CONFIG-GUIDE.md#️-v202649-配置变更说明)修改你的配置文件，使用新的配置路径。
+
+---
+
 ### 问题1: npm安装失败
 
 **症状**：
