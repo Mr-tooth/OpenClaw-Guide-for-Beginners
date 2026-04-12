@@ -23,7 +23,7 @@ jobs:
 
       - name: 运行Gitleaks全量密钥扫描
         run: |
-          gitleaks detect --source . --verbose --no-banner
+          gitleaks detect --source . --verbose --no-banner --gitleaks-ignore-path .gitleaksignore
           if [ $? -ne 0 ]; then
             echo "❌ 检测到硬编码密钥/敏感信息，请修复后再提交"
             exit 1

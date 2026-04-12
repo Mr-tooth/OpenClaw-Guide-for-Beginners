@@ -8,3 +8,7 @@
 *:*.md:generic-api-key:*ark-xxxxxxxx*
 # 忽略包含XXX的示例AWS密钥
 *:*.md:generic-api-key:*AKIA.*XXX*
+*:*.md:aws-access-token:*AKIAX+*
+*:*.md:sidekiq-secret:*cafebabe:deadbeef*
+# 忽略历史提交中的旧示例密钥
+6a6464f2eb58595fb04042432516f7a116083fdd:.gitleaksignore:aws-access-token:4
