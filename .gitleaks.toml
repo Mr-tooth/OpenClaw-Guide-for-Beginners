@@ -1,0 +1,15 @@
+# Gitleaks配置文件 - 允许文档中的示例密钥
+
+title = "Gitleaks configuration for OpenClaw-Guide"
+
+[allowlist]
+description = "允许文档中的示例密钥和占位符"
+regexes = [
+    '''AKIAXXXXXXXXXXXXXXXX''',
+    '''cafebabe:deadbeef''',
+    '''AKIAIMNOJVGFDXXXE4OA''',
+]
+
+paths = [
+    '''README.md''',
+]
