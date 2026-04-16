@@ -144,47 +144,60 @@ OpenClaw 支持对接多种消息平台：
 ```
 OpenClaw-Guide-for-Beginners/
 ├── README.md                    # 项目首页（本文件）
+├── CHANGELOG.md                 # 版本更新日志
+├── CONTRIBUTING.md              # 贡献指南
+├── RELEASING.md                 # 发布流程规范
 ├── AUTHORS.md                   # 作者信息
 ├── FAQ.md                       # 常见问题解答
 ├── RESOURCES.md                 # 资源汇总
 ├── docs/                        # 教程文档目录
-│   ├── start/                   # 快速开始
-│   │   └── quickstart.md        # 5分钟快速上手
-│   ├── windows/                 # Windows 相关教程
-│   │   └── windows-install-guide.md
-│   ├── wsl/                     # WSL 相关教程
-│   │   ├── wsl-setup.md         # WSL 安装配置
-│   │   ├── wsl-troubleshooting.md
-│   │   └── wsl-advanced.md      # WSL 高级配置
-│   ├── macos/                   # macOS 相关教程
-│   │   └── macos-install-guide.md
-│   ├── linux/                   # Linux 相关教程
-│   │   └── linux-install-guide.md
-│   ├── docker/                  # Docker 部署教程
-│   │   ├── docker-deployment.md      # Docker 基础部署
-│   │   ├── docker-production.md      # Docker 生产部署
-│   │   ├── docker-cloud-deployment.md # Docker Cloud 部署
-│   │   └── docker-troubleshooting.md
-│   ├── cloud/                   # 云服务器相关教程
-│   │   ├── cloud-deployment-guide.md
-│   │   ├── aliyun-guide.md      # 阿里云专属教程
-│   │   └── tencent-guide.md    # 腾讯云教程
-│   ├── android/                 # Android 相关教程
-│   │   └── android-deployment-guide.md
-│   ├── api-config/              # API 配置教程
-│   │   ├── api-configuration.md
+│   ├── getting-started/         # 快速入门
+│   │   ├── quickstart.md        # 5分钟快速上手
+│   │   ├── security-notice.md   # 安全运行重要提示
+│   │   └── version-selection.md # 版本选择说明
+│   ├── installation/            # 安装教程
+│   │   ├── windows/             # Windows 相关
+│   │   │   └── windows-install-guide.md
+│   │   ├── wsl/                 # WSL 相关
+│   │   │   ├── wsl-setup.md     # WSL 安装配置
+│   │   │   ├── wsl-troubleshooting.md
+│   │   │   └── wsl-advanced.md  # WSL 高级配置
+│   │   ├── macos/               # macOS 相关
+│   │   │   └── macos-install-guide.md
+│   │   ├── linux/               # Linux 相关
+│   │   │   └── linux-install-guide.md
+│   │   ├── docker/              # Docker 部署教程
+│   │   │   ├── docker-deployment.md      # Docker 基础部署
+│   │   │   ├── docker-production.md      # Docker 生产部署
+│   │   │   ├── docker-cloud-deployment.md # Docker 云部署
+│   │   │   └── docker-troubleshooting.md
+│   │   ├── cloud/               # 云服务器相关
+│   │   │   ├── cloud-deployment-guide.md
+│   │   │   ├── aliyun-guide.md  # 阿里云专属教程
+│   │   │   └── tencent-guide.md # 腾讯云教程
+│   │   └── android/             # Android 相关
+│   │       └── android-deployment-guide.md
+│   ├── configuration/           # 配置教程
+│   │   ├── api-configuration.md # API 配置教程
 │   │   ├── model-comparison.md  # 模型选择指南
 │   │   └── cost-optimization.md # 成本优化指南
-│   ├── platform-integration/    # 平台对接教程
+│   ├── integration/             # 平台对接教程
 │   │   ├── platform-integration-overview.md
 │   │   ├── feishu-integration.md
 │   │   ├── dingtalk-integration.md
 │   │   ├── telegram-integration.md
 │   │   └── wechat-integration.md
-│   └── advanced/                # 进阶主题
-│       ├── security.md          # 安全配置指南
-│       ├── skills.md            # 技能开发与使用
-│       └── troubleshooting.md   # 故障排除
+│   ├── advanced/                # 进阶主题
+│   │   ├── security.md          # 安全配置指南
+│   │   ├── skills.md            # 技能开发与使用
+│   │   └── troubleshooting.md   # 故障排除
+│   ├── internal/                # 内部规范
+│   │   └── workflow.md          # 项目工作流规范
+│   └── version-changes/         # OpenClaw 版本变更记录
+│       ├── README.md            # 版本说明索引
+│       ├── 2026.3.1.md          # v2026.3.1 变更说明
+│       ├── 2026.4.1.md          # v2026.4.1 变更说明
+│       └── 2026.4.14.md         # v2026.4.14 变更说明
 ├── scripts/                     # 安装脚本
 │   ├── install-windows.bat      # Windows 安装脚本
 │   ├── install-wsl.ps1          # WSL 安装脚本
