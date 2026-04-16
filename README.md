@@ -296,7 +296,7 @@ openclaw gateway status
 
 **预期输出**:
 ```
-✅ OpenClaw CLI: 已安装 v2026.3.23+
+✅ OpenClaw v2026.4.14+
 ✅ Node.js: 已安装 v24.x
 ✅ Gateway: 运行中
 ✅ 模型配置: 正常
