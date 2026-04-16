@@ -2,6 +2,10 @@
 
 # Windows 安装指南
 
+> ⚠️ **重要提示**：本教程适用于有经验的Windows用户，**新手优先推荐使用WSL（Windows子系统Linux）安装**，稳定性和兼容性更好，后续维护更方便，是Windows平台的首选安装方式。
+>
+> 👉 [点击跳转到WSL安装教程](../wsl/wsl-setup.md)
+>
 > 本教程适用于 Windows 10/11 用户，从零开始完成 OpenClaw 的安装和配置
 
 ## 📋 前置要求
@@ -125,7 +129,32 @@ openclaw onboard --install-daemon
 
 OpenClaw 支持多种消息平台，推荐新手从飞书开始：
 
-### 飞书配置步骤
+### 飞书配置（一键安装，官方推荐）✨
+
+最新版OpenClaw支持飞书官方一键安装脚本，无需手动创建应用和配置权限，扫码即可完成对接：
+
+**前置要求**：OpenClaw 版本 >= 2026.3.2
+```powershell
+# 检查版本
+openclaw -v
+
+# 如果版本过低，先升级
+npm install -g openclaw
+
+# 执行飞书官方一键安装脚本
+npx -y https://sf3-cn.feishucdn.com/obj/open-platform-opendoc/8ab6e7a04c17db1becfcbda8ca35f091_1rCCFRWlRV.tgz install
+```
+
+执行过程中会弹出二维码，用飞书客户端扫码即可一键创建飞书机器人，自动完成所有配置。
+
+> 👉 查看[飞书官方详细教程](http://feishu.cn/content/article/7613711414611463386)
+>
+> 详细的飞书手动对接教程请参考 [飞书对接文档](../platform-integration/feishu-integration.md)
+
+<details>
+<summary><b>手动配置飞书（不推荐，适合需要自定义的用户）</b></summary>
+
+### 手动配置步骤
 
 1. 创建飞书开发者账号
    - 访问 [飞书开放平台](https://open.feishu.cn)
@@ -147,7 +176,7 @@ openclaw onboard --install-daemon
 # 输入 App ID 和 App Secret
 ```
 
-详细的飞书对接教程请参考 [飞书对接文档](../platform-integration/feishu-integration.md)
+</details>
 
 ## ✅ 第五步：启动服务
 

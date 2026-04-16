@@ -292,7 +292,7 @@ v22.x.x
 
 ---
 
-### 安OpenOpenClaw
+### 安装OpenClaw
 
 ```bash
 # 安装OpenClaw
@@ -303,6 +303,29 @@ openclaw --version
 ```
 
 ✅ **成功输出**: `OpenClaw CLI v2026.3.x`
+
+---
+
+## ⚙️ 下一步：配置API与消息平台
+
+### 配置API
+OpenClaw 需要配置大模型 API 才能运行。推荐新手先使用硅基流动，注册送2000万Tokens：
+👉 [API配置教程](../api-config/api-configuration.md)
+
+### 配置飞书（一键安装，官方推荐）✨
+
+最新版OpenClaw支持飞书官方一键安装脚本，无需手动创建应用和配置权限，扫码即可完成对接：
+
+```bash
+# 执行飞书官方一键安装脚本
+npx -y https://sf3-cn.feishucdn.com/obj/open-platform-opendoc/8ab6e7a04c17db1becfcbda8ca35f091_1rCCFRWlRV.tgz install
+```
+
+执行过程中会弹出二维码，用飞书客户端扫码即可一键创建飞书机器人，自动完成所有配置。
+
+> 👉 查看[飞书官方详细教程](http://feishu.cn/content/article/7613711414611463386)
+>
+> 手动配置请参考 [飞书对接文档](../platform-integration/feishu-integration.md)
 
 ---
 
