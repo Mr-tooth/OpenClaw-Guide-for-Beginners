@@ -500,6 +500,184 @@ grep "Failed password" /var/log/auth.log
 
 ---
 
+## 🔍 OpenGrep 安全扫描 (v2026.4.29+)
+
+OpenClaw v2026.4.29 新增了 OpenGrep 安全扫描功能，用于检测代码中的安全漏洞。
+
+### 启用 OpenGrep 扫描
+
+```bash
+# 运行 OpenGrep 扫描
+openclaw security scan
+
+# 查看扫描报告
+openclaw security report
+
+# 配置扫描选项
+openclaw config set security.opengrep.enabled true
+```
+
+### 扫描配置
+
+```json
+{
+  "security": {
+    "opengrep": {
+      "enabled": true,
+      "rules": "default",
+      "severity": "high",
+      "output": "sarif",
+      "uploadToGithub": true
+    }
+  }
+}
+```
+
+### 扫描规则
+
+```bash
+# 查看可用规则
+openclaw security rules list
+
+# 自定义规则
+openclaw security rules add --name "custom-rule" --pattern "secret_key"
+
+# 删除规则
+openclaw security rules delete --name "custom-rule"
+```
+
+### 扫描结果
+
+```bash
+# 查看扫描结果
+openclaw security results
+
+# 导出扫描报告
+openclaw security export --format sarif
+
+# 上传到 GitHub Code Scanning
+openclaw security upload-github
+```
+
+---
+
+## 🛠️ 工具配置安全 (v2026.4.29+)
+
+OpenClaw v2026.4.29 强化了工具配置安全，配置的工具部分不再隐式扩展限制性配置文件。
+
+### 工具配置文件
+
+```json
+{
+  "tools": {
+    "profile": "coding",
+    "exec": {
+      "enabled": true,
+      "allowedCommands": ["git", "npm", "node"],
+      "deniedCommands": ["rm -rf", "sudo"]
+    },
+    "fs": {
+      "enabled": true,
+      "allowedPaths": ["/home", "/tmp"],
+      "deniedPaths": ["/etc", "/var"]
+    }
+  }
+}
+```
+
+### 安全配置选项
+
+```bash
+# 设置工具配置文件
+openclaw config set tools.profile coding
+
+# 启用 exec 工具
+openclaw config set tools.exec.enabled true
+
+# 设置允许的命令
+openclaw config set tools.exec.allowedCommands '["git", "npm", "node"]'
+
+# 设置拒绝的命令
+openclaw config set tools.exec.deniedCommands '["rm -rf", "sudo"]'
+
+# 启用 fs 工具
+openclaw config set tools.fs.enabled true
+
+# 设置允许的路径
+openclaw config set tools.fs.allowedPaths '["/home", "/tmp"]'
+
+# 设置拒绝的路径
+openclaw config set tools.fs.deniedPaths '["/etc", "/var"]'
+```
+
+### 工具配置文件说明
+
+| 配置文件 | 说明 | 适用场景 |
+|----------|------|----------|
+| messaging | 消息配置 | 仅消息功能 |
+| minimal | 最小配置 | 基础功能 |
+| coding | 编码配置 | 开发环境 |
+| full | 完整配置 | 完整功能 |
+
+### 安全最佳实践
+
+1. **使用最小配置**: 仅启用必要的工具
+2. **限制命令**: 只允许特定命令执行
+3. **限制路径**: 只允许访问特定目录
+4. **定期审计**: 定期检查工具配置
+5. **监控日志**: 监控工具使用日志
+
+---
+
+## 📊 安全监控
+
+### 安全日志
+
+```bash
+# 查看安全日志
+openclaw security logs
+
+# 监控实时日志
+openclaw security logs --follow
+
+# 导出安全日志
+openclaw security logs --export
+```
+
+### 安全统计
+
+```bash
+# 查看安全统计
+openclaw security stats
+
+# 查看扫描历史
+openclaw security scan-history
+
+# 查看漏洞统计
+openclaw security vuln-stats
+```
+
+### 安全告警
+
+```json
+{
+  "security": {
+    "alerts": {
+      "enabled": true,
+      "email": "admin@example.com",
+      "webhook": "https://hooks.slack.com/xxx",
+      "severity": ["high", "critical"]
+    }
+  }
+}
+```
+
+---
+
+**最后更新**: 2026-05-02
+
+---
+
 **创建时间**: 2026-02-22
 **版本**: 1.0
 
