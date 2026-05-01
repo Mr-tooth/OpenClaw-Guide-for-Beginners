@@ -209,6 +209,268 @@ AI: 正在上传到NotebookLM并分析...
 
 ---
 
+## 🎤 TTS 语音技能
+
+OpenClaw v2026.4.25 新增了强大的 TTS 语音功能，可以通过技能扩展语音能力。
+
+### 内置 TTS 功能
+
+#### 基础命令
+
+```bash
+# 语音朗读最新消息
+/tts latest
+
+# 开启自动 TTS
+/tts on
+
+# 关闭自动 TTS
+/tts off
+
+# 切换语音角色
+/tts voice zh-CN-XiaoxiaoNeural
+
+# 查看可用语音
+/tts voices list
+```
+
+#### 高级功能
+
+```bash
+# 语音朗读指定数量的消息
+/tts latest 5
+
+# 使用 SSML 控制语音
+/tts ssml "<speak><prosody rate='slow'>慢速朗读</prosody></speak>"
+
+# 语音克隆（需要 ElevenLabs）
+/tts clone --name "my-voice" --file "sample.wav"
+```
+
+### TTS 技能推荐
+
+#### 1. 语音播报技能
+
+```bash
+# 安装语音播报技能
+openclaw skills install tts-broadcast
+```
+
+**功能**:
+- 定时语音播报新闻
+- 天气语音提醒
+- 日程语音通知
+
+**使用示例**:
+```
+你: 每天早上8点播报天气
+AI: 已设置每日天气语音播报
+```
+
+#### 2. 语音翻译技能
+
+```bash
+# 安装语音翻译技能
+openclaw skills install tts-translate
+```
+
+**功能**:
+- 多语言语音翻译
+- 实时语音对话
+- 语音学习辅助
+
+**使用示例**:
+```
+你: 把这段话翻译成英语并朗读
+AI: 正在翻译并生成语音...
+```
+
+#### 3. 有声读物技能
+
+```bash
+# 安装有声读物技能
+openclaw skills install audiobook
+```
+
+**功能**:
+- 文本转有声读物
+- 多角色语音演绎
+- 章节自动分割
+
+**使用示例**:
+```
+你: 把这篇小说转成有声读物
+AI: 正在生成有声读物，预计需要10分钟...
+```
+
+#### 4. 语音助手技能
+
+```bash
+# 安装语音助手技能
+openclaw skills install voice-assistant
+```
+
+**功能**:
+- 语音唤醒
+- 连续对话
+- 情感语音
+
+**使用示例**:
+```
+你: 开启语音助手模式
+AI: 语音助手已就绪，请开始对话
+```
+
+### 自定义 TTS 技能开发
+
+#### 技能结构示例
+
+```
+my-tts-skill/
+├── SKILL.md
+├── _meta.json
+├── scripts/
+│   └── tts-helper.sh
+└── references/
+    └── voice-examples.md
+```
+
+#### SKILL.md 示例
+
+```markdown
+---
+name: My TTS Skill
+description: 自定义 TTS 语音技能
+read_when:
+  - 用户请求语音合成
+  - 用户需要语音播报
+metadata: {
+  "emoji": "🎤",
+  "version": "1.0.0"
+}
+allowed-tools: Bash,Read,Write
+---
+
+# My TTS Skill
+
+## 功能说明
+
+本技能提供自定义 TTS 语音功能...
+
+## 使用方法
+
+### 语音合成
+
+```bash
+# 合成语音
+./scripts/tts-helper.sh合成文本
+```
+
+### 语音播报
+
+```bash
+# 播报文件
+./scripts/tts-helper.sh播报文件
+```
+```
+
+#### 脚本示例
+
+```bash
+#!/bin/bash
+# tts-helper.sh
+
+TEXT=$1
+VOICE=${2:-zh-CN-XiaoxiaoNeural}
+
+# 调用 OpenClaw TTS API
+openclaw tts synthesize --text "$TEXT" --voice "$VOICE"
+```
+
+### TTS 配置最佳实践
+
+#### 1. 选择合适的语音角色
+
+```bash
+# 中文场景
+openclaw config set tts.voice zh-CN-XiaoxiaoNeural  # 女声
+openclaw config set tts.voice zh-CN-YunxiNeural     # 男声
+
+# 英文场景
+openclaw config set tts.voice en-US-JennyNeural     # 女声
+openclaw config set tts.voice en-US-GuyNeural       # 男声
+```
+
+#### 2. 优化 TTS 性能
+
+```json
+{
+  "tts": {
+    "cache": {
+      "enabled": true,
+      "maxSize": "100MB"
+    },
+    "concurrency": {
+      "max": 5
+    }
+  }
+}
+```
+
+#### 3. 配置自动 TTS
+
+```json
+{
+  "tts": {
+    "autoTts": false,
+    "defaultVoice": "zh-CN-XiaoxiaoNeural",
+    "channels": {
+      "whatsapp": {
+        "autoReply": true
+      }
+    }
+  }
+}
+```
+
+### 故障排除
+
+#### TTS 不工作
+
+```bash
+# 检查 TTS 配置
+openclaw config get tts
+
+# 测试 TTS 提供商
+openclaw tts test
+
+# 查看 TTS 日志
+openclaw logs tts
+```
+
+#### 语音质量差
+
+```bash
+# 尝试不同的语音角色
+openclaw tts voices list
+
+# 调整语速和音调
+openclaw config set tts.rate 1.0
+openclaw config set tts.pitch 1.0
+```
+
+#### 延迟高
+
+```bash
+# 使用本地 CLI 提供商
+openclaw config set tts.provider local
+
+# 启用缓存
+openclaw config set tts.cache.enabled true
+```
+
+---
+
 ## 📝 创建自定义技能
 
 ### 1. 技能结构

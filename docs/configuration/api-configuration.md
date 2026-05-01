@@ -400,6 +400,45 @@ A: 可以配置多个提供商，通过环境变量或配置文件切换。
 
 ---
 
+## 🎤 TTS 语音配置
+
+OpenClaw v2026.4.25 全面升级了 TTS 语音系统，支持多种语音提供商。
+
+### 快速配置
+
+```bash
+# 启用 TTS
+openclaw config set tts.enabled true
+
+# 设置提供商 (推荐 Azure Speech)
+openclaw config set tts.provider azure
+
+# 设置语音角色
+openclaw config set tts.voice zh-CN-XiaoxiaoNeural
+
+# 测试 TTS
+/tts latest
+```
+
+### 提供商选择建议
+
+| 提供商 | 推荐场景 | 价格 |
+|--------|----------|------|
+| Azure Speech | 企业级应用 | 中等 |
+| Xiaomi | 中文场景 | 便宜 |
+| Volcengine | 中文场景 | 中等 |
+| ElevenLabs | 高质量需求 | 较贵 |
+
+### 详细配置指南
+
+👉 [查看完整 TTS 配置教程](tts-configuration.md)
+
+---
+
+**最后更新**: 2026-05-01
+
+---
+
 **上一页**：[云服务器部署指南](../cloud/cloud-deployment-guide.md) | **下一页**：[平台对接教程](../platform-integration/platform-integration-overview.md)
 
 <!-- This file is part of OpenClaw Guide for Beginners. Licensed under the MIT License. See LICENSE file for details. -->
