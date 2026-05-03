@@ -457,7 +457,7 @@ export https_proxy=http://proxy.example.com:8080
 4. **开始使用**
    - 连接消息平台（Telegram/Discord/Signal等）
    - 或使用 Web 界面
-   - 查看[快速开始](../start/quickstart.md)了解更多
+   - 查看[快速开始](../getting-started/quickstart.md)了解更多
 
 ---
 

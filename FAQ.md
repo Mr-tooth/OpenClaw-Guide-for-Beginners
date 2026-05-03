@@ -25,7 +25,7 @@
 
 | 问题类型 | 优先查看 | 难度 | 预计时间 |
 |---------|---------|------|---------|
-| 刚安装，想快速开始 | [5分钟快速上手](docs/start/quickstart.md) | ⭐ | 5分钟 |
+| 刚安装，想快速开始 | [5分钟快速上手](docs/getting-started/quickstart.md) | ⭐ | 5分钟 |
 | API报错，无法使用 | [如何选择API平台](#q-哪个api平台最推荐) | ⭐⭐ | 3分钟 |
 | 配置失败，找不到原因 | [如何解决配置错误](#q-如何解决配置错误) | ⭐⭐ | 5分钟 |
 | 钉钉/飞书对接失败 | [如何对接钉钉](#q-如何对接钉钉) | ⭐⭐ | 10分钟 |
@@ -732,7 +732,7 @@ module.exports = {
 
 #### 1. 查看文档
 
-- 📖 [快速开始](docs/start/quickstart.md)
+- 📖 [快速开始](docs/getting-started/quickstart.md)
 - 📋 [常见问题](FAQ.md)
 - 🔍 [故障排除](docs/advanced/troubleshooting.md)
 
@@ -792,7 +792,7 @@ openclaw logs --follow
 
 | 类别 | 教程 | 难度 |
 |------|------|------|
-| 快速开始 | [5分钟快速上手](docs/start/quickstart.md) | ⭐ |
+| 快速开始 | [5分钟快速上手](docs/getting-started/quickstart.md) | ⭐ |
 | API配置 | [API配置详解](docs/configuration/api-configuration.md) | ⭐⭐ |
 | 模型选择 | [模型选择指南](docs/configuration/model-comparison.md) | ⭐⭐ |
 | 成本优化 | [成本优化指南](docs/configuration/cost-optimization.md) | ⭐⭐⭐ |

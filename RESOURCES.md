@@ -100,7 +100,7 @@
 
 ### 教程
 
-- [5分钟快速上手](docs/start/quickstart.md)
+- [5分钟快速上手](docs/getting-started/quickstart.md)
 - [API配置教程](docs/configuration/api-configuration.md)
 - [模型选择指南](docs/configuration/model-comparison.md)
 - [成本优化指南](docs/configuration/cost-optimization.md)

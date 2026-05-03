@@ -8,13 +8,68 @@
 >
 > 本教程适用于 Windows 10/11 用户，从零开始完成 OpenClaw 的安装和配置
 
+## 🎯 安装方式选择（按推荐度排序）
+
+| 安装方式 | 推荐人群 | 难度 | 稳定性 | 特点 |
+|----------|----------|------|--------|------|
+| 🚀 **WSL2 安装** | 所有用户（官方推荐） | ⭐⭐ | ⭐⭐⭐⭐⭐ | 完整Linux环境，兼容性最好，无依赖冲突，性能接近原生Linux |
+| 📦 **一键部署包** | 完全新手、不想用命令行 | ⭐ | ⭐⭐⭐⭐ | 双击安装，无需配置环境，自带所有依赖，适合快速体验 |
+| ⚙️ **原生PowerShell安装** | 高级用户、熟悉Windows环境 | ⭐⭐⭐ | ⭐⭐⭐ | 直接在Windows系统运行，适合特殊场景需求 |
+
+---
+
 ## 📋 前置要求
 
-- Windows 10 或 Windows 11
+- Windows 10 2004+ 或 Windows 11
 - 管理员权限
 - 稳定的网络连接
+- 至少4GB可用磁盘空间
 
-## 🔧 第一步：安装 Node.js
+---
+
+## 📦 方式一：一键部署包安装（完全新手首选）
+
+无需配置任何环境，双击即可完成安装，5分钟快速体验：
+
+1. **下载部署包**
+   - 访问官方下载页：https://openclaw.ai/download
+   - 下载最新版 Windows 一键部署包（约50MB）
+   - 或使用社区镜像：[华为云镜像](https://developer.huawei.com/consumer/cn/forum/topic/0207212065009865273)
+
+2. **解压文件**
+   - 右键下载的zip包，推荐使用 **WinRAR/7-Zip** 解压（避免系统自带解压工具损坏文件）
+   - ⚠️ **重要**：解压路径必须是**纯英文、无空格、无特殊字符**，例如 `D:\OpenClaw`，不要放在 `D:\软件\OpenClaw` 这种含中文的路径
+
+3. **安装运行**
+   - 打开解压后的文件夹，双击 `OpenClaw 一键启动.exe`（红色龙虾图标）
+   - 若弹出「Windows 已保护你的电脑」SmartScreen 拦截，点击「更多信息」→「仍要运行」
+   - 选择安装路径（保持纯英文），点击「开始安装」
+   - 等待1-3分钟初始化，首次启动会自动配置所有依赖
+
+4. **验证成功**
+   - 界面右上角显示「Gateway 在线」即安装成功
+   - 自动打开Web管理界面：http://localhost:18789
+   - 后续可直接通过桌面快捷方式启动
+
+---
+
+## 🔧 方式二：WSL2 安装（官方推荐，稳定性最好）
+
+WSL2 是官方唯一推荐的Windows平台运行方案，兼容性最好、性能最优、无依赖冲突，适合所有用户（包括新手）。
+
+👉 **完整安装配置教程请移步 [WSL 专属安装文档](../wsl/wsl-setup.md)**，一站式包含：
+- WSL2 一键启用与Ubuntu系统安装
+- WSL 性能调优与系统配置优化
+- OpenClaw 部署、自动启动配置
+- WSL与Windows网络互通方案
+- 桌面快捷方式、文件共享等集成技巧
+- 所有常见问题的解决方案
+
+---
+
+## ⚙️ 方式三：原生PowerShell安装（高级用户）
+
+### 第一步：安装 Node.js
 OpenClaw 需要 Node.js 24+ 版本。
 ### 方法一：使用 nvm 安装（推荐）
 1. 下载 nvm-windows 安装包
@@ -40,15 +95,6 @@ node -v
 node -v
 ```
 
-### 方法二：直接安装 Node.js
-
-1. 访问 [Node.js 官网](https://nodejs.org/)
-2. 下载 LTS 版本（22.x）
-3. 运行安装程序，一路 Next
-4. 重启 PowerShell 后验证：
-```powershell
-node -v
-```
 
 ## 📥 第二步：安装 OpenClaw
 
@@ -149,7 +195,7 @@ npx -y https://sf3-cn.feishucdn.com/obj/open-platform-opendoc/8ab6e7a04c17db1bec
 
 > 👉 查看[飞书官方详细教程](http://feishu.cn/content/article/7613711414611463386)
 >
-> 详细的飞书手动对接教程请参考 [飞书对接文档](../platform-integration/feishu-integration.md)
+> 详细的飞书手动对接教程请参考 [飞书对接文档](../integration/feishu-integration.md)
 
 <details>
 <summary><b>手动配置飞书（不推荐，适合需要自定义的用户）</b></summary>
@@ -195,39 +241,63 @@ openclaw logs
 - 访问 Web 界面：http://localhost:3000
 - 通过配置的消息平台与 AI 对话
 
-## 🔍 常见问题排查
+## 🔍 常见问题排查（Windows专属）
 
-### 问题1：`node` 命令不存在
-
+### 问题1：`node` / `openclaw` 命令不存在
 **解决方案**：
-- 确认 Node.js 安装成功
+- 确认 Node.js 安装成功，版本 >=24
 - 重启 PowerShell 或重启电脑
-- 检查环境变量是否包含 Node.js 路径
+- 检查系统环境变量是否包含 Node.js 和 npm 全局路径
+- 原生安装可执行 `npm config get prefix` 查看全局安装路径，手动加入系统PATH
 
-### 问题2：安装脚本下载失败
-
+### 问题2：安装脚本下载失败 / 网络超时
 **解决方案**：
-- 检查网络连接
-- 尝试使用代理或 VPN
-- 使用手动安装方法
+- 检查网络连接，尝试关闭代理后重试
+- 手动下载安装脚本到本地执行
+- 使用国内镜像源：`npm config set registry https://registry.npmmirror.com`
+- WSL2用户可配置WSL代理共享Windows主机代理
 
-### 问题3：API 连接失败
-
+### 问题3：API 连接失败 / 模型无响应
 **解决方案**：
-- 检查 API Key 是否正确
-- 确认账户余额充足
-- 检查网络是否能访问 API 服务
+- 检查 API Key 是否正确，没有多余空格
+- 确认账户余额充足，模型有权限访问
+- 检查Windows防火墙是否阻止OpenClaw访问网络
+- 国内用户可配置API代理或使用国内模型提供商（硅基流动、火山方舟等）
 
-### 问题4：权限不足
-
+### 问题4：权限不足 / EACCES 错误
 **解决方案**：
-- 以管理员身份运行 PowerShell
-- 右键 PowerShell → 「以管理员身份运行」
+- 以管理员身份运行 PowerShell / 一键启动程序
+- 右键程序 → 「属性」→「兼容性」→ 勾选「以管理员身份运行此程序」
+- WSL2用户不要使用sudo运行npm安装，会导致权限混乱
+
+### 问题5：SmartScreen 拦截安装程序
+**解决方案**：
+- 点击弹窗下方的「更多信息」
+- 点击右下角的「仍要运行」即可，程序是安全开源的，可放心使用
+- 若仍被拦截，可在Windows安全中心 → 「病毒和威胁防护」→ 「保护历史记录」中允许该程序
+
+### 问题6：路径含中文导致启动失败
+**解决方案**：
+- OpenClaw不支持中文、空格、特殊字符的安装路径
+- 将程序移动到纯英文路径，例如 `C:\OpenClaw` 或 `D:\Tools\OpenClaw`
+- 检查Windows用户名是否为中文，若是建议在WSL2中安装避开此问题
+
+### 问题7：WSL2 无法访问Web界面
+**解决方案**：
+- 在WSL终端执行 `ip addr show eth0` 查看WSL的IP地址
+- 使用 `http://<WSL_IP>:18789` 访问，而不是127.0.0.1
+- 若仍无法访问，检查WSL防火墙设置：`sudo ufw allow 18789`
+
+### 问题8：重启电脑后服务不自动启动
+**解决方案**：
+- 一键部署包用户：在设置中勾选「开机自动启动」
+- WSL2用户：配置systemd服务 `systemctl --user enable --now openclaw-gateway`
+- 原生安装用户：添加启动脚本到Windows「启动」文件夹或创建计划任务
 
 ## 📚 进阶阅读
 
-- [API 配置详解](../api-config/api-configuration.md)
-- [平台对接教程](../platform-integration/README.md)
+- [API 配置详解](../configuration/api-configuration.md)
+- [平台对接教程](../integration/README.md)
 - [进阶配置优化](../advanced/README.md)
 
 ---

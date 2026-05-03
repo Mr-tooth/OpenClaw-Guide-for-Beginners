@@ -291,7 +291,7 @@ openclaw init
 
 #### 步骤3: 配置API Key
 
-参考 [API配置详解](../api-config/api-configuration.md)
+参考 [API配置详解](../configuration/api-configuration.md)
 
 ---
 
@@ -427,7 +427,7 @@ cat ~/.openclaw/openclaw.json | grep feishu
 
 如果启用了事件加密，确保Key与OpenClaw配置一致
 
-详细步骤参考 [飞书对接教程](../platform-integration/feishu-integration.md)
+详细步骤参考 [飞书对接教程](../integration/feishu-integration.md)
 
 ---
 
@@ -455,7 +455,7 @@ ping api.siliconflow.cn
 
 #### 步骤2: 切换到更快的模型
 
-参考 [模型选择指南](../api-config/model-comparison.md)
+参考 [模型选择指南](../configuration/model-comparison.md)
 
 推荐快速模型：
 - `siliconflow/DeepSeek-V3`
@@ -545,11 +545,11 @@ openclaw logs > logs.log
 
 ## 🔗 相关资源
 
-- [快速开始](../start/quickstart.md)
+- [快速开始](../getting-started/quickstart.md)
 - [API配置详解](../api-config/api-configuration.md)
-- [模型选择指南](../api-config/model-comparison.md)
-- [成本优化指南](../api-config/cost-optimization.md)
-- [云服务器部署](../cloud/cloud-deployment-guide.md)
+- [模型选择指南](../configuration/model-comparison.md)
+- [成本优化指南](../configuration/cost-optimization.md)
+- [云服务器部署](../installation/cloud/cloud-deployment-guide.md)
 
 ---
 
