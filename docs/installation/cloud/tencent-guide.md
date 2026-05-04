@@ -471,7 +471,7 @@ scp root@服务器IP:~/openclaw-backup-*.tar.gz ./
 ## 🔗 腾讯云官方资源
 
 - [腾讯云轻量应用服务器文档](https://cloud.tencent.com/document/product/213)
-- [腾讯云推广中心](https://cloud.tencent.com/developer/channel/actuator)
+- [腾讯云轻量应用服务器](https://cloud.tencent.com/product/lighthouse)
 - [云服务器控制台](https://console.cloud.tencent.com/lighthouse)
 
 ---

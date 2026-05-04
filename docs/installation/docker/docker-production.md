@@ -874,7 +874,7 @@ docker system df
 | 资源 | 链接 |
 |------|------|
 | Docker安全最佳实践 | https://docs.docker.com/engine/security/ |
-| Docker性能优化 | https://docs.docker.com/engine/quickstart/ |
+| Docker性能优化 | https://docs.docker.com/engine/getstarted/ |
 | Prometheus监控 | https://prometheus.io/docs/ |
 | Grafana可视化 | https://grafana.com/docs/ |
 
