@@ -440,7 +440,7 @@ openclaw gateway start
 - [版本更新日志](https://github.com/openclaw/openclaw/releases)
 - [破坏性变更说明](https://docs.openclaw.ai/breaking-changes)
 - [故障排除指南](https://docs.openclaw.ai/troubleshooting)
-- [社区支持](https://github.com/openclaw/openclaw/discussions)
+- [社区支持](https://github.com/openclaw/openclaw/issues)
 
 ---
 

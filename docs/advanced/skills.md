@@ -771,7 +771,8 @@ allowed-tools: Read,Write
 ### 社区资源
 
 - [技能分享社区](https://clawhub.com/community)
-- [技能开发示例](https://github.com/openclaw/skills)
+- [技能开发示例](https://github.com/openclaw/openclaw/tree/main/skills)
+- [ClawHub技能市场](https://clawhub.com)
 - [技能讨论区](https://github.com/openclaw/openclaw/discussions)
 
 ---

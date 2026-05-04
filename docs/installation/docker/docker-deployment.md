@@ -56,7 +56,7 @@
 ClawDock是OpenClaw官方推出的容器运行时，内置优化配置，支持一键部署，无需手动编写配置文件：
 ```bash
 # 一键安装ClawDock并部署
-curl -fsSL https://openclaw.ai/clawdock.sh | bash
+curl -fsSL https://xuanyuan.cloud/docker.sh | bash
 
 # 部署完成后访问Web控制台
 open http://localhost:18789
@@ -79,11 +79,11 @@ open http://localhost:18789
 ### 手动部署（自定义配置）
 
 ```bash
-# 1. 拉取OpenClaw镜像（推荐使用固定稳定版标签v2026.4.9）
-docker pull openclaw/openclaw:v2026.4.9
+# 1. 拉取OpenClaw镜像（官方暂无公开Docker Hub镜像，推荐使用国内社区稳定版镜像）
+docker pull docker.xuanyuan.run/alpine/openclaw:2026.2.22-beta.1
 
-# 也可以使用latest标签获取最新版
-# docker pull openclaw/openclaw:latest
+# 也可以自行通过源码构建镜像
+# git clone https://github.com/openclaw/openclaw && cd openclaw && docker build -t openclaw:local .
 
 # 2. 创建配置文件（注意v2026.4.9已废弃旧配置别名，使用新的标准配置路径）
 cat > openclaw.json << 'EOF'
