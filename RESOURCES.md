@@ -65,7 +65,7 @@
 ### 官方技能库
 
 - [ClawHub](https://clawhub.com) - 技能市场
-- [官方技能文档](https://docs.openclaw.ai/skills)
+- [官方技能文档](https://docs.openclaw.ai/zh-CN/skills)
 
 ### 热门技能
 

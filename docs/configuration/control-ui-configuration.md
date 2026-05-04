@@ -481,11 +481,11 @@ openclaw config unset controlUI
 
 ## 📚 参考资料
 
-- [Control UI 官方文档](https://docs.openclaw.ai/features/control-ui)
-- [Talk 工作流文档](https://docs.openclaw.ai/features/talk)
-- [Google Meet 集成文档](https://docs.openclaw.ai/integrations/google-meet)
-- [安全配置文档](https://docs.openclaw.ai/security)
-- [性能优化文档](https://docs.openclaw.ai/performance)
+- [Control UI 官方文档](https://docs.openclaw.ai/zh-CN/features/control-ui)
+- [Talk 工作流文档](https://docs.openclaw.ai/zh-CN/features/talk)
+- [Google Meet 集成文档](https://docs.openclaw.ai/zh-CN/integrations/google-meet)
+- [安全配置文档](https://docs.openclaw.ai/zh-CN/security)
+- [性能优化文档](https://docs.openclaw.ai/zh-CN/performance)
 
 ---
 

@@ -383,7 +383,7 @@ openclaw network test nvidia
 ## 📚 参考资料
 
 - [NVIDIA NGC 文档](https://docs.nvidia.com)
-- [OpenClaw NVIDIA 集成文档](https://docs.openclaw.ai/providers/nvidia)
+- [OpenClaw NVIDIA 集成文档](https://docs.openclaw.ai/zh-CN/providers/nvidia)
 - [模型目录](https://catalog.ngc.nvidia.com/models)
 - [API 参考](https://docs.nvidia.com/api)
 - [定价信息](https://www.nvidia.com/en-us/data-center/products/)

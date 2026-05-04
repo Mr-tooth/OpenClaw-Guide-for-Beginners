@@ -436,10 +436,10 @@ openclaw gateway start
 
 ## 📚 参考资料
 
-- [官方迁移文档](https://docs.openclaw.ai/migration)
+- [官方迁移文档](https://docs.openclaw.ai/zh-CN/migration)
 - [版本更新日志](https://github.com/openclaw/openclaw/releases)
-- [破坏性变更说明](https://docs.openclaw.ai/breaking-changes)
-- [故障排除指南](https://docs.openclaw.ai/troubleshooting)
+- [破坏性变更说明](https://docs.openclaw.ai/zh-CN/breaking-changes)
+- [故障排除指南](https://docs.openclaw.ai/zh-CN/troubleshooting)
 - [社区支持](https://github.com/openclaw/openclaw/issues)
 
 ---

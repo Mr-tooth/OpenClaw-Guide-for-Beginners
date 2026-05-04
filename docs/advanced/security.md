@@ -493,7 +493,7 @@ grep "Failed password" /var/log/auth.log
 
 ## 📚 相关资源
 
-- [OpenClaw官方安全文档](https://docs.openclaw.ai/security)
+- [OpenClaw官方安全文档](https://docs.openclaw.ai/zh-CN/security)
 - [阿里云安全最佳实践](https://help.aliyun.com/document_detail/55289.html)
 - [腾讯云安全中心](https://cloud.tencent.com/document/product/296)
 - [Nginx安全配置指南](https://nginx.org/en/docs/http/ngx_http_ssl_module.html)

@@ -7,7 +7,12 @@
 
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4.29%20最新稳定版-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![更新时间](https://img.shields.io/badge/更新时间-2026年5月2日-orange)
+![更新时间](https://img.shields.io/badge/更新时间-2026年5月4日-orange)
+
+> 📌 **官方文档提示**：OpenClaw 官方文档已全面支持中英文版本
+> - 中文版文档路径：`https://docs.openclaw.ai/zh-CN/`（本指南已全部切换至此）
+> - 英文版文档路径：`https://docs.openclaw.ai/`
+> - 若遇到链接404，可访问[官方文档首页](https://docs.openclaw.ai/zh-CN/)导航查找对应内容
 
 ## 📖 项目简介
 

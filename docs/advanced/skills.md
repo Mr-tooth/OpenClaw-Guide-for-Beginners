@@ -764,9 +764,9 @@ allowed-tools: Read,Write
 
 ### 官方文档
 
-- [ClawHub文档](https://docs.openclaw.ai/skills/clawhub)
-- [技能开发指南](https://docs.openclaw.ai/skills/development)
-- [技能API参考](https://docs.openclaw.ai/skills/api)
+- [ClawHub文档](https://docs.openclaw.ai/zh-CN/skills/clawhub)
+- [技能开发指南](https://docs.openclaw.ai/zh-CN/skills/development)
+- [技能API参考](https://docs.openclaw.ai/zh-CN/skills/api)
 
 ### 社区资源
 

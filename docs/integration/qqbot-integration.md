@@ -455,7 +455,7 @@ openclaw channels reset qqbot
 ## 📚 参考资料
 
 - [QQ 开放平台文档](https://q.qq.com/docs)
-- [OpenClaw QQBot 集成文档](https://docs.openclaw.ai/channels/qqbot)
+- [OpenClaw QQBot 集成文档](https://docs.openclaw.ai/zh-CN/channels/qqbot)
 - [QQ 机器人 API 参考](https://q.qq.com/docs/api)
 - [Webhook 配置指南](https://q.qq.com/docs/webhook)
 - [安全配置文档](https://q.qq.com/docs/security)

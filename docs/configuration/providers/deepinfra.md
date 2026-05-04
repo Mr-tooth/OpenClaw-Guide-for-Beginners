@@ -381,7 +381,7 @@ openclaw network test deepinfra
 ## 📚 参考资料
 
 - [DeepInfra 官方文档](https://deepinfra.com/docs)
-- [OpenClaw DeepInfra 集成文档](https://docs.openclaw.ai/providers/deepinfra)
+- [OpenClaw DeepInfra 集成文档](https://docs.openclaw.ai/zh-CN/providers/deepinfra)
 - [模型目录](https://deepinfra.com/models)
 - [API 参考](https://deepinfra.com/docs/api-reference)
 - [定价信息](https://deepinfra.com/pricing)

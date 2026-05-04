@@ -425,11 +425,11 @@ openclaw memory reset
 
 ## 📚 参考资料
 
-- [记忆系统官方文档](https://docs.openclaw.ai/features/memory)
-- [People-aware Wiki 文档](https://docs.openclaw.ai/features/memory/wiki)
-- [Active Memory 文档](https://docs.openclaw.ai/features/memory/active)
-- [部分召回文档](https://docs.openclaw.ai/features/memory/recall)
-- [诊断工具文档](https://docs.openclaw.ai/features/memory/diagnostics)
+- [记忆系统官方文档](https://docs.openclaw.ai/zh-CN/features/memory)
+- [People-aware Wiki 文档](https://docs.openclaw.ai/zh-CN/features/memory/wiki)
+- [Active Memory 文档](https://docs.openclaw.ai/zh-CN/features/memory/active)
+- [部分召回文档](https://docs.openclaw.ai/zh-CN/features/memory/recall)
+- [诊断工具文档](https://docs.openclaw.ai/zh-CN/features/memory/diagnostics)
 
 ---
 

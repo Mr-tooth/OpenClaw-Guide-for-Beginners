@@ -391,7 +391,7 @@ openclaw channels reset yuanbao
 ## 📚 参考资料
 
 - [腾讯元宝开放平台文档](https://yuanbao.tencent.com/docs)
-- [OpenClaw 腾讯元宝集成文档](https://docs.openclaw.ai/channels/yuanbao)
+- [OpenClaw 腾讯元宝集成文档](https://docs.openclaw.ai/zh-CN/channels/yuanbao)
 - [腾讯元宝 API 参考](https://yuanbao.tencent.com/docs/api)
 - [Webhook 配置指南](https://yuanbao.tencent.com/docs/webhook)
 - [安全配置文档](https://yuanbao.tencent.com/docs/security)
