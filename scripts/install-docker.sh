@@ -2,7 +2,7 @@
 
 # OpenClaw ClawDock 官方部署脚本
 # 适用于 Docker 环境（Linux/macOS/WSL）
-# 官方镜像: openclaw/clawdock:latest
+# 官方镜像：openclaw/clawdock:latest
 
 set -e
 
@@ -104,6 +104,8 @@ config_openclaw() {
 
     PROVIDER=""
     API_KEY=""
+    BASE_URL=""
+    DEFAULT_MODEL=""
 
     case $CHOICE in
         1)
@@ -163,7 +165,7 @@ config_openclaw() {
   "agents": {
     "defaults": {
       "model": {
-        "primary": "$PROVIDER/\$DEFAULT_MODEL"
+        "primary": "$PROVIDER/$DEFAULT_MODEL"
       }
     }
   }
@@ -208,15 +210,15 @@ start_container() {
             --name openclaw \
             --restart unless-stopped \
             -p 18789:18789 \
-            -v $(pwd)/openclaw.json:/root/.openclaw/openclaw.json:ro \
-            -v $(pwd)/data:/root/.openclaw/data \
+            -v "$(pwd)/openclaw.json:/root/.openclaw/openclaw.json:ro" \
+            -v "$(pwd)/data:/root/.openclaw/data" \
             openclaw/clawdock:latest
     else
         docker run -d \
             --name openclaw \
             --restart unless-stopped \
             -p 18789:18789 \
-            -v $(pwd)/data:/root/.openclaw/data \
+            -v "$(pwd)/data:/root/.openclaw/data" \
             openclaw/clawdock:latest
     fi
 
