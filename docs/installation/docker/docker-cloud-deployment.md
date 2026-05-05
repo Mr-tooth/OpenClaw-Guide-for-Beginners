@@ -2,6 +2,18 @@
 
 # Docker Cloud 部署
 
+---
+
+## 🔥 首选部署方案：ClawDock 官方镜像
+
+**推荐所有云部署用户优先使用 ClawDock 官方镜像**，包含所有依赖和预配置，开箱即用：
+- 📖 完整部署文档：[ClawDock 官方部署指南](./clawdock.md)
+- ⚡ 一键脚本部署，5分钟完成
+- ✅ 官方维护，定期更新
+- 🚀 性能优化，资源占用更低
+
+> 本页后续内容为传统手动部署方式，仅作为备选方案。
+
 > 将OpenClaw部署到云平台，实现24小时在线服务
 
 ---
@@ -102,14 +114,14 @@ docker --version
 
 ```bash
 # 拉取镜像
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 启动容器
 docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  openclaw/openclaw:latest
+  openclaw/clawdock:latest
 
 # 查看日志
 docker logs -f openclaw
@@ -148,8 +160,8 @@ docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  -v $(pwd)/openclaw.json:/home/openclaw/.openclaw/openclaw.json \
-  openclaw/openclaw:latest
+  -v $(pwd)/openclaw.json:/root/.openclaw/openclaw.json \
+  openclaw/clawdock:latest
 ```
 
 <details>
@@ -187,13 +199,13 @@ version: '3.8'
 
 services:
   openclaw:
-    image: openclaw/openclaw:latest
+    image: openclaw/clawdock:latest
     container_name: openclaw
     ports:
       - "18789:18789"
     volumes:
-      - ./openclaw.json:/home/openclaw/.openclaw/openclaw.json
-      - ./data:/home/openclaw/.openclaw/data
+      - ./openclaw.json:/root/.openclaw/openclaw.json
+      - ./data:/root/.openclaw/data
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
@@ -274,14 +286,14 @@ docker --version
 
 ```bash
 # 拉取镜像
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 启动容器
 docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  openclaw/openclaw:latest
+  openclaw/clawdock:latest
 
 # 查看日志
 docker logs -f openclaw
@@ -356,14 +368,14 @@ docker --version
 
 ```bash
 # 拉取镜像
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 启动容器
 docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  openclaw/openclaw:latest
+  openclaw/clawdock:latest
 
 # 查看日志
 docker logs -f openclaw
@@ -411,7 +423,7 @@ fi
 
 # 拉取镜像
 echo "Pulling OpenClaw image..."
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 停止旧容器
 if docker ps -a | grep -q openclaw; then
@@ -426,8 +438,8 @@ docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  -v $(pwd)/data:/home/openclaw/.openclaw \
-  openclaw/openclaw:latest
+  -v $(pwd)/data:/root/.openclaw \
+  openclaw/clawdock:latest
 
 # 显示日志
 echo ""
@@ -477,7 +489,7 @@ fi
 
 # 拉取镜像
 echo "Pulling OpenClaw image..."
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 停止旧容器
 if docker ps -a | grep -q openclaw; then
@@ -492,8 +504,8 @@ docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  -v $(pwd)/data:/home/openclaw/.openclaw \
-  openclaw/openclaw:latest
+  -v $(pwd)/data:/root/.openclaw \
+  openclaw/clawdock:latest
 
 # 显示日志
 echo ""
@@ -723,7 +735,7 @@ crontab -e
 
 ```bash
 # 拉取最新镜像
-docker pull openclaw/openclaw:latest
+docker pull openclaw/clawdock:latest
 
 # 停止并删除旧容器
 docker stop openclaw
@@ -734,8 +746,8 @@ docker run -d \
   --name openclaw \
   --restart unless-stopped \
   -p 18789:18789 \
-  -v $(pwd)/data:/home/openclaw/.openclaw \
-  openclaw/openclaw:latest
+  -v $(pwd)/data:/root/.openclaw \
+  openclaw/clawdock:latest
 ```
 
 ---
@@ -749,7 +761,7 @@ docker run -d \
 mkdir -p backups
 
 # 备份数据
-docker exec openclaw tar -czf - /home/openclaw/.openclaw > backups/backup-$(date +%Y%m%d).tar.gz
+docker exec openclaw tar -czf - /root/.openclaw > backups/backup-$(date +%Y%m%d).tar.gz
 
 # 查看备份
 ls -lh backups/
