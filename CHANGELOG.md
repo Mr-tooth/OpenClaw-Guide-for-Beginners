@@ -2,6 +2,24 @@
 
 本项目的所有重要变更都会记录在此文件中，格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.7.0] - 2026-05-05
+### 🌟 新增功能
+- ✅ 升级所有安装脚本适配OpenClaw v2026.4.x最新版本
+- ✅ 新增ClawDock官方Docker镜像部署完整体系
+- ✅ 新增独立的《ClawDock官方部署指南》，覆盖一键部署、手动部署、Docker Compose生产部署全场景
+- ✅ macOS安装脚本新增Homebrew官方安装路径可选支持，更符合苹果用户使用习惯
+### 🛠️ 优化
+- ✅ 所有脚本Node.js运行环境统一升级到24 LTS，性能更优，符合官方最低要求
+- ✅ 统一命令规范：所有`openclaw start/stop/restart`旧命令100%替换为`openclaw gateway`系列，与官方文档完全对齐
+- ✅ 所有安装脚本新增版本校验功能，安装完成后自动显示当前OpenClaw版本号
+- ✅ Docker脚本优化挂载路径，完全对齐官方ClawDock镜像目录结构
+- ✅ 云部署文档优先推荐ClawDock作为首选部署方案，传统手动部署降级为备选方案
+- ✅ 所有配套文档同步更新，引导更清晰，新手友好度提升
+### 🐛 修复
+- ✅ 修复Docker脚本中DEFAULT_MODEL变量未正确展开的问题
+- ✅ 修复Docker脚本中路径未加引号导致含空格路径执行失败的问题
+- ✅ 统一所有脚本中的占位符表述，`YOUR_SERVER_IP`统一调整为`你的服务器IP`，更符合中文用户阅读习惯
+
 ## [1.2.0] - 2026-05-01
 ### 🌟 新增功能
 - ✅ 新增小米 MiMo 开放平台推荐，提供邀请码注册奖励
@@ -108,7 +126,8 @@
 ### 修复
 - 修正所有失效链接与过时命令
 ---
-[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/releases/tag/v1.6.0
 [1.5.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.3.0...v1.4.0
