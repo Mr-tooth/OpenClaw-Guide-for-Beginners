@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# OpenClaw Docker 快速部署脚本
+# OpenClaw ClawDock 官方部署脚本
 # 适用于 Docker 环境（Linux/macOS/WSL）
+# 官方镜像：openclaw/clawdock:latest
 
 set -e
 
@@ -14,13 +15,13 @@ NC='\033[0m' # No Color
 
 echo ""
 echo "╔═══════════════════════════════════════════════════════════╗"
-echo "║           OpenClaw Docker 快速部署脚本                    ║"
+echo "║           OpenClaw ClawDock 官方部署脚本                  ║"
 echo "║                                                           ║"
 echo "║  本脚本将自动执行:                                         ║"
 echo "║  1. 检查 Docker 环境                                      ║"
-echo "║  2. 拉取 OpenClaw 镜像                                   ║"
+echo "║  2. 拉取 ClawDock 官方镜像                                ║"
 echo "║  3. 配置 OpenClaw                                        ║"
-echo "║  4. 启动 OpenClaw 容器                                   ║"
+echo "║  4. 启动 ClawDock 容器                                   ║"
 echo "╚═════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -58,19 +59,19 @@ check_docker() {
 
 # 拉取镜像
 pull_image() {
-    echo -e "${BLUE}[2/5] 拉取 OpenClaw 镜像...${NC}"
+    echo -e "${BLUE}[2/5] 拉取 ClawDock 官方镜像...${NC}"
 
     # 检查镜像是否存在
-    if docker images openclaw/openclaw:latest &> /dev/null; then
-        echo -e "${GREEN}[√] OpenClaw 镜像已存在${NC}"
+    if docker images openclaw/clawdock:latest &> /dev/null; then
+        echo -e "${GREEN}[√] ClawDock 镜像已存在${NC}"
         read -p "是否更新镜像? [y/N]: " UPDATE_IMAGE
         if [[ ! $UPDATE_IMAGE =~ ^[Yy]$ ]]; then
             return 0
         fi
     fi
 
-    echo -e "${YELLOW}[!] 正在拉取镜像...${NC}"
-    docker pull openclaw/openclaw:latest
+    echo -e "${YELLOW}[!] 正在拉取最新镜像...${NC}"
+    docker pull openclaw/clawdock:latest
 
     echo -e "${GREEN}[√] 镜像拉取完成${NC}"
 }
@@ -103,6 +104,8 @@ config_openclaw() {
 
     PROVIDER=""
     API_KEY=""
+    BASE_URL=""
+    DEFAULT_MODEL=""
 
     case $CHOICE in
         1)
@@ -162,7 +165,7 @@ config_openclaw() {
   "agents": {
     "defaults": {
       "model": {
-        "primary": "$PROVIDER/\$DEFAULT_MODEL"
+        "primary": "$PROVIDER/$DEFAULT_MODEL"
       }
     }
   }
@@ -189,7 +192,7 @@ stop_old_container() {
 
 # 启动容器
 start_container() {
-    echo -e "${BLUE}[5/5] 启动 OpenClaw 容器...${NC}"
+    echo -e "${BLUE}[5/5] 启动 ClawDock 容器...${NC}"
 
     # 检查端口是否被占用
     if lsof -Pi :18789 -sTCP:LISTEN -t >/dev/null ; then
@@ -207,24 +210,24 @@ start_container() {
             --name openclaw \
             --restart unless-stopped \
             -p 18789:18789 \
-            -v $(pwd)/openclaw.json:/home/openclaw/.openclaw/openclaw.json:ro \
-            -v $(pwd)/data:/home/openclaw/.openclaw/data \
-            openclaw/openclaw:latest
+            -v "$(pwd)/openclaw.json:/root/.openclaw/openclaw.json:ro" \
+            -v "$(pwd)/data:/root/.openclaw/data" \
+            openclaw/clawdock:latest
     else
         docker run -d \
             --name openclaw \
             --restart unless-stopped \
             -p 18789:18789 \
-            -v $(pwd)/data:/home/openclaw/.openclaw/data \
-            openclaw/openclaw:latest
+            -v "$(pwd)/data:/root/.openclaw/data" \
+            openclaw/clawdock:latest
     fi
 
     # 等待容器启动
-    sleep 3
+    sleep 5
 
     # 检查容器状态
     if docker ps | grep -q openclaw; then
-        echo -e "${GREEN}[√] OpenClaw 容器启动成功${NC}"
+        echo -e "${GREEN}[√] ClawDock 容器启动成功${NC}"
     else
         echo -e "${RED}[错误] 容器启动失败${NC}"
         echo "[!] 查看日志: docker logs openclaw"
@@ -235,23 +238,30 @@ start_container() {
 # 显示完成信息
 show_complete() {
     echo ""
+    # 获取版本号
+    OPENCLAW_VER=$(docker exec openclaw openclaw --version 2>/dev/null || echo "最新版")
     echo "╔═══════════════════════════════════════════════════════════╗"
     echo "║                    部署成功！                              ║"
     echo "║                                                           ║"
+    echo "║  当前版本: $OPENCLAW_VER                                  ║"
     echo "║  容器名称: openclaw                                        ║"
     echo "║  服务端口: 18789                                          ║"
     echo "║  数据目录: $(pwd)/data                                    ║"
+    echo "║  配置文件: $(pwd)/openclaw.json                            ║"
     echo "║                                                           ║"
     echo "║  管理命令:                                                 ║"
     echo "║  - 查看状态: docker ps                                    ║"
     echo "║  - 查看日志: docker logs -f openclaw                       ║"
     echo "║  - 停止容器: docker stop openclaw                          ║"
     echo "║  - 启动容器: docker start openclaw                         ║"
+    echo "║  - 重启容器: docker restart openclaw                       ║"
+    echo "║  - 进入容器: docker exec -it openclaw bash                 ║"
     echo "║  - 删除容器: docker rm -f openclaw                         ║"
+    echo "║  - 更新镜像: docker pull openclaw/clawdock:latest && docker restart openclaw ║"
     echo "║                                                           ║"
     echo "║  访问地址:                                                 ║"
     echo "║  - 本地: http://localhost:18789                            ║"
-    echo "║  - 云服务器: http://YOUR_SERVER_IP:18789                   ║"
+    echo "║  - 云服务器: http://你的服务器IP:18789                     ║"
     echo "╚═══════════════════════════════════════════════════════════╝"
     echo ""
 }

@@ -8,7 +8,7 @@ Write-Host "║                                                           ║"
 Write-Host "║  本脚本将自动安装:                                         ║"
 Write-Host "║  1. WSL 2 (如果未启用)                                   ║"
 Write-Host "║  2. Ubuntu (如果未安装)                                  ║"
-Write-Host "║  3. Node.js 22                                            ║"
+Write-Host "║  3. Node.js 24 LTS                                        ║"
 Write-Host "║  4. OpenClaw 核心                                         ║"
 Write-Host "╚═══════════════════════════════════════════════════════════╝"
 Write-Host ""
@@ -141,9 +141,9 @@ function Install-OpenClaw-WSL {
 sudo apt update
 sudo apt install -y curl python3
 
-# 安装 Node.js 22
+# 安装 Node.js 24 LTS
 if ! command -v node &> /dev/null; then
-    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+    curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
     sudo apt install -y nodejs
 fi
 
@@ -229,19 +229,27 @@ function Configure-OpenClaw-WSL {
 function Show-Complete-WSL {
     param([string]$UbuntuName)
 
+    # 获取版本号
+    $OPENCLAW_VER = wsl -d $UbuntuName -- bash -c "openclaw --version" 2>$null
+
     Write-Host ""
     Write-Host "╔═══════════════════════════════════════════════════════════╗"
     Write-Host "║                    安装成功！                              ║"
     Write-Host "║                                                           ║"
-    Write-Host "║  启动 WSL: wsl -d $UbuntuName                              ║"
-    Write-Host "║  启动 OpenClaw: wsl -d $UbuntuName -- openclaw start        ║"
-    Write-Host "║  查看状态: wsl -d $UbuntuName -- openclaw status            �    ║"
-    Write-Host "║  查看日志: wsl -d $UbuntuName -- openclaw logs              ║"
+    Write-Host "║  当前版本: $OPENCLAW_VER                                  ║"
     Write-Host "║                                                           ║"
+    Write-Host "║  启动 WSL: wsl -d $UbuntuName                              ║"
+    Write-Host "║  启动 OpenClaw: wsl -d $UbuntuName -- openclaw gateway start║"
+    Write-Host "║  停止 OpenClaw: wsl -d $UbuntuName -- openclaw gateway stop ║"
+    Write-Host "║  重启 OpenClaw: wsl -d $UbuntuName -- openclaw gateway restart║"
+    Write-Host "║  查看状态: wsl -d $UbuntuName -- openclaw gateway status    ║"
+    Write-Host "║  查看日志: wsl -d $UbuntuName -- openclaw gateway logs      ║"
+    Write-Host "║                                                           ║"
+    Write-Host "║  访问控制台: http://你的WSL IP:18789                       ║"
     Write-Host "║  API 平台注册链接:                                        ║"
     Write-Host "║  - 硅基流动: https://cloud.siliconflow.cn                 ║"
     Write-Host "║  - 阿里百炼: https://bailian.console.aliyun.com           ║"
-    Write-Host "║  - 火山方舟: https://www.volcengine.com/activity/codingplan ║"
+    Write-Host "║  - 火山方舟: https://www.volcengine.com/activity/codingplan║"
     Write-Host "╚═══════════════════════════════════════════════════════════╝"
     Write-Host ""
 }

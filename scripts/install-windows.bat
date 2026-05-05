@@ -7,7 +7,7 @@ echo ╔════════════════════════
 echo ║           OpenClaw Windows 一键安装脚本                    ║
 echo ║                                                           ║
 echo ║  本脚本将自动安装:                                         ║
-echo ║  1. Node.js 22 (通过 nvm)                                 ║
+echo ║  1. Node.js 24 LTS (通过 nvm)                             ║
 echo ║  2. OpenClaw 核心                                         ║
 echo ║  3. 依赖组件                                              ║
 echo ╚═══════════════════════════════════════════════════════════╝
@@ -42,17 +42,17 @@ if %errorlevel% equ 0 (
         exit /b 0
     )
     
-    :: 安装 Node.js 22
-    echo [!] 正在安装 Node.js 22...
-    nvm install 22
-    nvm use 22
+    :: 安装 Node.js 24
+    echo [!] 正在安装 Node.js 24 LTS...
+    nvm install 24
+    nvm use 24
 )
 
 :: 验证 Node.js 版本
 for /f "tokens=2 delims=v" %%i in ('node -v 2^>nul') do set NODE_MAJOR=%%i
 set NODE_MAJOR=%NODE_MAJOR:~0,2%
-if %NODE_MAJOR% lss 22 (
-    echo [!] Node.js 版本过低，需要 22 或更高版本
+if %NODE_MAJOR% lss 24 (
+    echo [!] Node.js 版本过低，需要 24 或更高版本
     echo [!] 当前版本: !NODE_VER!
     pause
     exit /b 1
@@ -114,14 +114,21 @@ if "%CHOICE%"=="4" (
 :: 完成
 echo.
 echo [4/4] 安装完成！
+:: 版本校验
+for /f "tokens=*" %%i in ('openclaw --version') do set OPENCLAW_VER=%%i
 echo.
 echo ╔═══════════════════════════════════════════════════════════╗
 echo ║                    安装成功！                              ║
 echo ║                                                           ║
-echo ║  启动命令: openclaw start                                 ║
-echo ║  查看状态: openclaw status                                ║
-echo ║  查看日志: openclaw logs                                  ║
+echo ║  当前版本: !OPENCLAW_VER!                                  ║
 echo ║                                                           ║
+echo ║  启动命令: openclaw gateway start                         ║
+echo ║  停止命令: openclaw gateway stop                          ║
+echo ║  重启命令: openclaw gateway restart                       ║
+echo ║  查看状态: openclaw gateway status                        ║
+echo ║  查看日志: openclaw gateway logs                          ║
+echo ║                                                           ║
+echo ║  访问控制台: http://127.0.0.1:18789                       ║
 echo ║  API 平台注册链接:                                        ║
 echo ║  - 硅基流动: https://cloud.siliconflow.cn                 ║
 echo ║  - 阿里百炼: https://bailian.console.aliyun.com           ║

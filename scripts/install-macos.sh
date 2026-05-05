@@ -110,12 +110,26 @@ install_openclaw() {
         return 0
     fi
 
-    echo -e "${YELLOW}[!] 正在下载并安装 OpenClaw...${NC}"
-    curl -fsSL https://openclaw.ai/install.sh | bash
+    echo ""
+    echo "请选择安装方式:"
+    echo "  1. 官方脚本安装（推荐）"
+    echo "  2. Homebrew 安装"
+    echo ""
+    read -p "请输入选择 [1-2]: " INSTALL_CHOICE
 
-    # 添加到 PATH
-    export PATH="$HOME/.local/bin:$PATH"
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zprofile
+    case $INSTALL_CHOICE in
+        2)
+            echo -e "${YELLOW}[!] 正在通过 Homebrew 安装 OpenClaw...${NC}"
+            brew install openclaw
+            ;;
+        *)
+            echo -e "${YELLOW}[!] 正在下载并安装 OpenClaw...${NC}"
+            curl -fsSL https://openclaw.ai/install.sh | bash
+            # 添加到 PATH
+            export PATH="$HOME/.local/bin:$PATH"
+            echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zprofile
+            ;;
+    esac
 
     echo -e "${GREEN}[√] OpenClaw 安装完成${NC}"
 }
@@ -174,13 +188,20 @@ config_openclaw() {
 # 显示完成信息
 show_complete() {
     echo ""
+    # 版本校验
+    OPENCLAW_VER=$(openclaw --version)
     echo "╔═══════════════════════════════════════════════════════════╗"
     echo "║                    安装成功！                              ║"
     echo "║                                                           ║"
-    echo "║  启动命令: openclaw start                                 ║"
-    echo "║  查看状态: openclaw status                                ║"
-    echo "║  查看日志: openclaw logs                                  ║"
+    echo "║  当前版本: $OPENCLAW_VER                                  ║"
     echo "║                                                           ║"
+    echo "║  启动命令: openclaw gateway start                         ║"
+    echo "║  停止命令: openclaw gateway stop                          ║"
+    echo "║  重启命令: openclaw gateway restart                       ║"
+    echo "║  查看状态: openclaw gateway status                        ║"
+    echo "║  查看日志: openclaw gateway logs                          ║"
+    echo "║                                                           ║"
+    echo "║  访问控制台: http://127.0.0.1:18789                       ║"
     echo "║  注意: 请运行以下命令使 PATH 生效:                          ║"
     echo "║  source ~/.zprofile                                        ║"
     echo "║                                                           ║"
