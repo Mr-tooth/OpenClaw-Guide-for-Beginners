@@ -2,48 +2,27 @@
 
 本项目的所有重要变更都会记录在此文件中，格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
-## [1.2.0] - 2026-05-01
-### 🌟 新增功能
-- ✅ 新增小米 MiMo 开放平台推荐，提供邀请码注册奖励
-- ✅ 更新火山引擎 Coding Plan 信息：4月22日起新增支持 GLM 5.1、Minimax M2.7、Kimi K2.6 模型
-### 📖 内容优化
-- ✅ 优化大模型平台推荐表格，新增小米 MiMo 平台条目
-- ✅ 补充火山引擎最新模型支持动态
-- ✅ 更新文档最后更新时间
+## [Unreleased]
+### 待开发
+- 无
 
-## [1.3.0] - 2026-05-01
+## [1.7.0] - 2026-05-05
 ### 🌟 新增功能
-- ✅ 版本更新到 OpenClaw v2026.4.25
-- ✅ 新增 TTS 语音配置完整指南
-- ✅ 新增 TTS 技能开发和使用文档
-- ✅ 新增 v2026.4.25 版本变更记录
-### 📖 内容优化
-- ✅ 更新 API 配置教程，新增 TTS 配置章节
-- ✅ 更新技能开发文档，新增 TTS 语音技能
-- ✅ 更新所有版本号和徽章
-
-## [1.4.0] - 2026-05-01
-### 🌟 新增功能
-- ✅ 版本更新到 OpenClaw v2026.4.26
-- ✅ 新增 Control UI 配置完整指南
-- ✅ 新增迁移指南文档
-- ✅ 新增 v2026.4.26 版本变更记录
-### 📖 内容优化
-- ✅ 更新 README 版本号和徽章
-- ✅ 更新目录结构，新增版本变更记录
-- ✅ 更新 CHANGELOG 记录 v1.4.0
-
-## [1.5.0] - 2026-05-01
-### 🌟 新增功能
-- ✅ 版本更新到 OpenClaw v2026.4.27
-- ✅ 新增 DeepInfra 提供商配置指南
-- ✅ 新增腾讯元宝集成文档
-- ✅ 新增 QQBot 集成文档
-- ✅ 新增 v2026.4.27 版本变更记录
-### 📖 内容优化
-- ✅ 更新 README 版本号和徽章
-- ✅ 更新目录结构，新增版本变更记录
-- ✅ 更新 CHANGELOG 记录 v1.5.0
+- ✅ 升级所有安装脚本适配OpenClaw v2026.4.x最新版本
+- ✅ 新增ClawDock官方Docker镜像部署完整体系
+- ✅ 新增独立的《ClawDock官方部署指南》，覆盖一键部署、手动部署、Docker Compose生产部署全场景
+- ✅ macOS安装脚本新增Homebrew官方安装路径可选支持，更符合苹果用户使用习惯
+### 🛠️ 优化
+- ✅ 所有脚本Node.js运行环境统一升级到24 LTS，性能更优，符合官方最低要求
+- ✅ 统一命令规范：所有`openclaw start/stop/restart`旧命令100%替换为`openclaw gateway`系列，与官方文档完全对齐
+- ✅ 所有安装脚本新增版本校验功能，安装完成后自动显示当前OpenClaw版本号
+- ✅ Docker脚本优化挂载路径，完全对齐官方ClawDock镜像目录结构
+- ✅ 云部署文档优先推荐ClawDock作为首选部署方案，传统手动部署降级为备选方案
+- ✅ 所有配套文档同步更新，引导更清晰，新手友好度提升
+### 🐛 修复
+- ✅ 修复Docker脚本中DEFAULT_MODEL变量未正确展开的问题
+- ✅ 修复Docker脚本中路径未加引号导致含空格路径执行失败的问题
+- ✅ 统一所有脚本中的占位符表述，`YOUR_SERVER_IP`统一调整为`你的服务器IP`，更符合中文用户阅读习惯
 
 ## [1.6.0] - 2026-05-02
 ### 🌟 新增功能
@@ -57,6 +36,49 @@
 - ✅ 更新所有文档最后更新时间
 - ✅ 更新 CHANGELOG 记录 v1.6.0
 
+## [1.5.0] - 2026-05-01
+### 🌟 新增功能
+- ✅ 版本更新到 OpenClaw v2026.4.27
+- ✅ 新增 DeepInfra 提供商配置指南
+- ✅ 新增腾讯元宝集成文档
+- ✅ 新增 QQBot 集成文档
+- ✅ 新增 v2026.4.27 版本变更记录
+### 📖 内容优化
+- ✅ 更新 README 版本号和徽章
+- ✅ 更新目录结构，新增版本变更记录
+- ✅ 更新 CHANGELOG 记录 v1.5.0
+
+## [1.4.0] - 2026-05-01
+### 🌟 新增功能
+- ✅ 版本更新到 OpenClaw v2026.4.26
+- ✅ 新增 Control UI 配置完整指南
+- ✅ 新增迁移指南文档
+- ✅ 新增 v2026.4.26 版本变更记录
+### 📖 内容优化
+- ✅ 更新 README 版本号和徽章
+- ✅ 更新目录结构，新增版本变更记录
+- ✅ 更新 CHANGELOG 记录 v1.4.0
+
+## [1.3.0] - 2026-05-01
+### 🌟 新增功能
+- ✅ 版本更新到 OpenClaw v2026.4.25
+- ✅ 新增 TTS 语音配置完整指南
+- ✅ 新增 TTS 技能开发和使用文档
+- ✅ 新增 v2026.4.25 版本变更记录
+### 📖 内容优化
+- ✅ 更新 API 配置教程，新增 TTS 配置章节
+- ✅ 更新技能开发文档，新增 TTS 语音技能
+- ✅ 更新所有版本号和徽章
+
+## [1.2.0] - 2026-05-01
+### 🌟 新增功能
+- ✅ 新增小米 MiMo 开放平台推荐，提供邀请码注册奖励
+- ✅ 更新火山引擎 Coding Plan 信息：4月22日起新增支持 GLM 5.1、Minimax M2.7、Kimi K2.6 模型
+### 📖 内容优化
+- ✅ 优化大模型平台推荐表格，新增小米 MiMo 平台条目
+- ✅ 补充火山引擎最新模型支持动态
+- ✅ 更新文档最后更新时间
+
 ## [1.1.0] - 2026-04-16
 ### 🌟 新增功能
 - ✅ 新增工程规范体系：贡献指南、发布流程、更新日志、完整工作流规范
@@ -64,6 +86,8 @@
 - ✅ 新增版本变更记录目录，记录OpenClaw各版本的重要变更
 - ✅ 新增安全运行重要提示文档，重点提示WSL安装的安全优势
 - ✅ 新增版本选择说明文档，帮助用户选择适合的版本
+- ✅ Windows安装指南新增飞书官方一键安装脚本支持
+- ✅ WSL安装教程新增飞书一键安装步骤与API配置引导
 ### 🔒 安全优化
 - ✅ 所有Windows相关页面突出WSL为新手首选安装方式，避免本地安装误操作风险
 - ✅ 新增沙箱安全特性说明，提示用户启用沙箱模式限制文件系统访问
@@ -75,27 +99,19 @@
 - ✅ 优化目录结构，重新组织为快速开始、安装教程、配置指南、平台对接等分类
 - ✅ 修复所有失效链接，统一路径规范
 - ✅ 优化表述，提升新手友好度
+- ✅ 优化README快速开始部分，突出WSL是Windows新手首选安装方式，推荐指数提升为5星
+- ✅ 调整平台列表顺序，WSL放到Windows前面，新增适用人群说明
 ### 🛠️ 工程化
 - ✅ 配置每周自动检测OpenClaw版本更新的Cron任务
 - ✅ 完善提交规范、PR规范、版本发布规范
 - ✅ 新增版本兼容性说明
----
-## [1.0.0] - 2026-04-09
 
-## [1.1.0] - 2026-04-16
-### 新增
-- Windows安装指南新增飞书官方一键安装脚本支持
-- WSL安装教程新增飞书一键安装步骤与API配置引导
-### 优化
-- 优化README快速开始部分，突出WSL是Windows新手首选安装方式，推荐指数提升为5星
-- 调整平台列表顺序，WSL放到Windows前面，新增适用人群说明
----
 ## [1.0.0] - 2026-04-09
-### 新增
+### 🌟 新增功能
 - 初始版本发布，包含完整的多平台安装教程
 - 支持平台：Windows、WSL、macOS、Linux、Docker、云服务器、Android
 - 包含API配置教程、多平台对接教程、成本优化指南
-### 优化
+### 🛠️ 优化
 - 仓库URL迁移到bitroboticslab组织，更新所有相关链接
 - Node.js版本推荐从22更新到24
 - CLI命令更新：`openclaw start/stop/restart` → `openclaw gateway start/stop/restart`
@@ -105,11 +121,17 @@
 - 定位描述更新："AI助手框架" → "自托管AI Agent网关"
 - 删除过时的硅基流动限时活动内容
 - README/QUICKSTART补充多媒体生成、ACP、Cron、记忆系统等特性
-### 修复
+### 🐛 修复
 - 修正所有失效链接与过时命令
+
 ---
-[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.1.0...HEAD
-[1.6.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/releases/tag/v1.6.0
+## 版本对比链接
+[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.6.0...v1.7.0
+[1.6.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/releases/tag/v1.0.0
