@@ -60,7 +60,7 @@
 
 | 步骤 | 任务 | 说明 |
 |------|------|------|
-| 1/4 | 检查 Node.js 环境 | 自动安装 nvm-windows 和 Node.js 22 |
+| 1/4 | 检查 Node.js 环境 | 自动安装 nvm-windows 和 Node.js 24 LTS |
 | 2/4 | 安装 OpenClaw | 从 get.openclaw.ai 下载安装 |
 | 3/4 | 配置向导 | 选择 API 提供商并输入 API Key |
 | 4/4 | 安装完成 | 显示启动命令和帮助链接 |
@@ -117,7 +117,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","User") + ";" + 
 |------|------|------|
 | 1/4 | 检查 macOS 版本 | 支持 Monterey/Ventura/Sonoma/Sequoia |
 | 2/4 | 安装 Homebrew | 如果未安装则自动安装 |
-| 3/4 | 安装 Node.js 22 | 使用 Homebrew 安装 |
+| 3/4 | 安装 Node.js 24 LTS | 使用 Homebrew 安装 |
 | 4/4 | 安装 OpenClaw | 从 get.openclaw.ai 下载安装 |
 
 ---
@@ -451,7 +451,7 @@ export https_proxy=http://proxy.example.com:8080
 
 3. **查看状态**
    ```bash
-   openclaw status
+   openclaw gateway status
    ```
 
 4. **开始使用**

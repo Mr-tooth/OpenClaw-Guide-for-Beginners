@@ -153,13 +153,20 @@ config_openclaw() {
 # 显示完成信息
 show_complete() {
     echo ""
+    # 版本校验
+    OPENCLAW_VER=$(openclaw --version)
     echo "╔═══════════════════════════════════════════════════════════╗"
     echo "║                    安装成功！                              ║"
     echo "║                                                           ║"
-    echo "║  启动命令: openclaw start                                 ║"
-    echo "║  查看状态: openclaw status                                ║"
-    echo "║  查看日志: openclaw logs                                  ║"
+    echo "║  当前版本: $OPENCLAW_VER                                  ║"
     echo "║                                                           ║"
+    echo "║  启动命令: openclaw gateway start                         ║"
+    echo "║  停止命令: openclaw gateway stop                          ║"
+    echo "║  重启命令: openclaw gateway restart                       ║"
+    echo "║  查看状态: openclaw gateway status                        ║"
+    echo "║  查看日志: openclaw gateway logs                          ║"
+    echo "║                                                           ║"
+    echo "║  访问控制台: http://你的IP:18789                          ║"
     echo "║  API 平台注册链接:                                        ║"
     echo "║  - 硅基流动: https://cloud.siliconflow.cn                 ║"
     echo "║  - 阿里百炼: https://bailian.console.aliyun.com           ║"
