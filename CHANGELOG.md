@@ -6,6 +6,19 @@
 ### 待开发
 - 无
 
+## [1.7.1] - 2026-05-19
+### 🌟 新增功能
+- ✅ 对齐OpenClaw最新稳定版本v2026.5.7
+- ✅ 新增《v2026.5.4~v5.7版本变更说明》独立文档
+- ✅ 新增内置文件传输插件使用指南，支持file_fetch/dir_list/dir_fetch/file_write命令
+- ✅ 新增飞书话题线程配置说明，修复v5.4及之前版本回复错位问题
+### 🛠️ 优化
+- ✅ 全文档默认版本统一更新为v2026.5.7
+- ✅ 飞书常见问题新增回复错位/不在对应话题的排查解决方案
+### 🐛 修复
+- ✅ 补充v2026.5.5飞书话题线程ID路由错误修复的相关说明
+- ✅ 更新参考链接到最新官方版本文档
+
 ## [1.7.0] - 2026-05-05
 ### 🌟 新增功能
 - ✅ 升级所有安装脚本适配OpenClaw v2026.4.x最新版本
@@ -126,7 +139,8 @@
 
 ---
 ## 版本对比链接
-[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.7.0...HEAD
+[Unreleased]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.7.1...HEAD
+[1.7.1]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/bitroboticslab/OpenClaw-Guide-for-Beginners/compare/v1.4.0...v1.5.0

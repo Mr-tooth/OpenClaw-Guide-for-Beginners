@@ -5,7 +5,7 @@
 
 ⚠️ **最新安全提示**：Windows用户优先推荐使用WSL安装，避免本地安装可能带来的误操作安全风险，查看 [安全运行重要提示](docs/getting-started/security-notice.md)
 
-![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.4.29%20最新稳定版-blue)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-2026.5.7%20最新稳定版-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![更新时间](https://img.shields.io/badge/更新时间-2026年5月4日-orange)
 
@@ -204,7 +204,8 @@ OpenClaw-Guide-for-Beginners/
 │       ├── 2026.4.25.md         # v2026.4.25 变更说明
 │       ├── 2026.4.26.md         # v2026.4.26 变更说明
 │       ├── 2026.4.27.md         # v2026.4.27 变更说明
-│       └── 2026.4.29.md         # v2026.4.29 变更说明
+│       ├── 2026.4.29.md         # v2026.4.29 变更说明
+│       └── 2026.5.7.md          # v2026.5.7 变更说明
 ├── scripts/                     # 安装脚本
 │   ├── install-windows.bat      # Windows 安装脚本
 │   ├── install-wsl.ps1          # WSL 安装脚本
@@ -313,7 +314,7 @@ openclaw gateway status
 
 **预期输出**:
 ```
-✅ OpenClaw v2026.4.29+
+✅ OpenClaw v2026.5.7+
 ✅ Node.js: 已安装 v24.x
 ✅ Gateway: 运行中
 ✅ 模型配置: 正常
