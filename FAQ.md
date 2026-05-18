@@ -631,6 +631,43 @@ certbot --nginx -d your-domain.com
 
 ---
 
+## 🔧 常见功能问题
+
+### Q: Codex OAuth配置报错怎么办？
+**A:** v2026.5.5版本修复了Codex OAuth路径错误问题，如果您升级后仍然报错：
+#### 临时解决方案：
+```bash
+# 1. 执行自动修复
+openclaw doctor --fix
+# 2. 重新配置Codex OAuth
+openclaw codex auth
+# 3. 重启gateway
+openclaw gateway restart
+```
+#### 如果仍然报错：
+1. 确认您的OpenClaw版本≥v2026.5.5
+2. 删除旧的OAuth缓存：`rm -rf ~/.openclaw/cache/oauth`
+3. 重新执行认证流程
+
+---
+
+### Q: 插件安装失败怎么办？
+**A:** 常见原因和解决方案：
+| 错误现象 | 可能原因 | 解决方案 |
+|---------|---------|---------|
+| 网络超时/连接失败 | 网络无法访问GitHub/ClawHub | 配置代理：`export https_proxy=http://127.0.0.1:7890`后重新安装 |
+| 依赖安装失败 | pnpm版本过低或网络问题 | 升级pnpm：`npm install -g pnpm@latest`，然后重新安装插件 |
+| 权限不足 | 没有目录写入权限 | 使用sudo执行安装命令，或修改目录权限：`chmod -R 755 ~/.openclaw/skills` |
+| 插件不存在 | 插件ID错误或已下架 | 确认插件ID正确，搜索可用插件：`openclaw skills search 关键词` |
+
+#### 一键修复命令：
+```bash
+# 自动修复插件安装问题
+openclaw doctor --fix --plugins
+```
+
+---
+
 ## 🛠️ 高级功能
 
 ### Q: 如何安装和使用Skills？
@@ -812,8 +849,8 @@ openclaw logs --follow
 
 ---
 
-**最后更新**: 2026-02-22 (视觉优化 v2.0)
-**版本**: 2.0
-**维护者**: OpenClaw社区
+**最后更新**: 2026-05-19 (v1.7.1版本更新)
+**版本**: 2.1
+**维护者**: junhang 🦞
 
 <!-- This file is part of OpenClaw Guide for Beginners. Licensed under the MIT License. See LICENSE file for details. -->

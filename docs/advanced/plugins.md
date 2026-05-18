@@ -42,4 +42,4 @@ file_write test.txt "Hello OpenClaw!"
 更多第三方插件可在[ClawHub](https://clawhub.com)搜索安装。
 ---
 最后更新：2026-05-19
-记录人：小毛 🦞
+记录人：junhang 🦞
